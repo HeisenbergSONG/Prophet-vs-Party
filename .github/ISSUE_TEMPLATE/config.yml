@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 贡献指南
+    url: https://github.com/HeisenbergSONG/Prophet-vs-Party/blob/main/CONTRIBUTING.md
+    about: 新增案例、规则与 PR 流程
+  - name: 伦理准则
+    url: https://github.com/HeisenbergSONG/Prophet-vs-Party/blob/main/ETHICS.md
+    about: 数据来源与收录标准

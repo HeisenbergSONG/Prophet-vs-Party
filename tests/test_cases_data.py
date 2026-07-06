@@ -1,10 +1,5 @@
+from core.case_schema import REQUIRED_FIELDS
 from core.source_utils import VALID_REF_TYPES
-
-REQUIRED_COLUMNS = {
-    "id", "source_type", "text", "source", "source_url",
-    "techniques", "year_start", "year_end", "era",
-    "source_type_ref", "source_verified",
-}
 
 
 def test_cases_count_and_balance(cases_df):
@@ -14,7 +9,7 @@ def test_cases_count_and_balance(cases_df):
 
 
 def test_required_columns(cases_df):
-    assert REQUIRED_COLUMNS.issubset(set(cases_df.columns))
+    assert REQUIRED_FIELDS.issubset(set(cases_df.columns))
 
 
 def test_unique_ids(cases_df):

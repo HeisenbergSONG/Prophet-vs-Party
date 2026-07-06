@@ -202,7 +202,7 @@
 | 案例数量 | ≥ 60，1:1:1 | ✅ 60（CCP / 基督教 / 伊斯兰教 各 20） |
 | 完整分析 + 报告 | 用户可完成 | ✅ Streamlit 互动分析器 + Markdown/JSON 导出 |
 | 在线部署 | 公开可访问 | ✅ https://prophet-vs-party.streamlit.app（Public） |
-| 自动化测试 | 有 CI | ✅ 16 项 pytest + GitHub Actions |
+| 自动化测试 | 有 CI | ✅ 21 项 pytest + GitHub Actions |
 | 用户反馈 | ≥ 20（1 月后） | ⏳ 入口已就绪（GitHub Issues） |
 | 案例贡献 | ≥ 10（1 月后） | ⏳ 表单已就绪，待 PR 审核流程 |
 
@@ -223,7 +223,22 @@
 | **协议** | GPLv3 |
 | **线上应用** | https://prophet-vs-party.streamlit.app（**Public**） |
 
+### 阶段 4.5：零成本运营迭代（进行中，无付费服务）
+
+**原则**：仅使用 Streamlit Cloud + GitHub 免费栈，不租服务器、不买域名、不调付费 API。
+
+| 任务 | 状态 |
+|------|------|
+| CONTRIBUTING.md + PR / Issue 模板 | ✅ |
+| README 三分钟上手 | ✅ |
+| 案例库矩阵维度筛选 + 三类推荐对比 | ✅ |
+| 贡献 JSON 字段校验（`case_schema`） | ✅ |
+| pytest 扩充（矩阵筛选、案例 schema） | ✅ |
+| 案例 60 → 80+（三类均衡 PR） | ⏳ 待贡献者 / 后续批次 |
+| 小范围用户调研 | ⏳ |
+| GitHub 仓库 Topics / 分享图（可选） | ⏳ |
+
 **下一步建议**（按优先级）：
-1. 收集早期用户反馈，迭代案例与规则（`rules.yaml`）
-2. 完善 SEO / 分享卡片，便于传播
-3. 评估是否进入阶段 3（React + FastAPI），或继续深化 Streamlit（案例扩至 100+、贡献审核）
+1. 通过 Issue/PR 收集反馈，迭代 `rules.yaml` 与案例
+2. 分批扩充 `cases.json`（每批保持 1:1:1，附公开来源）
+3. 有稳定访问量后再评估阶段 3；否则继续零成本深化 Streamlit

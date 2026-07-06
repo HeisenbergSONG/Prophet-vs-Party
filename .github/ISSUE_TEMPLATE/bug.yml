@@ -1,0 +1,32 @@
+name: Bug 报告
+description: 应用错误或异常行为
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: surface
+    attributes:
+      label: 出现位置
+      options:
+        - Streamlit 在线应用
+        - 本地 Streamlit
+        - index.html 静态原型
+        - 其他
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际行为
+    validations:
+      required: true

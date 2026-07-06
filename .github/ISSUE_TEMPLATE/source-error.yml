@@ -1,0 +1,30 @@
+name: 报告来源 / 引文偏差
+description: 案例引文、出处或归类有误
+title: "[来源] "
+labels: ["source-error"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请附**可核实的公开来源**说明正确出处。详见 [ETHICS.md](https://github.com/HeisenbergSONG/Prophet-vs-Party/blob/main/ETHICS.md)。
+  - type: input
+    id: case_id
+    attributes:
+      label: 案例 ID
+      placeholder: 如 ccp_001
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题描述
+      description: 当前条目何处不准确？
+    validations:
+      required: true
+  - type: textarea
+    id: correct_source
+    attributes:
+      label: 正确来源 / 链接
+      description: 书籍页码、URL、档案说明等
+    validations:
+      required: true

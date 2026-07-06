@@ -4,7 +4,8 @@
 import streamlit as st
 
 from core.analyzer import score_case_techniques
-from core.data_loader import TYPE_LABELS, init_session_state, load_cases, load_matrix
+from core.data_loader import REPO_URL, TYPE_LABELS, init_session_state, load_cases, load_matrix
+from core.matrix_filter import dimension_options, filter_by_dimension, suggest_case_for_type
 from core.source_utils import format_source_html
 from core.viz import radar_chart
 
@@ -14,6 +15,39 @@ init_session_state()
 st.title("📚 案例库")
 df = load_cases()
 matrix = load_matrix()
+dim_map = dict(dimension_options(matrix))
+
+with st.expander("话术矩阵筛选", expanded=False):
+    st.caption("按 8 维矩阵匹配技巧标签；可为共产党 / 基督教 / 伊斯兰教各推荐一条加入对比。")
+    mcol1, mcol2 = st.columns(2)
+    with mcol1:
+        matrix_dim = st.selectbox(
+            "矩阵维度",
+            [""] + list(dim_map.keys()),
+            format_func=lambda k: "不限" if not k else dim_map[k],
+            key="matrix_dim_select",
+        )
+    with mcol2:
+        matrix_type = st.selectbox(
+            "类型",
+            ["", "ccp", "christian", "islam"],
+            format_func=lambda x: "全部" if not x else TYPE_LABELS[x],
+            key="matrix_type_select",
+        )
+    if matrix_dim and st.button("三类各推荐 1 条并加入对比", use_container_width=True):
+        added = 0
+        for stype in ("ccp", "christian", "islam"):
+            if len(st.session_state.selected_ids) >= 3:
+                break
+            case = suggest_case_for_type(df, matrix, matrix_dim, stype)
+            if case and case["id"] not in st.session_state.selected_ids:
+                st.session_state.selected_ids.append(case["id"])
+                added += 1
+        if added:
+            st.toast(f"已加入 {added} 条")
+            st.rerun()
+        else:
+            st.warning("未找到可推荐案例，或对比栏已满（最多 3 条）。")
 
 query = st.text_input("搜索", placeholder="关键词、来源、技巧…")
 type_filter = st.selectbox(
@@ -23,6 +57,11 @@ type_filter = st.selectbox(
 cat_filter = st.selectbox("分类", [""] + sorted(df["category"].unique()))
 
 filtered = df.copy()
+if matrix_dim:
+    filtered = filter_by_dimension(
+        filtered, matrix, matrix_dim,
+        source_type=matrix_type or None,
+    )
 if query:
     mask = filtered.apply(
         lambda r: query.lower() in " ".join([
@@ -37,7 +76,10 @@ if type_filter:
 if cat_filter:
     filtered = filtered[filtered["category"] == cat_filter]
 
-st.caption(f"显示 {len(filtered)} / {len(df)} 条")
+if matrix_dim:
+    st.caption(f"矩阵筛选：**{dim_map[matrix_dim]}** · 显示 {len(filtered)} / {len(df)} 条")
+else:
+    st.caption(f"显示 {len(filtered)} / {len(df)} 条")
 
 if st.session_state.selected_ids:
     selected_df = df[df["id"].isin(st.session_state.selected_ids)]

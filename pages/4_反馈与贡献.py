@@ -5,7 +5,8 @@ import json
 
 import streamlit as st
 
-from core.data_loader import ISSUES_URL, TYPE_LABELS, load_cases
+from core.case_schema import validate_case
+from core.data_loader import ISSUES_URL, REPO_URL, TYPE_LABELS, load_cases
 
 st.set_page_config(page_title="反馈与贡献", layout="wide")
 st.title("💬 反馈与贡献")
@@ -19,6 +20,7 @@ st.link_button("在 GitHub 报告偏差", ISSUES_URL, type="primary", use_contai
 st.markdown("---")
 st.markdown("### 贡献新案例")
 st.caption("按 ETHICS.md：公开来源可核实即视为事实，请通过 Pull Request 提交 cases.json 条目。")
+st.link_button("阅读贡献指南（CONTRIBUTING.md）", f"{REPO_URL}/blob/main/CONTRIBUTING.md", use_container_width=True)
 
 df = load_cases()
 max_ids = {}
@@ -67,7 +69,11 @@ if submitted:
             "year_end": int(year_end),
             "era": era or f"{year_start}-{year_end}",
         }
-        st.success("请复制以下 JSON，追加到 cases.json 后发起 Pull Request：")
+        errors = validate_case(new_case)
+        if errors:
+            st.error("JSON 校验未通过：\n" + "\n".join(f"- {e}" for e in errors))
+        else:
+            st.success("校验通过。请复制以下 JSON，追加到 cases.json 后发起 Pull Request：")
         st.code(json.dumps(new_case, ensure_ascii=False, indent=2), language="json")
 
 st.markdown("---")

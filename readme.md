@@ -13,6 +13,12 @@
 一个**中立、教育性**的交互式工具，帮助用户系统地对比**共产党（以中共为代表）宣传话术**与**基督教、伊斯兰教传教话术**的异同。  
 核心目标是**分析修辞技巧、心理机制、动员策略**，而非评判优劣。
 
+## 三分钟上手
+
+1. 打开 [在线应用](https://prophet-vs-party.streamlit.app) → **案例库**
+2. 展开 **话术矩阵筛选**，选维度后点「三类各推荐 1 条并加入对比」，或手动点「加入对比」（2–3 条）
+3. 查看顶部 **8 维修辞对比** 雷达图；或在 **互动分析器** 输入文本 → 导出 Markdown/JSON 报告
+
 ## 当前进度（2026-07）
 
 | 阶段 | 状态 | 说明 |
@@ -20,7 +26,8 @@
 | 阶段 0–1 | ✅ | 伦理文档、60 平衡案例、HTML 静态原型 |
 | 阶段 2 | ✅ | Streamlit 多页面 MVP |
 | 阶段 2.5 | ✅ | Streamlit Cloud 公开部署、移动端优化、线上问题修复 |
-| 阶段 3+ | ⏳ | React + FastAPI、数据库等（见 [roadmap.md](./roadmap.md)） |
+| 阶段 4.5 | 🟡 | 零成本运营：贡献流程、矩阵筛选、案例扩充（见 [roadmap.md](./roadmap.md)） |
+| 阶段 3+ | ⏳ | React + FastAPI 等（有用户需求后再评估） |
 
 ## 核心功能模块
 
@@ -166,8 +173,11 @@ pytest tests/ -v
 
 ## 贡献
 
-发现引文或来源错误，请提交 [GitHub Issues](https://github.com/HeisenbergSONG/Prophet-vs-Party/issues/new)，附可核实的正确出处。  
-新案例可通过应用内「反馈与贡献」生成 JSON，再发 Pull Request 更新 `cases.json`。
+详见 **[CONTRIBUTING.md](./CONTRIBUTING.md)**（案例格式、PR 自检、伦理边界）。
+
+- 引文/来源错误 → [报告偏差 Issue](https://github.com/HeisenbergSONG/Prophet-vs-Party/issues/new?template=source-error.yml)
+- 新案例 → 应用内「反馈与贡献」生成 JSON → Pull Request 更新 `cases.json`
+- 功能建议 / Bug → [Issue 模板](https://github.com/HeisenbergSONG/Prophet-vs-Party/issues/new/choose)
 
 ## 开源协议
 

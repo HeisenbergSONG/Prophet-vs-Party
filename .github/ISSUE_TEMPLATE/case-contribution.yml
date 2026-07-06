@@ -1,0 +1,49 @@
+name: 案例贡献（草稿）
+description: 提议新增案例，后续可转为 PR
+title: "[案例] "
+labels: ["case-contribution"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        建议优先在应用内「反馈与贡献」生成 JSON 后发起 **Pull Request**。本模板用于先讨论再提交。
+  - type: dropdown
+    id: source_type
+    attributes:
+      label: 类型
+      options:
+        - ccp
+        - christian
+        - islam
+    validations:
+      required: true
+  - type: textarea
+    id: text
+    attributes:
+      label: 原文
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: 出处
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: 公开来源描述
+    validations:
+      required: true
+  - type: input
+    id: source_link
+    attributes:
+      label: 来源链接（可选）
+  - type: input
+    id: techniques
+    attributes:
+      label: 技巧标签（逗号分隔）
+  - type: textarea
+    id: notes
+    attributes:
+      label: 补充说明
