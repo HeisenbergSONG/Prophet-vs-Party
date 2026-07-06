@@ -8,283 +8,116 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { font-family: system-ui, -apple-system, sans-serif; }
-        .highlight { background-color: #fef3c7; padding: 2px 4px; border-radius: 4px; }
-        .card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
-        .dark body { background-color: #111827; color: #f3f4f6; }
-        .dark .bg-white { background-color: #1f2937; }
-        .dark .bg-gray-50 { background-color: #111827; }
-        .dark .bg-gray-100 { background-color: #374151; }
+        .highlight { background-color: #fef3c7; padding: 2px 4px; border-radius: 9999px; font-size: 0.875rem; }
+        .card { transition: all 0.2s; }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+<body class="bg-gray-50">
     <div class="max-w-7xl mx-auto p-6">
-        <!-- Header with dark mode toggle -->
         <header class="text-center mb-10">
-            <div class="flex justify-between items-center">
-                <div></div>
-                <div>
-                    <h1 class="text-4xl font-bold">话语之战</h1>
-                    <p class="text-xl text-gray-600 dark:text-gray-400 mt-2">宣传 vs 传教 · 中立对比分析平台</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Prophet vs Party</p>
-                </div>
-                <button onclick="toggleDarkMode()" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 rounded-xl text-sm">🌙 / ☀️</button>
-            </div>
+            <h1 class="text-4xl font-bold text-gray-900">话语之战</h1>
+            <p class="text-xl text-gray-600 mt-2">宣传 vs 传教 · 中立对比分析平台</p>
+            <p class="text-sm text-gray-500 mt-1">Prophet vs Party</p>
         </header>
 
-        <!-- 案例选择 -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <!-- 共产党 -->
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow card">
-                <h2 class="text-lg font-semibold text-red-600 mb-4 flex items-center gap-2">
-                    <span>🔴</span>共产党宣传
-                </h2>
-                <select id="comm-case" onchange="compareCases()" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700">
-                    <!-- Populated by JS -->
-                </select>
-                <div id="comm-text" class="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-xl text-sm min-h-[140px]"></div>
-            </div>
-
-            <!-- 基督教 -->
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow card">
-                <h2 class="text-lg font-semibold text-blue-600 mb-4 flex items-center gap-2">
-                    <span>🔵</span>基督教传教
-                </h2>
-                <select id="christ-case" onchange="compareCases()" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700">
-                    <!-- Populated by JS -->
-                </select>
-                <div id="christ-text" class="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-xl text-sm min-h-[140px]"></div>
-            </div>
-
-            <!-- 伊斯兰教 -->
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow card">
-                <h2 class="text-lg font-semibold text-green-600 mb-4 flex items-center gap-2">
-                    <span>🟢</span>伊斯兰教传教
-                </h2>
-                <select id="islam-case" onchange="compareCases()" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-xl bg-white dark:bg-gray-700">
-                    <!-- Populated by JS -->
-                </select>
-                <div id="islam-text" class="mt-6 p-4 bg-gray-50 dark:bg-gray-700 rounded-xl text-sm min-h-[140px]"></div>
-            </div>
+        <!-- 搜索与筛选 -->
+        <div class="flex gap-4 mb-8">
+            <input id="searchInput" type="text" placeholder="搜索关键词..." 
+                   class="flex-1 p-3 border rounded-xl focus:outline-none focus:border-blue-500">
+            <select id="typeFilter" class="p-3 border rounded-xl">
+                <option value="">全部</option>
+                <option value="ccp">共产党宣传</option>
+                <option value="christian">基督教</option>
+                <option value="islam">伊斯兰教</option>
+            </select>
         </div>
 
-        <!-- 对比结果 -->
-        <div id="comparison" class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl hidden">
-            <h2 class="text-3xl font-bold mb-8 text-center">对比分析报告</h2>
+        <!-- 案例展示 -->
+        <div id="casesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 动态加载 -->
+        </div>
+
+        <!-- 对比区 -->
+        <div id="comparison" class="hidden mt-12 bg-white p-8 rounded-3xl shadow-xl">
+            <h2 class="text-2xl font-bold mb-6 text-center">对比分析结果</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- 左侧三个案例详情 -->
+            </div>
             
-            <!-- 表格 -->
-            <div class="overflow-x-auto mb-10">
-                <table class="w-full border-collapse" id="compare-table">
-                    <!-- Dynamic -->
-                </table>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <!-- Radar -->
-                <div>
-                    <h3 class="font-semibold mb-4 text-center">维度评分雷达图</h3>
-                    <canvas id="radarChart" height="320"></canvas>
-                </div>
-                <!-- Keywords -->
-                <div>
-                    <h3 class="font-semibold mb-4">高频关键词</h3>
-                    <div id="keywords" class="flex flex-wrap gap-2 min-h-[120px]"></div>
-                </div>
-            </div>
-
-            <!-- Tags -->
+            <!-- 雷达图 -->
             <div class="mt-10">
-                <h3 class="font-semibold mb-4">常见修辞技巧</h3>
-                <div id="tags" class="flex flex-wrap gap-3"></div>
+                <h3 class="font-semibold mb-4 text-center">修辞维度对比</h3>
+                <canvas id="radarChart" height="300"></canvas>
             </div>
         </div>
-
-        <!-- Quiz Section -->
-        <div class="mt-12 bg-white dark:bg-gray-800 p-8 rounded-3xl shadow">
-            <h3 class="text-2xl font-bold mb-4 text-center">快速测验：这是哪种话术？</h3>
-            <div id="quiz" class="text-center"></div>
-        </div>
-
     </div>
 
     <script>
-        // 增强版案例数据结构
-        const cases = {
-            comm: [
-                { id: 0, title: "为人民服务", text: "为人民服务 —— 这是我们党的根本宗旨。", source: "毛泽东", year: "1944" },
-                { id: 1, title: "中国梦", text: "实现中华民族伟大复兴的中国梦。", source: "习近平", year: "2012" },
-                { id: 2, title: "共同富裕", text: "共同富裕，让全体人民过上好日子。", source: "中共二十大", year: "2022" },
-                { id: 3, title: "不忘初心", text: "不忘初心，牢记使命。", source: "习近平", year: "2017" },
-                { id: 4, title: "中华民族伟大复兴", text: "中华民族伟大复兴是近代以来中国人民最伟大的梦想。", source: "习近平", year: "2012" }
-            ],
-            christ: [
-                { id: 0, title: "约翰福音3:16", text: "神爱世人，甚至将他的独生子赐给他们，叫一切信他的，不至灭亡，反得永生。", source: "约翰福音 3:16", year: "约公元90年" },
-                { id: 1, title: "悔改信主", text: "你们当悔改，信福音。", source: "马可福音 1:15", year: "约公元70年" },
-                { id: 2, title: "天国近了", text: "天国近了，你们应当悔改！", source: "马太福音 4:17", year: "约公元80年" },
-                { id: 3, title: "爱你的邻舍", text: "你要尽心、尽性、尽意爱主你的神。这是诫命中的第一，且是最大的。其次也相仿，就是要爱人如己。", source: "马太福音 22:37-39", year: "约公元80年" }
-            ],
-            islam: [
-                { id: 0, title: "古兰经2:256", text: "对于宗教，绝无强迫；因为正道已与邪道分明。", source: "古兰经 2:256", year: "约公元622年" },
-                { id: 1, title: "顺服真主", text: "你们当顺服真主和使者。", source: "古兰经", year: "" },
-                { id: 2, title: "乐园的许诺", text: "信道而且行善者，我将使他们进入下临诸河的乐园，他们将永居其中。", source: "古兰经", year: "" },
-                { id: 3, title: "五功", text: "伊斯兰教的支柱是五项：作证、礼拜、斋戒、天课、朝觐。", source: "圣训", year: "" }
-            ]
-        };
-
+        let allCases = [];
         let radarChartInstance = null;
 
-        function populateSelects() {
-            // Populate Communist
-            const commSelect = document.getElementById('comm-case');
-            commSelect.innerHTML = cases.comm.map((c, i) => `<option value="${i}">${c.title}</option>`).join('');
-
-            const christSelect = document.getElementById('christ-case');
-            christSelect.innerHTML = cases.christ.map((c, i) => `<option value="${i}">${c.title}</option>`).join('');
-
-            const islamSelect = document.getElementById('islam-case');
-            islamSelect.innerHTML = cases.islam.map((c, i) => `<option value="${i}">${c.title}</option>`).join('');
+        async function loadCases() {
+            try {
+                const response = await fetch('cases.json');
+                allCases = await response.json();
+                renderCases(allCases);
+            } catch (e) {
+                console.error("加载 cases.json 失败", e);
+                alert("数据加载失败，请确保 cases.json 与 HTML 在同一目录");
+            }
         }
 
-        function updateCaseDisplay() {
-            const commIdx = parseInt(document.getElementById('comm-case').value);
-            const christIdx = parseInt(document.getElementById('christ-case').value);
-            const islamIdx = parseInt(document.getElementById('islam-case').value);
-
-            const comm = cases.comm[commIdx];
-            const christ = cases.christ[christIdx];
-            const islam = cases.islam[islamIdx];
-
-            document.getElementById('comm-text').innerHTML = `<strong>${comm.text}</strong><br><small class="text-gray-500 dark:text-gray-400">${comm.source} ${comm.year ? `(${comm.year})` : ''}</small>`;
-            document.getElementById('christ-text').innerHTML = `<strong>${christ.text}</strong><br><small class="text-gray-500 dark:text-gray-400">${christ.source} ${christ.year ? `(${christ.year})` : ''}</small>`;
-            document.getElementById('islam-text').innerHTML = `<strong>${islam.text}</strong><br><small class="text-gray-500 dark:text-gray-400">${islam.source} ${islam.year ? `(${islam.year})` : ''}</small>`;
-        }
-
-        function generateDynamicComparison(commIdx, christIdx, islamIdx) {
-            const comm = cases.comm[commIdx];
-            const christ = cases.christ[christIdx];
-            const islam = cases.islam[islamIdx];
-
-            const tableHTML = `
-                <thead>
-                    <tr class="bg-gray-100 dark:bg-gray-700">
-                        <th class="p-4 text-left">维度</th>
-                        <th class="p-4 text-red-600">共产党 (${comm.title})</th>
-                        <th class="p-4 text-blue-600">基督教 (${christ.title})</th>
-                        <th class="p-4 text-green-600">伊斯兰教 (${islam.title})</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="border-b"><td class="p-4 font-medium">核心叙事</td><td class="p-4">历史必然 + 民族复兴</td><td class="p-4">个人救赎 + 永生</td><td class="p-4">顺服真主 + 末日审判</td></tr>
-                    <tr class="border-b"><td class="p-4 font-medium">情感诉求</td><td class="p-4">希望 + 集体责任</td><td class="p-4">爱 + 恐惧（地狱）</td><td class="p-4">敬畏 + 希望（乐园）</td></tr>
-                    <tr class="border-b"><td class="p-4 font-medium">权威来源</td><td class="p-4">党/领袖/经典著作</td><td class="p-4">《圣经》/耶稣</td><td class="p-4">《古兰经》/先知</td></tr>
-                    <tr><td class="p-4 font-medium">未来许诺</td><td class="p-4">人间共产主义</td><td class="p-4">天国</td><td class="p-4">乐园</td></tr>
-                </tbody>`;
-
-            document.getElementById('compare-table').innerHTML = tableHTML;
-
-            // Keywords (pseudo-dynamic)
-            const keywordsHTML = `
-                <span class="highlight text-xs px-3 py-1 bg-yellow-100 dark:bg-yellow-900 rounded-full">${comm.text.includes('复兴') || comm.text.includes('梦') ? '复兴' : '奋斗'}</span>
-                <span class="highlight text-xs px-3 py-1 bg-yellow-100 dark:bg-yellow-900 rounded-full">救赎</span>
-                <span class="highlight text-xs px-3 py-1 bg-yellow-100 dark:bg-yellow-900 rounded-full">顺服</span>
-                <span class="highlight text-xs px-3 py-1 bg-yellow-100 dark:bg-yellow-900 rounded-full">爱</span>
-            `;
-            document.getElementById('keywords').innerHTML = keywordsHTML;
-
-            // Tags (shared)
-            document.getElementById('tags').innerHTML = `
-                <span class="inline-block bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-4 py-1 rounded-full text-sm">二元对立</span>
-                <span class="inline-block bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 px-4 py-1 rounded-full text-sm">救世主叙事</span>
-                <span class="inline-block bg-amber-100 dark:bg-amber-900 text-amber-700 dark:text-amber-300 px-4 py-1 rounded-full text-sm">末世/乌托邦</span>
-                <span class="inline-block bg-emerald-100 dark:bg-emerald-900 text-emerald-700 dark:text-emerald-300 px-4 py-1 rounded-full text-sm">群体认同</span>
-            `;
-        }
-
-        function compareCases() {
-            const commIdx = parseInt(document.getElementById('comm-case').value);
-            const christIdx = parseInt(document.getElementById('christ-case').value);
-            const islamIdx = parseInt(document.getElementById('islam-case').value);
-
-            updateCaseDisplay();
-            const comparisonDiv = document.getElementById('comparison');
-            comparisonDiv.classList.remove('hidden');
-
-            generateDynamicComparison(commIdx, christIdx, islamIdx);
-
-            // Radar Chart (slightly varied by selection)
-            const ctx = document.getElementById('radarChart');
-            if (radarChartInstance) radarChartInstance.destroy();
+        function renderCases(cases) {
+            const grid = document.getElementById('casesGrid');
+            grid.innerHTML = '';
             
-            radarChartInstance = new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: ['情感强度', '权威性', '希望指数', '恐惧指数', '动员力'],
-                    datasets: [
-                        { label: '共产党', data: [78, 92, 82, 55, 95], borderColor: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.2)' },
-                        { label: '基督教', data: [82, 88, 88, 68, 72], borderColor: '#3b82f6', backgroundColor: 'rgba(59, 130, 246, 0.2)' },
-                        { label: '伊斯兰教', data: [75, 90, 85, 62, 80], borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.2)' }
-                    ]
-                },
-                options: { 
-                    scales: { r: { min: 0, max: 100, ticks: { color: document.documentElement.classList.contains('dark') ? '#9ca3af' : '#6b7280' } } },
-                    plugins: { legend: { position: 'top' } }
-                }
+            cases.forEach(caseItem => {
+                const card = document.createElement('div');
+                card.className = `card bg-white p-6 rounded-2xl shadow border border-gray-100`;
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="px-3 py-1 text-xs rounded-full ${caseItem.source_type === 'ccp' ? 'bg-red-100 text-red-700' : caseItem.source_type === 'christian' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}">
+                            ${caseItem.source_type === 'ccp' ? '共产党' : caseItem.source_type === 'christian' ? '基督教' : '伊斯兰教'}
+                        </span>
+                        <span class="text-xs text-gray-500">${caseItem.category}</span>
+                    </div>
+                    <p class="text-gray-800 font-medium leading-relaxed mb-4">"${caseItem.text}"</p>
+                    <p class="text-xs text-gray-500">来源：${caseItem.source}</p>
+                    <button onclick="selectForCompare('${caseItem.id}')" 
+                            class="mt-4 text-sm px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
+                        加入对比
+                    </button>
+                `;
+                grid.appendChild(card);
             });
         }
 
-        function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
-            // Re-render chart if exists
-            if (document.getElementById('comparison').classList.contains('hidden') === false) {
-                compareCases();
+        // 简单对比功能（可扩展）
+        let selectedCases = [];
+        function selectForCompare(id) {
+            const caseItem = allCases.find(c => c.id === id);
+            if (!caseItem) return;
+            
+            if (selectedCases.length < 3) {
+                selectedCases.push(caseItem);
+                alert(`已添加：${caseItem.text.substring(0, 20)}...`);
+                
+                if (selectedCases.length === 3) {
+                    showComparison();
+                }
             }
         }
 
-        // Quiz (improved)
-        let currentQuizCase = null;
-
-        function startQuiz() {
-            const allCases = [...cases.comm, ...cases.christ, ...cases.islam];
-            currentQuizCase = allCases[Math.floor(Math.random() * allCases.length)];
-            const quizDiv = document.getElementById('quiz');
-            quizDiv.innerHTML = `
-                <div class="p-6 bg-gray-50 dark:bg-gray-700 rounded-2xl mb-6">
-                    <p class="italic text-lg">“${currentQuizCase.text}”</p>
-                    <p class="text-sm text-gray-500 mt-2">— ${currentQuizCase.source}</p>
-                </div>
-                <div class="flex flex-wrap justify-center gap-4">
-                    <button onclick="answerQuiz(0)" class="px-8 py-3 bg-red-500 hover:bg-red-600 text-white rounded-2xl transition">共产党宣传</button>
-                    <button onclick="answerQuiz(1)" class="px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-2xl transition">基督教</button>
-                    <button onclick="answerQuiz(2)" class="px-8 py-3 bg-green-500 hover:bg-green-600 text-white rounded-2xl transition">伊斯兰教</button>
-                </div>
-            `;
-        }
-
-        function answerQuiz(choice) {
-            const quizDiv = document.getElementById('quiz');
-            const isCorrect = (choice === 0 && cases.comm.some(c => c.text === currentQuizCase.text)) ||
-                             (choice === 1 && cases.christ.some(c => c.text === currentQuizCase.text)) ||
-                             (choice === 2 && cases.islam.some(c => c.text === currentQuizCase.text));
-
-            if (isCorrect) {
-                quizDiv.innerHTML = `<p class="text-green-600 font-bold text-xl">✅ 正确！这是${choice === 0 ? '共产党' : choice === 1 ? '基督教' : '伊斯兰教'}话术。</p><button onclick="startQuiz()" class="mt-6 px-8 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 rounded-2xl">下一题</button>`;
-            } else {
-                quizDiv.innerHTML = `<p class="text-red-600 font-bold text-xl">❌ 这是${currentQuizCase.source.includes('福音') || currentQuizCase.source.includes('马太') ? '基督教' : currentQuizCase.source.includes('古兰') ? '伊斯兰教' : '共产党'}宣传/传教。</p><button onclick="startQuiz()" class="mt-6 px-8 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 rounded-2xl">再试一次</button>`;
-            }
+        function showComparison() {
+            const compDiv = document.getElementById('comparison');
+            compDiv.classList.remove('hidden');
+            // 这里可以扩展完整对比逻辑
+            console.log("对比案例：", selectedCases);
         }
 
         // 初始化
-        window.onload = () => {
-            populateSelects();
-            // Select random initially
-            document.getElementById('comm-case').value = Math.floor(Math.random() * cases.comm.length);
-            document.getElementById('christ-case').value = Math.floor(Math.random() * cases.christ.length);
-            document.getElementById('islam-case').value = Math.floor(Math.random() * cases.islam.length);
-            compareCases();
-            setTimeout(() => {
-                startQuiz();
-            }, 1200);
-        };
+        window.onload = loadCases;
     </script>
 </body>
 </html>
