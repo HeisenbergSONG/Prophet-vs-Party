@@ -3,7 +3,16 @@
 
 import streamlit as st
 
-from core.data_loader import APP_URL, AUTHOR, ISSUES_URL, LICENSE_NAME, LICENSE_URL, REPO_URL
+from core.data_loader import (
+    APP_URL,
+    AUTHOR,
+    ISSUES_URL,
+    LICENSE_NAME,
+    LICENSE_URL,
+    REPO_URL,
+    cases_data_version,
+    load_cases,
+)
 
 
 def render_project_sidebar(*, ethics_page=None, disclaimer_page=None) -> None:
@@ -23,6 +32,11 @@ def render_project_sidebar(*, ethics_page=None, disclaimer_page=None) -> None:
         st.markdown("[免责声明](/disclaimer)")
     st.link_button("报告问题", ISSUES_URL, use_container_width=True)
     st.markdown("---")
+    try:
+        n = len(load_cases())
+        st.caption(f"案例库 · {n} 条 · v{cases_data_version()}")
+    except OSError:
+        pass
     st.caption(f"Prophet vs Party · [{LICENSE_NAME}]({LICENSE_URL})")
 
 
