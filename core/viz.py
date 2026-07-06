@@ -158,6 +158,16 @@ def wordcloud_figure(df: pd.DataFrame):
     return fig
 
 
+MATRIX_TABLE_CSS = """
+<style>
+.matrix { width:100%; border-collapse:collapse; font-size:0.85rem; }
+.matrix th, .matrix td { border:1px solid #ddd; padding:8px; text-align:left; }
+.matrix th { background:#f3f4f6; }
+.matrix .dim { font-weight:600; }
+</style>
+"""
+
+
 def matrix_table_html(matrix: dict) -> str:
     rows = []
     for dim in matrix["dimensions"]:
@@ -169,3 +179,7 @@ def matrix_table_html(matrix: dict) -> str:
         "<table class='matrix'><thead><tr><th>维度</th><th>共产党</th><th>基督教</th><th>伊斯兰教</th></tr></thead>"
         f"<tbody>{''.join(rows)}</tbody></table>"
     )
+
+
+def matrix_table_markup(matrix: dict) -> str:
+    return MATRIX_TABLE_CSS + matrix_table_html(matrix)

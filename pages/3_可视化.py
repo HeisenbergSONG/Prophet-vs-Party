@@ -6,7 +6,7 @@ import streamlit as st
 from core.data_loader import TYPE_LABELS, load_cases, load_matrix
 from core.viz import (
     matrix_comparison_radar,
-    matrix_table_html,
+    matrix_table_markup,
     term_frequencies,
     terms_bar_chart,
     timeline_chart,
@@ -41,15 +41,7 @@ with tab2:
 with tab3:
     st.plotly_chart(matrix_comparison_radar(df, matrix), use_container_width=True)
     st.caption("基于各类案例技巧标签在 8 个矩阵维度上的聚合估算，供跨类型修辞轮廓对比。")
-    st.markdown(matrix_table_html(matrix), unsafe_allow_html=True)
-    st.markdown("""
-    <style>
-    .matrix { width:100%; border-collapse:collapse; font-size:0.85rem; }
-    .matrix th, .matrix td { border:1px solid #ddd; padding:8px; text-align:left; }
-    .matrix th { background:#f3f4f6; }
-    .matrix .dim { font-weight:600; }
-    </style>
-    """, unsafe_allow_html=True)
+    st.markdown(matrix_table_markup(matrix), unsafe_allow_html=True)
     st.caption("矩阵描述各维度典型特征，与 matrix.json 同步。")
 
 with tab4:

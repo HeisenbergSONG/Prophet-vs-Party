@@ -2,7 +2,7 @@
 # 无 torch / sentence-transformers；相似度降级为 Jaccard + 规则引擎
 # 本地完整版（含语义 embedding）：pip install -r requirements-full.txt
 
-streamlit>=1.28.0,<2
+streamlit>=1.36.0,<2
 pandas>=2.0.0,<4
 plotly>=5.18.0
 pyyaml>=6.0
