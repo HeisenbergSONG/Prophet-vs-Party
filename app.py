@@ -43,7 +43,6 @@ st.markdown("""
 
 with st.sidebar:
     st.markdown("### 文档")
-    st.markdown("[伦理准则](ETHICS.md) · [免责声明](DISCLAIMER.md)")
-    st.markdown("### 其他入口")
-    st.markdown("[HTML 静态原型](index.html)")
+    st.page_link("pages/5_伦理准则.py", label="伦理准则")
+    st.page_link("pages/6_免责声明.py", label="免责声明")
     st.caption("Prophet vs Party · GPLv3")
