@@ -86,9 +86,38 @@ def terms_bar_chart(df: pd.DataFrame) -> go.Figure:
     return fig
 
 
-def wordcloud_figure(df: pd.DataFrame):
-    from collections import Counter
+def resolve_chinese_font() -> str | None:
+    import os
 
+    import matplotlib.font_manager as fm
+
+    candidates = [
+        "C:/Windows/Fonts/msyh.ttc",
+        "C:/Windows/Fonts/simhei.ttf",
+        "C:/Windows/Fonts/NotoSansSC-VF.ttf",
+        "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc",
+        "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc",
+        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "/usr/share/fonts/truetype/noto/NotoSansCJK-Regular.ttc",
+        "/usr/share/fonts/opentype/noto/NotoSansSC-Regular.otf",
+    ]
+    for path in candidates:
+        if os.path.exists(path):
+            return path
+
+    keywords = (
+        "noto sans sc", "noto sans cjk sc", "source han sans sc",
+        "wqy zenhei", "wqy microhei", "wenquanyi zen hei",
+        "microsoft yahei", "simhei", "simsun", "pingfang sc",
+    )
+    for font in fm.fontManager.ttflist:
+        name = font.name.lower()
+        if any(k in name for k in keywords):
+            return font.fname
+    return None
+
+
+def wordcloud_figure(df: pd.DataFrame):
     import matplotlib.pyplot as plt
     from wordcloud import WordCloud
 
@@ -96,13 +125,9 @@ def wordcloud_figure(df: pd.DataFrame):
     if not freq:
         return None
 
-    font_candidates = [
-        "C:/Windows/Fonts/msyh.ttc",
-        "C:/Windows/Fonts/simhei.ttf",
-        "/usr/share/fonts/truetype/wqy/wqy-microhei.ttc",
-        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
-    ]
-    font_path = next((p for p in font_candidates if __import__("os").path.exists(p)), None)
+    font_path = resolve_chinese_font()
+    if not font_path:
+        return None
 
     wc = WordCloud(
         width=800, height=400, background_color="white",

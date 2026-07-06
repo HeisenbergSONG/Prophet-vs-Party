@@ -4,7 +4,13 @@
 import streamlit as st
 
 from core.data_loader import TYPE_LABELS, load_cases, load_matrix
-from core.viz import matrix_table_html, terms_bar_chart, timeline_chart, wordcloud_figure
+from core.viz import (
+    matrix_table_html,
+    term_frequencies,
+    terms_bar_chart,
+    timeline_chart,
+    wordcloud_figure,
+)
 
 st.set_page_config(page_title="可视化", layout="wide")
 st.title("📊 可视化")
@@ -26,8 +32,10 @@ with tab2:
     fig = wordcloud_figure(wc_df)
     if fig:
         st.pyplot(fig)
+    elif term_frequencies(wc_df):
+        st.warning("未找到支持中文的字体，词云暂无法显示文字。柱状图已展示相同词频数据。")
     else:
-        st.caption("词云图需要中文字体；柱状图已展示相同词频数据。")
+        st.caption("当前筛选范围内暂无词频数据。")
 
 with tab3:
     st.markdown(matrix_table_html(matrix), unsafe_allow_html=True)

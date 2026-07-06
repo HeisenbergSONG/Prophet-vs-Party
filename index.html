@@ -482,7 +482,8 @@
             const dark = document.documentElement.classList.contains('dark');
             if (!list.length) return;
             WordCloud(canvas, {
-                list, gridSize: 8, weightFactor: 2.5, fontFamily: 'system-ui',
+                list, gridSize: 8, weightFactor: 2.5,
+                fontFamily: '"Microsoft YaHei", "PingFang SC", "Noto Sans SC", "WenQuanYi Zen Hei", sans-serif',
                 color: () => dark ? `hsl(${Math.random()*360},60%,70%)` : `hsl(${Math.random()*360},55%,40%)`,
                 backgroundColor: dark ? '#1f2937' : '#ffffff'
             });
