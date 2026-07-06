@@ -1,0 +1,35 @@
+[
+  {
+    "id": "ccp_001",
+    "category": "二元对立",
+    "source_type": "ccp",
+    "text": "革命无罪，造反有理",
+    "source": "毛泽东 / 文革口号",
+    "techniques": [" 二元对立", "敌人妖魔化"],
+    "psychological_mechanism": "简化现实、强化群体边界",
+    "parallel": {
+      "christian": "不是与我相合的，就是敌我的",
+      "islam": "信道者与不信道者有明显区别"
+    },
+    "tags": [" 历史", "动员"],
+    "risk_note": "易导致极端化",
+    "source_url": "公开历史文献"
+  },
+  {
+    "id": "ccp_002",
+    "category": "领袖崇拜",
+    "source_type": "ccp",
+    "text": "为人民服务",
+    "source": "毛泽东",
+    "techniques": ["领袖崇拜", "情感诉求"],
+    "psychological_mechanism": "建立道德权威与牺牲精神",
+    "parallel": {
+      "christian": "爱人如己",
+      "islam": "顺服真主"
+    },
+    "tags": ["核心", "经典"],
+    "risk_note": "",
+    "source_url": "毛泽东选集"
+  }
+  // 更多案例在文件中，共60+条
+]
