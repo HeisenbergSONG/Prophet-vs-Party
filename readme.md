@@ -4,7 +4,7 @@
 **Prophet vs Party**（先知 vs 政党）  
 或中文名：**「话语之战」——共产党宣传与宗教传教对比分析平台**
 
-**在线演示**：https://prophet-vs-party.streamlit.app  
+**在线演示**（公开）：https://prophet-vs-party.streamlit.app
 **源码仓库**：https://github.com/HeisenbergSONG/Prophet-vs-Party  
 **作者**：[HeisenbergSONG](https://github.com/HeisenbergSONG) · **协议**：[GPLv3](./LICENSE)
 
@@ -19,7 +19,7 @@
 |------|------|------|
 | 阶段 0–1 | ✅ | 伦理文档、60 平衡案例、HTML 静态原型 |
 | 阶段 2 | ✅ | Streamlit 多页面 MVP |
-| 阶段 2.5 | ✅ | Streamlit Cloud 部署、移动端优化、线上问题修复 |
+| 阶段 2.5 | ✅ | Streamlit Cloud 公开部署、移动端优化、线上问题修复 |
 | 阶段 3+ | ⏳ | React + FastAPI、数据库等（见 [roadmap.md](./roadmap.md)） |
 
 ## 核心功能模块
@@ -96,10 +96,11 @@ python -m http.server 8080
 
 ## 部署（Streamlit Community Cloud）
 
-项目已部署至 Streamlit Cloud，配置要点：
+项目已**公开**部署至 Streamlit Cloud，可直接访问：https://prophet-vs-party.streamlit.app
 
 | 项 | 值 |
 |----|-----|
+| 在线地址 | https://prophet-vs-party.streamlit.app（Public） |
 | 仓库 | `HeisenbergSONG/Prophet-vs-Party` |
 | 入口文件 | `app.py` |
 | Python | 3.11 |

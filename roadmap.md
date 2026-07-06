@@ -138,7 +138,7 @@
 **任务列表**：
 - [x] **Streamlit 上线**（方案 A，已完成）
   - [x] Streamlit Community Cloud + `requirements.txt` 轻量版
-  - [ ] 确认应用公开可见（Share 控制台可切换 Public / Private）
+  - [x] 应用已设为 **Public**，公开可访问
   - [ ] 自定义域名 + HTTPS（可选）
 - [ ] **其他部署形态**（可选，阶段 3 后）
   - 前端：Vercel（React 重构后）
@@ -158,7 +158,7 @@
   - [ ] 小范围用户调研
   - [ ] 独立隐私政策页（可选）
 
-**里程碑**：公开可访问的 MVP + 稳定运维。🟡 进行中（Streamlit 已部署，公开性与推广待完善）
+**里程碑**：公开可访问的 MVP + 稳定运维。✅ 已达成（https://prophet-vs-party.streamlit.app 公开运行；SEO / 推广可继续迭代）
 
 ---
 
@@ -201,7 +201,7 @@
 |------|------|-----------------|
 | 案例数量 | ≥ 60，1:1:1 | ✅ 60（CCP / 基督教 / 伊斯兰教 各 20） |
 | 完整分析 + 报告 | 用户可完成 | ✅ Streamlit 互动分析器 + Markdown/JSON 导出 |
-| 在线部署 | 可访问 | ✅ https://prophet-vs-party.streamlit.app |
+| 在线部署 | 公开可访问 | ✅ https://prophet-vs-party.streamlit.app（Public） |
 | 自动化测试 | 有 CI | ✅ 16 项 pytest + GitHub Actions |
 | 用户反馈 | ≥ 20（1 月后） | ⏳ 入口已就绪（GitHub Issues） |
 | 案例贡献 | ≥ 10（1 月后） | ⏳ 表单已就绪，待 PR 审核流程 |
@@ -221,8 +221,9 @@
 | **仓库** | https://github.com/HeisenbergSONG/Prophet-vs-Party |
 | **作者** | [HeisenbergSONG](https://github.com/HeisenbergSONG) |
 | **协议** | GPLv3 |
+| **线上应用** | https://prophet-vs-party.streamlit.app（**Public**） |
 
 **下一步建议**（按优先级）：
-1. 在 Share 控制台确认应用 **Running** 且按需设为 **Public**
-2. 收集早期用户反馈，迭代案例与规则（`rules.yaml`）
+1. 收集早期用户反馈，迭代案例与规则（`rules.yaml`）
+2. 完善 SEO / 分享卡片，便于传播
 3. 评估是否进入阶段 3（React + FastAPI），或继续深化 Streamlit（案例扩至 100+、贡献审核）
