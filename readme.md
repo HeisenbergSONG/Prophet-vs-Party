@@ -79,6 +79,10 @@ python -m http.server 8080
 
 发现引文或来源错误，请提交 [GitHub Issues](https://github.com/HeisenbergSONG/Prophet-vs-Party/issues)，附可核实的正确出处。
 
+## 开源协议
+
+本项目采用 [MIT License](./LICENSE) 开源。
+
 ---
 
 **说明**：本设计为教育/学术用途，保持中立分析。
