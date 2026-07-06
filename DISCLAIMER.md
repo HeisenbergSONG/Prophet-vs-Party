@@ -20,4 +20,4 @@
 
 ---
 
-[伦理与数据准则](./ETHICS.md) · [项目说明](./readme.md) · [MIT License](./LICENSE)
+[伦理与数据准则](./ETHICS.md) · [项目说明](./readme.md) · [GPLv3](./LICENSE)

@@ -24,7 +24,7 @@
 - [x] 创建数据收集规范（来源标注、平衡比例、避免偏见）
 - [x] 制定内容审核与伦理准则（公开来源可核实即视为事实，见 ETHICS.md）
 
-**里程碑**：项目仓库初始化 + 初始 README + 免责声明完成。✅ 已达成（含 ETHICS.md、DISCLAIMER.md、LICENSE）
+**里程碑**：项目仓库初始化 + 初始 README + 免责声明完成。✅ 已达成（含 ETHICS.md、DISCLAIMER.md、GPLv3 LICENSE）
 
 ---
 
