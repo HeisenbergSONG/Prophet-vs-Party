@@ -41,7 +41,8 @@
 
 ```bash
 cd "Prophet vs Party"
-pip install -r requirements.txt
+pip install -r requirements-full.txt   # 完整版（含语义相似度）
+# 或 pip install -r requirements.txt     # 轻量版（与线上一致）
 streamlit run app.py
 ```
 
@@ -62,15 +63,13 @@ python -m http.server 8080
 1. 将代码推送到 GitHub 仓库 `HeisenbergSONG/Prophet-vs-Party`
 2. 登录 [share.streamlit.io](https://share.streamlit.io)，用 GitHub 授权
 3. **New app** → 选择仓库 → Main file path 填 `app.py`
-4. **Advanced settings**：
-   - Python version：**3.11**
-   - Dependencies file：**`requirements-cloud.txt`**（推荐，无 torch，启动快）
+4. **Advanced settings**：Python version 选 **3.11**（Dependencies file 保持默认 `requirements.txt` 即可）
 5. 点击 **Deploy**
 
 | 依赖文件 | 适用场景 |
 |----------|----------|
-| `requirements-cloud.txt` | **Cloud 推荐**：轻量、省内存，相似度用 Jaccard |
-| `requirements.txt` | 本地完整版：含 `torch` + `sentence-transformers` 语义相似度 |
+| `requirements.txt` | **默认 / 网站部署**：轻量版，无 torch，相似度用 Jaccard |
+| `requirements-full.txt` | **本地完整版**：含 `torch` + `sentence-transformers` 语义相似度 |
 
 **在线地址**（部署后填写）：`https://<your-app>.streamlit.app`
 

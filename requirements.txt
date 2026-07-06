@@ -1,7 +1,6 @@
-# 完整本地依赖（含语义相似度模型）
-# Cloud 轻量部署请改用 requirements-cloud.txt
-# Streamlit Community Cloud — CPU-only PyTorch for smaller install
---extra-index-url https://download.pytorch.org/whl/cpu
+# 默认依赖（轻量版）— Streamlit Cloud / 网站部署自动使用此文件
+# 无 torch / sentence-transformers；相似度降级为 Jaccard + 规则引擎
+# 本地完整版（含语义 embedding）：pip install -r requirements-full.txt
 
 streamlit>=1.28.0,<2
 pandas>=2.0.0,<4
@@ -10,5 +9,3 @@ pyyaml>=6.0
 numpy>=1.24.0,<3
 matplotlib>=3.8.0
 wordcloud>=1.9.0
-sentence-transformers>=2.2.0,<4
-torch>=2.0.0,<3

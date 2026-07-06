@@ -1,0 +1,14 @@
+# 完整本地依赖（含语义相似度模型 torch + sentence-transformers）
+# 本地开发：pip install -r requirements-full.txt
+
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+streamlit>=1.28.0,<2
+pandas>=2.0.0,<4
+plotly>=5.18.0
+pyyaml>=6.0
+numpy>=1.24.0,<3
+matplotlib>=3.8.0
+wordcloud>=1.9.0
+sentence-transformers>=2.2.0,<4
+torch>=2.0.0,<3
