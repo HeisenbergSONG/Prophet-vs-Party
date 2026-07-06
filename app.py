@@ -5,6 +5,7 @@
 import streamlit as st
 
 from core.data_loader import init_session_state, load_cases, load_matrix
+from core.project_info import render_project_footer, render_project_sidebar
 from core.viz import matrix_comparison_radar, matrix_table_markup
 
 st.set_page_config(
@@ -13,6 +14,9 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded",
 )
+
+with st.sidebar:
+    render_project_sidebar()
 
 
 def render_home():
@@ -52,11 +56,7 @@ def render_home():
 - **💬 反馈与贡献** — 报告偏差、生成案例贡献模板
 """)
 
-    with st.sidebar:
-        st.markdown("### 文档")
-        st.page_link("pages/5_伦理准则.py", label="伦理准则")
-        st.page_link("pages/6_免责声明.py", label="免责声明")
-        st.caption("Prophet vs Party · GPLv3")
+    render_project_footer()
 
 
 pages = [
