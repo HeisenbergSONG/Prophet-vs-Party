@@ -31,7 +31,7 @@ else:
 
 text = st.text_area("输入待分析文本", height=120, placeholder="粘贴或输入一段宣传/传教话术…")
 
-if st.button("分析", type="primary") and text.strip():
+if st.button("分析", type="primary", use_container_width=True) and text.strip():
     techniques = detect_techniques(text)
     scores = dimension_scores(techniques, matrix)
     similar = find_similar(text, cases, top_k=8)
@@ -75,14 +75,12 @@ if "last_analysis" in st.session_state:
 
     st.markdown("### 混合话术实验")
     st.caption("三类话语各推荐一条修辞结构相似的案例，仅供对照，非立场等效。")
-    cols = st.columns(3)
-    for i, (stype, (case, score)) in enumerate(a["mixed"].items()):
-        with cols[i]:
+    for stype, (case, score) in a["mixed"].items():
+        with st.container(border=True):
             st.markdown(f"**{TYPE_LABELS[stype]}** ({score:.0%})")
             st.markdown(f"> {case['text']}")
 
     md = generate_markdown_report(a["text"], a["techniques"], a["scores"], a["similar"], a["mixed"])
     js = generate_json_report(a["text"], a["techniques"], a["scores"], a["similar"], a["mixed"])
-    c1, c2 = st.columns(2)
-    c1.download_button("下载 Markdown 报告", md, "report.md", "text/markdown")
-    c2.download_button("下载 JSON 报告", js, "report.json", "application/json")
+    st.download_button("下载 Markdown 报告", md, "report.md", "text/markdown", use_container_width=True)
+    st.download_button("下载 JSON 报告", js, "report.json", "application/json", use_container_width=True)

@@ -8,6 +8,38 @@ import plotly.graph_objects as go
 from core.data_loader import TYPE_COLORS, TYPE_LABELS
 
 
+def _mobile_chart_layout(
+    fig: go.Figure,
+    *,
+    height: int = 420,
+    legend_below: bool = True,
+    bottom_margin: int = 72,
+) -> go.Figure:
+    layout: dict = {
+        "height": height,
+        "margin": dict(l=8, r=8, t=48, b=bottom_margin if legend_below else 16),
+        "autosize": True,
+    }
+    if legend_below:
+        layout["legend"] = dict(
+            orientation="h",
+            yanchor="top",
+            y=-0.18,
+            xanchor="center",
+            x=0.5,
+            font=dict(size=11),
+        )
+    fig.update_layout(**layout)
+    if fig.layout.polar:
+        fig.update_layout(
+            polar=dict(
+                radialaxis=dict(tickfont=dict(size=10)),
+                angularaxis=dict(tickfont=dict(size=10)),
+            ),
+        )
+    return fig
+
+
 def radar_chart(scores_list: list[dict[str, float]], labels: list[str]) -> go.Figure:
     categories = list(scores_list[0].keys()) if scores_list else []
     fig = go.Figure()
@@ -23,9 +55,9 @@ def radar_chart(scores_list: list[dict[str, float]], labels: list[str]) -> go.Fi
         ))
     fig.update_layout(
         polar=dict(radialaxis=dict(visible=True, range=[0, 100])),
-        showlegend=True, height=450,
+        showlegend=True,
     )
-    return fig
+    return _mobile_chart_layout(fig, height=440, bottom_margin=88)
 
 
 def matrix_comparison_radar(df: pd.DataFrame, matrix: dict) -> go.Figure:
@@ -56,7 +88,8 @@ def timeline_chart(df: pd.DataFrame) -> go.Figure:
         title="话术历史分布",
     )
     fig.update_yaxes(tickvals=["ccp", "christian", "islam"], ticktext=list(TYPE_LABELS.values()))
-    return fig
+    fig.update_xaxes(tickangle=0)
+    return _mobile_chart_layout(fig, height=360, legend_below=True, bottom_margin=64)
 
 
 def similarity_heatmap(query: str, cases: list[dict], scores: list[float]) -> go.Figure:
@@ -70,8 +103,10 @@ def similarity_heatmap(query: str, cases: list[dict], scores: list[float]) -> go
         texttemplate="%{text}",
         textfont={"size": 10},
     ))
-    fig.update_layout(title=f"与「{query[:20]}…」的相似度", height=200)
-    return fig
+    fig.update_layout(title=f"与「{query[:20]}…」的相似度")
+    fig.update_xaxes(tickangle=-35, tickfont=dict(size=10))
+    height = max(220, 80 + len(cases) * 18)
+    return _mobile_chart_layout(fig, height=height, legend_below=False)
 
 
 def term_frequencies(df: pd.DataFrame) -> dict[str, int]:
@@ -99,8 +134,9 @@ def terms_bar_chart(df: pd.DataFrame) -> go.Figure:
         x=[v for _, v in items], y=[k for k, _ in items],
         orientation="h",
     ))
-    fig.update_layout(title="高频修辞词/技巧", height=500, yaxis=dict(autorange="reversed"))
-    return fig
+    fig.update_layout(title="高频修辞词/技巧", yaxis=dict(autorange="reversed"))
+    height = max(360, min(560, 40 + len(items) * 22))
+    return _mobile_chart_layout(fig, height=height, legend_below=False)
 
 
 def resolve_chinese_font() -> str | None:
@@ -182,4 +218,4 @@ def matrix_table_html(matrix: dict) -> str:
 
 
 def matrix_table_markup(matrix: dict) -> str:
-    return MATRIX_TABLE_CSS + matrix_table_html(matrix)
+    return MATRIX_TABLE_CSS + '<div class="matrix-wrap">' + matrix_table_html(matrix) + "</div>"

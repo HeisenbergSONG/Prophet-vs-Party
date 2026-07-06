@@ -5,6 +5,7 @@
 import streamlit as st
 
 from core.data_loader import init_session_state, load_cases, load_matrix
+from core.mobile_styles import inject_mobile_styles
 from core.project_info import render_project_footer, render_project_sidebar
 from core.viz import matrix_comparison_radar, matrix_table_markup
 
@@ -12,8 +13,10 @@ st.set_page_config(
     page_title="主页",
     page_icon="📖",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
+
+inject_mobile_styles()
 
 with st.sidebar:
     render_project_sidebar()
@@ -34,11 +37,12 @@ def render_home():
     matrix = load_matrix()
     counts = df["source_type"].value_counts()
 
-    col1, col2, col3, col4 = st.columns(4)
-    col1.metric("案例总数", len(df))
-    col2.metric("共产党", counts.get("ccp", 0))
-    col3.metric("基督教", counts.get("christian", 0))
-    col4.metric("伊斯兰教", counts.get("islam", 0))
+    m1, m2 = st.columns(2)
+    m1.metric("案例总数", len(df))
+    m2.metric("共产党", counts.get("ccp", 0))
+    m3, m4 = st.columns(2)
+    m3.metric("基督教", counts.get("christian", 0))
+    m4.metric("伊斯兰教", counts.get("islam", 0))
 
     st.markdown("---")
     st.markdown("### 话术矩阵")

@@ -15,10 +15,12 @@ st.title("📚 案例库")
 df = load_cases()
 matrix = load_matrix()
 
-col1, col2, col3 = st.columns(3)
-query = col1.text_input("搜索", placeholder="关键词、来源、技巧…")
-type_filter = col2.selectbox("类型", ["", "ccp", "christian", "islam"], format_func=lambda x: "全部" if not x else TYPE_LABELS[x])
-cat_filter = col3.selectbox("分类", [""] + sorted(df["category"].unique()))
+query = st.text_input("搜索", placeholder="关键词、来源、技巧…")
+type_filter = st.selectbox(
+    "类型", ["", "ccp", "christian", "islam"],
+    format_func=lambda x: "全部" if not x else TYPE_LABELS[x],
+)
+cat_filter = st.selectbox("分类", [""] + sorted(df["category"].unique()))
 
 filtered = df.copy()
 if query:
@@ -41,7 +43,7 @@ if st.session_state.selected_ids:
     selected_df = df[df["id"].isin(st.session_state.selected_ids)]
     with st.container(border=True):
         st.subheader(f"已选对比（{len(st.session_state.selected_ids)} 条）")
-        if st.button("清空选择", key="clear_selection_top"):
+        if st.button("清空选择", key="clear_selection_top", use_container_width=True):
             st.session_state.selected_ids = []
             st.rerun()
         if len(st.session_state.selected_ids) >= 2:
@@ -68,30 +70,27 @@ for _, row in filtered.iterrows():
     cid = row["id"]
     selected = cid in st.session_state.selected_ids
     with st.container(border=True):
-        c1, c2 = st.columns([4, 1])
-        with c1:
-            st.markdown(f"**{row['type_label']}** · {row['category']} · _{row.get('era', '')}_")
-            st.markdown(f"> {row['text']}")
-            st.markdown(
-                f"<p style='font-size:0.8rem;color:gray'>来源：{row['source']} · 数据：{format_source_html(row.to_dict())}</p>",
-                unsafe_allow_html=True,
-            )
-            techs = row.get("techniques", []) or []
-            st.markdown(" ".join(f"`{t}`" for t in techs))
-            with st.expander("详情"):
-                st.write("心理机制：", row.get("psychological_mechanism", ""))
-                if row.get("parallel"):
-                    st.json(row["parallel"])
-                if row.get("risk_note"):
-                    st.warning(row["risk_note"])
-        with c2:
-            label = "取消" if selected else "对比"
-            if st.button(label, key=f"sel_{cid}"):
-                if selected:
-                    st.session_state.selected_ids.remove(cid)
-                elif len(st.session_state.selected_ids) < 3:
-                    st.session_state.selected_ids.append(cid)
-                else:
-                    st.toast("最多选择 3 条")
-                st.rerun()
-
+        st.markdown(f"**{row['type_label']}** · {row['category']} · _{row.get('era', '')}_")
+        st.markdown(f"> {row['text']}")
+        st.markdown(
+            f"<p style='font-size:0.8rem;color:gray'>来源：{row['source']} · 数据：{format_source_html(row.to_dict())}</p>",
+            unsafe_allow_html=True,
+        )
+        techs = row.get("techniques", []) or []
+        st.markdown(" ".join(f"`{t}`" for t in techs))
+        with st.expander("详情"):
+            st.write("心理机制：", row.get("psychological_mechanism", ""))
+            if row.get("parallel"):
+                st.json(row["parallel"])
+            if row.get("risk_note"):
+                st.warning(row["risk_note"])
+        label = "取消对比" if selected else "加入对比"
+        btn_type = "primary" if not selected else "secondary"
+        if st.button(label, key=f"sel_{cid}", use_container_width=True, type=btn_type):
+            if selected:
+                st.session_state.selected_ids.remove(cid)
+            elif len(st.session_state.selected_ids) < 3:
+                st.session_state.selected_ids.append(cid)
+            else:
+                st.toast("最多选择 3 条")
+            st.rerun()

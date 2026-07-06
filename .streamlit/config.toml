@@ -4,6 +4,9 @@ headless = true
 [browser]
 gatherUsageStats = false
 
+[client]
+toolbarMode = "minimal"
+
 [theme]
 primaryColor = "#2563eb"
 backgroundColor = "#f9fafb"

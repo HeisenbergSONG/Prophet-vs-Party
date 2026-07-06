@@ -6,9 +6,22 @@
     <title>文档 - Prophet vs Party</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
-        body { font-family: system-ui, sans-serif; max-width: 48rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 48rem;
+            margin: 1.5rem auto;
+            padding: 0 max(1rem, env(safe-area-inset-right)) 2rem max(1rem, env(safe-area-inset-left));
+            line-height: 1.65;
+            -webkit-text-size-adjust: 100%;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
         a { color: #2563eb; }
-        nav { margin-bottom: 2rem; font-size: 0.9rem; }
+        nav { margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.8; }
+        #content :is(table) { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        #content :is(pre) { overflow-x: auto; padding: 0.75rem; background: #f3f4f6; border-radius: 0.5rem; }
+        #content :is(h1) { font-size: 1.5rem; }
+        #content :is(h2) { font-size: 1.2rem; }
     </style>
 </head>
 <body>

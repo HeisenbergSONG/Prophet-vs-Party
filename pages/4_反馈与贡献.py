@@ -14,7 +14,7 @@ st.markdown("### 报告偏差")
 st.markdown(
     "发现引文错误、来源不准或归类不当？请附**可核实的公开来源**，在 GitHub 提交 Issue。"
 )
-st.link_button("在 GitHub 报告偏差", ISSUES_URL, type="primary")
+st.link_button("在 GitHub 报告偏差", ISSUES_URL, type="primary", use_container_width=True)
 
 st.markdown("---")
 st.markdown("### 贡献新案例")
