@@ -5,6 +5,7 @@ import streamlit as st
 
 from core.analyzer import score_case_techniques
 from core.data_loader import TYPE_LABELS, init_session_state, load_cases, load_matrix
+from core.source_utils import format_source_html
 from core.viz import radar_chart
 
 st.set_page_config(page_title="案例库", layout="wide")
@@ -44,7 +45,10 @@ for _, row in filtered.iterrows():
         with c1:
             st.markdown(f"**{row['type_label']}** · {row['category']} · _{row.get('era', '')}_")
             st.markdown(f"> {row['text']}")
-            st.caption(f"来源：{row['source']} · 数据：{row.get('source_url', '')}")
+            st.markdown(
+                f"<p style='font-size:0.8rem;color:gray'>来源：{row['source']} · 数据：{format_source_html(row.to_dict())}</p>",
+                unsafe_allow_html=True,
+            )
             techs = row.get("techniques", []) or []
             st.markdown(" ".join(f"`{t}`" for t in techs))
             with st.expander("详情"):

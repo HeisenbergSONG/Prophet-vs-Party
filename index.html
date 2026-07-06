@@ -281,7 +281,7 @@
                     </div>
                     <p class="font-medium leading-relaxed mb-2">"${escapeHtml(c.text)}"</p>
                     <p class="text-xs text-gray-500">来源：${escapeHtml(c.source)} · ${escapeHtml(c.era||'')}</p>
-                    <p class="text-xs text-gray-400 mb-2">数据：${escapeHtml(c.source_url||'')}</p>
+                    <p class="text-xs text-gray-400 mb-2">数据：${c.source_link ? `<a href="${escapeHtml(c.source_link)}" target="_blank" rel="noopener" class="underline">${escapeHtml(c.source_url||'')}</a>` : escapeHtml(c.source_url||'')}</p>
                     <div class="mb-2">${(c.techniques||[]).map(t=>`<span class="tag mr-1 inline-block">${escapeHtml(t)}</span>`).join('')}</div>
                     <p class="text-xs text-gray-600 dark:text-gray-400 mb-3">${escapeHtml(c.psychological_mechanism||'')}</p>
                     <button onclick="toggleCompare('${c.id}')" class="text-sm px-5 py-2 ${sel?'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200':'bg-blue-600 text-white hover:bg-blue-700'} rounded-xl transition">

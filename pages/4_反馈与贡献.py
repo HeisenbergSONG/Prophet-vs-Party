@@ -31,7 +31,9 @@ with st.form("contribute"):
     source_type = st.selectbox("类型", ["ccp", "christian", "islam"], format_func=lambda x: TYPE_LABELS[x])
     text = st.text_input("原文 *")
     source = st.text_input("出处 *")
-    source_url = st.text_input("公开来源（文献名/链接）*")
+    source_url = st.text_input("公开来源描述 *", placeholder="如：《古兰经》马坚译本 4:59")
+    source_link = st.text_input("来源链接（可选）", placeholder="https://...")
+    source_type_ref = st.selectbox("来源类型", ["link", "citation", "archive"])
     category = st.text_input("分类", placeholder="如：希望许诺")
     techniques = st.text_input("技巧标签（逗号分隔）", placeholder="希望许诺, 情感诉求")
     mechanism = st.text_input("心理机制")
@@ -58,6 +60,9 @@ if submitted:
             "tags": ["贡献"],
             "risk_note": risk,
             "source_url": source_url,
+            "source_link": source_link or None,
+            "source_type_ref": source_type_ref,
+            "source_verified": False,
             "year_start": int(year_start),
             "year_end": int(year_end),
             "era": era or f"{year_start}-{year_end}",

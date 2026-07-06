@@ -53,7 +53,7 @@ streamlit run app.py
 python -m http.server 8080
 ```
 
-浏览器打开 `http://localhost:8080/index_test.html`。
+浏览器打开 `http://localhost:8080/index.html`。
 
 > HTML 需通过 HTTP 服务访问，以便加载 `cases.json` 与 `matrix.json`。
 
@@ -78,7 +78,10 @@ python -m http.server 8080
 | `source_type` | `ccp` / `christian` / `islam` |
 | `text` | 原文 |
 | `source` | 出处名称 |
-| `source_url` | 可核实的公开来源 |
+| `source_url` | 可核实的公开来源（人类可读描述） |
+| `source_link` | 可点击 URL（可选，`source_type_ref=link` 时必填） |
+| `source_type_ref` | `link` / `citation` / `archive` |
+| `source_verified` | 是否已核对引文 |
 | `techniques` | 修辞技巧标签 |
 | `parallel` | 跨类型平行映射 |
 | `year_start` / `year_end` / `era` | 时代标注 |
@@ -96,6 +99,15 @@ python -m http.server 8080
 - [路线图](./roadmap.md)
 - [伦理与数据准则](./ETHICS.md) — 公开来源可核实即视为事实，无需人工审核
 - [免责声明](./DISCLAIMER.md)
+
+## 测试与 CI
+
+```bash
+pip install -r requirements-ci.txt
+pytest tests/ -v
+```
+
+推送至 `main` 后，GitHub Actions 自动运行测试（见 `.github/workflows/ci.yml`）。
 
 ## 贡献
 

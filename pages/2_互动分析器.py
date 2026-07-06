@@ -11,6 +11,7 @@ from core.analyzer import (
     mixed_discourse_recommend,
 )
 from core.data_loader import TYPE_LABELS, load_cases, load_matrix
+from core.source_utils import format_source_html
 from core.report import generate_json_report, generate_markdown_report
 from core.viz import radar_chart, similarity_heatmap
 
@@ -67,7 +68,10 @@ if "last_analysis" in st.session_state:
         with st.container(border=True):
             st.markdown(f"**{TYPE_LABELS[case['source_type']]}** · {case['category']} · 相似度 **{score:.0%}**")
             st.markdown(f"> {case['text']}")
-            st.caption(f"{case['source']} · {case.get('source_url', '')}")
+            st.markdown(
+                f"<p style='font-size:0.8rem;color:gray'>{case['source']} · {format_source_html(case)}</p>",
+                unsafe_allow_html=True,
+            )
 
     st.markdown("### 混合话术实验")
     st.caption("三类话语各推荐一条修辞结构相似的案例，仅供对照，非立场等效。")

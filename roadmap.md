@@ -52,7 +52,7 @@
   - [x] 明显免责声明 + “报告偏差”按钮占位
   - [x] 数据来源标注展示
 
-**里程碑**：第 7-10 天完成 50+ 案例 + 可交互原型。✅ 已达成（60 条案例 + index_test.html，需配合 cases.json / matrix.json 通过 HTTP 服务运行）
+**里程碑**：第 7-10 天完成 50+ 案例 + 可交互原型。✅ 已达成（60 条案例 + index.html，需配合 cases.json / matrix.json 通过 HTTP 服务运行）
 
 ---
 

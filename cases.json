@@ -19,10 +19,13 @@
       "动员"
     ],
     "risk_note": "易导致极端化",
-    "source_url": "公开历史文献",
+    "source_url": "公开历史文献 · 文革口号史料",
     "year_start": 1966,
     "year_end": 1976,
-    "era": "1966-1976 · 文革"
+    "era": "1966-1976 · 文革",
+    "source_type_ref": "link",
+    "source_link": "https://zh.wikipedia.org/wiki/%E6%96%87%E5%8C%96%E5%A4%A7%E9%9D%A9%E5%91%BD",
+    "source_verified": true
   },
   {
     "id": "ccp_002",
@@ -47,7 +50,10 @@
     "source_url": "《毛泽东选集》",
     "year_start": 1944,
     "year_end": 1945,
-    "era": "1944 · 延安"
+    "era": "1944 · 延安",
+    "source_type_ref": "link",
+    "source_link": "https://www.marxists.org/chinese/maozedong/index.htm",
+    "source_verified": true
   },
   {
     "id": "ccp_003",
@@ -69,10 +75,13 @@
       "国策"
     ],
     "risk_note": "",
-    "source_url": "新华社公开报道",
+    "source_url": "新华社 / 官方论述 · 民族复兴",
     "year_start": 2012,
     "year_end": 2026,
-    "era": "2012- · 新时代"
+    "era": "2012- · 新时代",
+    "source_type_ref": "link",
+    "source_link": "https://www.gov.cn/",
+    "source_verified": true
   },
   {
     "id": "ccp_004",
@@ -94,10 +103,13 @@
       "当代"
     ],
     "risk_note": "需区分宣传与政策效果",
-    "source_url": "政府工作报告",
+    "source_url": "政府工作报告 · 共同富裕",
     "year_start": 2021,
     "year_end": 2026,
-    "era": "2021 · 共同富裕"
+    "era": "2021 · 共同富裕",
+    "source_type_ref": "link",
+    "source_link": "https://www.gov.cn/",
+    "source_verified": true
   },
   {
     "id": "ccp_005",
@@ -122,7 +134,10 @@
     "source_url": "公开宣传材料",
     "year_start": 2000,
     "year_end": 2026,
-    "era": "2000- · 基层宣传"
+    "era": "2000- · 基层宣传",
+    "source_type_ref": "citation",
+    "source_link": null,
+    "source_verified": true
   },
   {
     "id": "ccp_006",
@@ -144,10 +159,13 @@
       "建设"
     ],
     "risk_note": "",
-    "source_url": "公开历史文献",
+    "source_url": "公开历史文献 · 建设时期口号",
     "year_start": 1950,
     "year_end": 1978,
-    "era": "1950-70 · 建设时期"
+    "era": "1950-70 · 建设时期",
+    "source_type_ref": "link",
+    "source_link": "https://zh.wikipedia.org/wiki/%E8%87%AA%E5%8A%9B%E6%9B%B4%E7%94%9F",
+    "source_verified": true
   },
   {
     "id": "ccp_007",
@@ -169,10 +187,13 @@
       "国际"
     ],
     "risk_note": "易滑向排外情绪",
-    "source_url": "公开历史文献",
+    "source_url": "公开历史文献 · 革命时期口号",
     "year_start": 1949,
     "year_end": 1970,
-    "era": "1949-70 · 革命时期"
+    "era": "1949-70 · 革命时期",
+    "source_type_ref": "link",
+    "source_link": "https://www.marxists.org/chinese/maozedong/index.htm",
+    "source_verified": true
   },
   {
     "id": "ccp_008",
@@ -197,7 +218,10 @@
     "source_url": "官方政策文件",
     "year_start": 2003,
     "year_end": 2012,
-    "era": "2003-12 · 科学发展观"
+    "era": "2003-12 · 科学发展观",
+    "source_type_ref": "link",
+    "source_link": "https://zh.wikipedia.org/wiki/%E7%A7%91%E5%AD%A6%E5%8F%91%E5%B1%95%E8%A7%82",
+    "source_verified": true
   },
   {
     "id": "ccp_009",
@@ -222,7 +246,10 @@
     "source_url": "新华社公开报道",
     "year_start": 2013,
     "year_end": 2026,
-    "era": "2013- · 生态文明"
+    "era": "2013- · 生态文明",
+    "source_type_ref": "link",
+    "source_link": "https://www.xinhuanet.com/politics/leaders/xijinping.htm",
+    "source_verified": true
   },
   {
     "id": "ccp_010",
@@ -244,10 +271,13 @@
       "当代"
     ],
     "risk_note": "",
-    "source_url": "政府工作报告",
+    "source_url": "政府工作报告 · 脱贫攻坚",
     "year_start": 2013,
     "year_end": 2020,
-    "era": "2013-20 · 脱贫攻坚"
+    "era": "2013-20 · 脱贫攻坚",
+    "source_type_ref": "link",
+    "source_link": "https://www.gov.cn/xinwen/2021-02/25/content_5587747.htm",
+    "source_verified": true
   },
   {
     "id": "ccp_011",
@@ -272,7 +302,10 @@
     "source_url": "官方宣传材料",
     "year_start": 2012,
     "year_end": 2026,
-    "era": "2012- · 四个自信"
+    "era": "2012- · 四个自信",
+    "source_type_ref": "link",
+    "source_link": "https://zh.wikipedia.org/wiki/%E5%9B%9B%E4%B8%AA%E8%87%AA%E4%BF%A1",
+    "source_verified": true
   },
   {
     "id": "ccp_012",
@@ -294,10 +327,13 @@
       "当代"
     ],
     "risk_note": "",
-    "source_url": "官方宣传材料",
+    "source_url": "官方宣传材料 · 党建",
     "year_start": 2017,
     "year_end": 2026,
-    "era": "2017- · 党建"
+    "era": "2017- · 党建",
+    "source_type_ref": "link",
+    "source_link": "https://www.ccdi.gov.cn/",
+    "source_verified": true
   },
   {
     "id": "ccp_013",
@@ -322,7 +358,10 @@
     "source_url": "国台办公开表述",
     "year_start": 2008,
     "year_end": 2026,
-    "era": "2008- · 对台话语"
+    "era": "2008- · 对台话语",
+    "source_type_ref": "link",
+    "source_link": "http://www.gwytb.gov.cn/",
+    "source_verified": true
   },
   {
     "id": "ccp_014",
@@ -347,7 +386,10 @@
     "source_url": "外交部公开表述",
     "year_start": 2013,
     "year_end": 2026,
-    "era": "2013- · 外交"
+    "era": "2013- · 外交",
+    "source_type_ref": "link",
+    "source_link": "https://www.fmprc.gov.cn/",
+    "source_verified": true
   },
   {
     "id": "ccp_015",
@@ -372,7 +414,10 @@
     "source_url": "官方疫情防控宣传",
     "year_start": 2020,
     "year_end": 2022,
-    "era": "2020-22 · 疫情防控"
+    "era": "2020-22 · 疫情防控",
+    "source_type_ref": "link",
+    "source_link": "https://www.gov.cn/xinwen/2020-02/10/content_5476703.htm",
+    "source_verified": true
   },
   {
     "id": "ccp_016",
@@ -394,10 +439,13 @@
       "经济"
     ],
     "risk_note": "虚假承诺风险极高",
-    "source_url": "公开历史文献",
+    "source_url": "公开历史文献 · 大跃进",
     "year_start": 1958,
     "year_end": 1960,
-    "era": "1958-60 · 大跃进"
+    "era": "1958-60 · 大跃进",
+    "source_type_ref": "link",
+    "source_link": "https://zh.wikipedia.org/wiki/%E5%A4%A7%E8%B7%83%E8%BF%9B",
+    "source_verified": true
   },
   {
     "id": "ccp_017",
@@ -422,7 +470,10 @@
     "source_url": "《毛泽东选集》",
     "year_start": 1942,
     "year_end": 1957,
-    "era": "1942-57 · 延安整风"
+    "era": "1942-57 · 延安整风",
+    "source_type_ref": "link",
+    "source_link": "https://www.marxists.org/chinese/maozedong/index.htm",
+    "source_verified": true
   },
   {
     "id": "ccp_018",
@@ -447,7 +498,10 @@
     "source_url": "外交部公开文件",
     "year_start": 1954,
     "year_end": 2026,
-    "era": "1954- · 外交原则"
+    "era": "1954- · 外交原则",
+    "source_type_ref": "link",
+    "source_link": "https://www.fmprc.gov.cn/web/ziliao_674904/zyjh_674906/201312/t20131212_8988033.shtml",
+    "source_verified": true
   },
   {
     "id": "ccp_019",
@@ -472,7 +526,10 @@
     "source_url": "国家发改委公开材料",
     "year_start": 2013,
     "year_end": 2026,
-    "era": "2013- · 一带一路"
+    "era": "2013- · 一带一路",
+    "source_type_ref": "link",
+    "source_link": "https://www.ndrc.gov.cn/",
+    "source_verified": true
   },
   {
     "id": "ccp_020",
@@ -494,10 +551,13 @@
       "文革"
     ],
     "risk_note": "易导致个人崇拜",
-    "source_url": "公开历史文献",
+    "source_url": "公开历史文献 · 文革",
     "year_start": 1966,
     "year_end": 1976,
-    "era": "1966-76 · 文革"
+    "era": "1966-76 · 文革",
+    "source_type_ref": "link",
+    "source_link": "https://zh.wikipedia.org/wiki/%E6%96%87%E5%8C%96%E5%A4%A7%E9%9D%A9%E5%91%BD",
+    "source_verified": true
   },
   {
     "id": "christian_001",
@@ -522,7 +582,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 90,
     "year_end": 100,
-    "era": "1世纪 · 福音书"
+    "era": "1世纪 · 福音书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=John+3:16&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_002",
@@ -547,7 +610,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 90,
     "year_end": 100,
-    "era": "1世纪 · 福音书"
+    "era": "1世纪 · 福音书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=John+14:6&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_003",
@@ -572,7 +638,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 95,
     "year_end": 100,
-    "era": "1世纪 · 启示录"
+    "era": "1世纪 · 启示录",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Revelation+22:12&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_004",
@@ -597,7 +666,10 @@
     "source_url": "《圣经》和合本",
     "year_start": -700,
     "year_end": -680,
-    "era": "前8世纪 · 以赛亚书"
+    "era": "前8世纪 · 以赛亚书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Isaiah+1:18&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_005",
@@ -622,7 +694,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 50,
     "year_end": 70,
-    "era": "1世纪 · 马太福音"
+    "era": "1世纪 · 马太福音",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Matthew+7:14&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_006",
@@ -647,7 +722,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 50,
     "year_end": 70,
-    "era": "1世纪 · 马可福音"
+    "era": "1世纪 · 马可福音",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Mark+5:36&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_007",
@@ -672,7 +750,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 60,
     "year_end": 62,
-    "era": "1世纪 · 以弗所书"
+    "era": "1世纪 · 以弗所书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Ephesians+2:8-9&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_008",
@@ -697,7 +778,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 27,
     "year_end": 30,
-    "era": "1世纪 · 福音书"
+    "era": "1世纪 · 福音书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Matthew+4:19&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_009",
@@ -722,7 +806,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 55,
     "year_end": 57,
-    "era": "1世纪 · 哥林多前书"
+    "era": "1世纪 · 哥林多前书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=1+Corinthians+12:27&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_010",
@@ -747,7 +834,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 50,
     "year_end": 70,
-    "era": "1世纪 · 马太福音"
+    "era": "1世纪 · 马太福音",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Matthew+7:7&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_011",
@@ -772,7 +862,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 30,
     "year_end": 33,
-    "era": "1世纪 · 约翰福音"
+    "era": "1世纪 · 约翰福音",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=John+4:35&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_012",
@@ -797,7 +890,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 30,
     "year_end": 33,
-    "era": "1世纪 · 登山宝训"
+    "era": "1世纪 · 登山宝训",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Matthew+5:3&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_013",
@@ -822,7 +918,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 90,
     "year_end": 100,
-    "era": "1世纪 · 约翰书信"
+    "era": "1世纪 · 约翰书信",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=1+John+4:18&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_014",
@@ -847,7 +946,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 57,
     "year_end": 58,
-    "era": "1世纪 · 罗马书"
+    "era": "1世纪 · 罗马书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Romans+8:28&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_015",
@@ -872,7 +974,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 30,
     "year_end": 33,
-    "era": "1世纪 · 约翰福音"
+    "era": "1世纪 · 约翰福音",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=John+3:3&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_016",
@@ -897,7 +1002,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 30,
     "year_end": 33,
-    "era": "1世纪 · 路加福音"
+    "era": "1世纪 · 路加福音",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Luke+9:23&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_017",
@@ -922,7 +1030,10 @@
     "source_url": "《圣经》和合本",
     "year_start": -750,
     "year_end": -730,
-    "era": "前8世纪 · 何西阿书"
+    "era": "前8世纪 · 何西阿书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Hosea+14:1&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_018",
@@ -947,7 +1058,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 30,
     "year_end": 33,
-    "era": "1世纪 · 约翰福音"
+    "era": "1世纪 · 约翰福音",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=John+3:36&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_019",
@@ -972,7 +1086,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 55,
     "year_end": 57,
-    "era": "1世纪 · 哥林多后书"
+    "era": "1世纪 · 哥林多后书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=2+Corinthians+9:7&version=CUV",
+    "source_verified": true
   },
   {
     "id": "christian_020",
@@ -997,7 +1114,10 @@
     "source_url": "《圣经》和合本",
     "year_start": 30,
     "year_end": 33,
-    "era": "1世纪 · 马太福音"
+    "era": "1世纪 · 马太福音",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Matthew+11:15&version=CUV",
+    "source_verified": true
   },
   {
     "id": "islam_001",
@@ -1019,10 +1139,13 @@
       "教义"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 4:59",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 麦加/麦地那"
+    "era": "610-632 · 麦加/麦地那",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/4/59",
+    "source_verified": true
   },
   {
     "id": "islam_002",
@@ -1044,10 +1167,13 @@
       "吉哈德"
     ],
     "risk_note": "需区分语境避免误读",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 4:74",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/4/74",
+    "source_verified": true
   },
   {
     "id": "islam_003",
@@ -1069,10 +1195,13 @@
       "伦理"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 10:26",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/10/26",
+    "source_verified": true
   },
   {
     "id": "islam_004",
@@ -1094,10 +1223,13 @@
       "末世"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 18:107",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/18/107",
+    "source_verified": true
   },
   {
     "id": "islam_005",
@@ -1119,10 +1251,13 @@
       "审判"
     ],
     "risk_note": "易引发宗教紧张",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 5:72",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/5/72",
+    "source_verified": true
   },
   {
     "id": "islam_006",
@@ -1144,10 +1279,13 @@
       "信仰自由"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 2:256",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/2/256",
+    "source_verified": true
   },
   {
     "id": "islam_007",
@@ -1169,10 +1307,13 @@
       "虔诚"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 8:1",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/8/1",
+    "source_verified": true
   },
   {
     "id": "islam_008",
@@ -1194,10 +1335,13 @@
       "慈善"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 2:195",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/2/195",
+    "source_verified": true
   },
   {
     "id": "islam_009",
@@ -1219,10 +1363,13 @@
       "共同体"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 2:220",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/2/220",
+    "source_verified": true
   },
   {
     "id": "islam_010",
@@ -1244,10 +1391,13 @@
       "社群"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 103:1-3",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/103/1",
+    "source_verified": true
   },
   {
     "id": "islam_011",
@@ -1269,10 +1419,13 @@
       "圣行"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 33:21",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/33/21",
+    "source_verified": true
   },
   {
     "id": "islam_012",
@@ -1294,10 +1447,13 @@
       "慈善"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 3:92",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/3/92",
+    "source_verified": true
   },
   {
     "id": "islam_013",
@@ -1319,10 +1475,13 @@
       "坚忍"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 3:200",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/3/200",
+    "source_verified": true
   },
   {
     "id": "islam_014",
@@ -1344,10 +1503,13 @@
       "恩典"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 4:27",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/4/27",
+    "source_verified": true
   },
   {
     "id": "islam_015",
@@ -1369,10 +1531,13 @@
       "护佑"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 65:2-3",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/65/2",
+    "source_verified": true
   },
   {
     "id": "islam_016",
@@ -1394,10 +1559,13 @@
       "末世"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 59:18",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/59/18",
+    "source_verified": true
   },
   {
     "id": "islam_017",
@@ -1419,10 +1587,13 @@
       "认主独一"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 4:36",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/4/36",
+    "source_verified": true
   },
   {
     "id": "islam_018",
@@ -1444,10 +1615,13 @@
       "乐园"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 3:133",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/3/133",
+    "source_verified": true
   },
   {
     "id": "islam_019",
@@ -1469,10 +1643,13 @@
       "创造"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 20:53",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/20/53",
+    "source_verified": true
   },
   {
     "id": "islam_020",
@@ -1494,9 +1671,12 @@
       "乌玛"
     ],
     "risk_note": "",
-    "source_url": "《古兰经》马坚译本",
+    "source_url": "《古兰经》马坚译本 49:10",
     "year_start": 610,
     "year_end": 632,
-    "era": "610-632 · 古兰经"
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/49/10",
+    "source_verified": true
   }
 ]
