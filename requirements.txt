@@ -1,3 +1,5 @@
+# 完整本地依赖（含语义相似度模型）
+# Cloud 轻量部署请改用 requirements-cloud.txt
 # Streamlit Community Cloud — CPU-only PyTorch for smaller install
 --extra-index-url https://download.pytorch.org/whl/cpu
 

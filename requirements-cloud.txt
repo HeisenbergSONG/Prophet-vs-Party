@@ -1,0 +1,11 @@
+# Streamlit Community Cloud 轻量依赖（无 torch / sentence-transformers）
+# 相似度分析自动降级为 Jaccard + 规则引擎，启动更快、内存占用更低
+# 在 share.streamlit.io → Advanced settings → Dependencies file 填此文件名
+
+streamlit>=1.28.0,<2
+pandas>=2.0.0,<4
+plotly>=5.18.0
+pyyaml>=6.0
+numpy>=1.24.0,<3
+matplotlib>=3.8.0
+wordcloud>=1.9.0

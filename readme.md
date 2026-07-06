@@ -62,10 +62,15 @@ python -m http.server 8080
 1. 将代码推送到 GitHub 仓库 `HeisenbergSONG/Prophet-vs-Party`
 2. 登录 [share.streamlit.io](https://share.streamlit.io)，用 GitHub 授权
 3. **New app** → 选择仓库 → Main file path 填 `app.py`
-4. Python 版本选 **3.10** 或 **3.11**
-5. 点击 **Deploy**（依赖见 `requirements.txt`）
-6. 首次启动会下载 `sentence-transformers` 模型（约 120MB），约 2–5 分钟
-7. Advanced settings（可选）：Python **3.11**，依赖文件 `requirements.txt`
+4. **Advanced settings**：
+   - Python version：**3.11**
+   - Dependencies file：**`requirements-cloud.txt`**（推荐，无 torch，启动快）
+5. 点击 **Deploy**
+
+| 依赖文件 | 适用场景 |
+|----------|----------|
+| `requirements-cloud.txt` | **Cloud 推荐**：轻量、省内存，相似度用 Jaccard |
+| `requirements.txt` | 本地完整版：含 `torch` + `sentence-transformers` 语义相似度 |
 
 **在线地址**（部署后填写）：`https://<your-app>.streamlit.app`
 
