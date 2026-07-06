@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<!--
+  Prophet vs Party - 话语之战
+  Copyright (C) 2026 HeisenbergSONG
+  SPDX-License-Identifier: GPL-3.0-or-later
+  See LICENSE for full text.
+-->
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>话语之战 - Prophet vs Party</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { darkMode: 'class' };</script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.js"></script>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; }
+        .card { transition: all 0.2s; }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
+        .tag { background-color: #fef3c7; padding: 2px 8px; border-radius: 9999px; font-size: 0.75rem; }
+        .dark .tag { background-color: #78350f; color: #fef3c7; }
+        .matrix-cell { cursor: pointer; transition: background 0.15s; }
+        .matrix-cell:hover { background: #dbeafe; }
+        .dark .matrix-cell:hover { background: #1e3a5f; }
+        .matrix-cell.active { outline: 2px solid #2563eb; background: #eff6ff; }
+        .dark .matrix-cell.active { background: #1e3a5f; }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors">
+    <div class="max-w-7xl mx-auto p-6">
+        <!-- 顶栏 -->
+        <div class="flex justify-between items-center mb-6">
+            <div class="text-sm text-gray-500 dark:text-gray-400">
+                <a href="readme.md" class="hover:underline">说明</a> ·
+                <a href="ETHICS.md" class="hover:underline">伦理准则</a> ·
+                <a href="DISCLAIMER.md" class="hover:underline">免责声明</a>
+            </div>
+            <button id="darkToggle" onclick="toggleDark()"
+                    class="px-3 py-1 text-sm border rounded-xl dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800">
+                🌙 暗黑模式
+            </button>
+        </div>
+
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-bold">话语之战</h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 mt-2">宣传 vs 传教 · 中立对比分析平台</p>
+            <p class="text-sm text-gray-500 mt-1">Prophet vs Party</p>
+        </header>
+
+        <!-- 免责声明 -->
+        <div class="mb-8 p-4 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 rounded-xl text-sm text-amber-900 dark:text-amber-100">
+            <p class="font-semibold mb-1">免责声明</p>
+            <p>本平台仅供教育与修辞分析，比较不同话语体系的修辞技巧与心理机制，<strong>不构成任何价值判断或政治/宗教立场</strong>。案例均为公开来源可核实的原文。详见 <a href="DISCLAIMER.md" class="underline">完整声明</a>。</p>
+            <button onclick="reportBias()" class="mt-2 text-xs px-3 py-1 bg-amber-200 dark:bg-amber-800 hover:bg-amber-300 rounded-lg transition">报告偏差 / 建议改进</button>
+        </div>
+
+        <!-- 互动分析器 -->
+        <section class="mb-10 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow border border-gray-100 dark:border-gray-700">
+            <h2 class="text-xl font-bold mb-4">互动分析器</h2>
+            <textarea id="analyzeInput" rows="3" placeholder="输入任意文本，检测修辞技巧并推荐相似案例…"
+                      class="w-full p-3 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-900 focus:outline-none focus:border-blue-500"></textarea>
+            <button onclick="runAnalyzer()" class="mt-3 px-5 py-2 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition text-sm">分析文本</button>
+            <div id="analyzeResult" class="hidden mt-4">
+                <div id="detectedTechniques" class="flex flex-wrap gap-2 mb-3"></div>
+                <p id="analyzeScores" class="text-sm text-gray-600 dark:text-gray-300 mb-3"></p>
+                <h3 class="text-sm font-semibold mb-2">相似案例推荐</h3>
+                <div id="similarCases" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+            </div>
+        </section>
+
+        <!-- 话术矩阵 -->
+        <section class="mb-10 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow border border-gray-100 dark:border-gray-700">
+            <h2 class="text-xl font-bold mb-2">话术矩阵</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">点击单元格筛选案例；每类可选一格，选满三类后自动填入对比栏</p>
+            <div class="overflow-x-auto">
+                <table id="matrixTable" class="w-full text-sm border-collapse"></table>
+            </div>
+            <button onclick="clearMatrixSelection()" class="mt-3 text-xs px-3 py-1 border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">清空矩阵选择</button>
+        </section>
+
+        <!-- 时间轴 -->
+        <section class="mb-10 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow border border-gray-100 dark:border-gray-700">
+            <h2 class="text-xl font-bold mb-4">话术时间轴</h2>
+            <div class="max-w-4xl mx-auto"><canvas id="timelineChart" height="200"></canvas></div>
+        </section>
+
+        <!-- 词云 -->
+        <section class="mb-10 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow border border-gray-100 dark:border-gray-700">
+            <h2 class="text-xl font-bold mb-4">关键词词云</h2>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">基于当前筛选结果的文本与技巧标签</p>
+            <div class="flex justify-center"><canvas id="wordcloudCanvas" width="700" height="300" class="max-w-full"></canvas></div>
+        </section>
+
+        <!-- 搜索与筛选 -->
+        <div class="flex flex-wrap gap-4 mb-4 items-center">
+            <input id="searchInput" type="text" placeholder="搜索关键词、来源、技巧..."
+                   class="flex-1 min-w-[200px] p-3 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800 focus:outline-none focus:border-blue-500">
+            <select id="typeFilter" class="p-3 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800">
+                <option value="">全部类型</option>
+                <option value="ccp">共产党宣传</option>
+                <option value="christian">基督教</option>
+                <option value="islam">伊斯兰教</option>
+            </select>
+            <select id="categoryFilter" class="p-3 border dark:border-gray-600 rounded-xl bg-white dark:bg-gray-800">
+                <option value="">全部分类</option>
+            </select>
+        </div>
+
+        <div id="statsBar" class="text-sm text-gray-500 dark:text-gray-400 mb-6"></div>
+
+        <div id="selectedBar" class="hidden mb-6 p-4 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-xl">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                    <span class="font-medium text-blue-900 dark:text-blue-200">已选对比：</span>
+                    <span id="selectedList" class="text-blue-700 dark:text-blue-300"></span>
+                    <span class="text-blue-500 text-sm ml-2">（2-3 条）</span>
+                </div>
+                <div class="flex gap-2 flex-wrap">
+                    <button onclick="runComparison()" id="compareBtn"
+                            class="px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 text-sm disabled:opacity-50" disabled>开始对比</button>
+                    <button onclick="clearSelection()"
+                            class="px-4 py-2 bg-white dark:bg-gray-800 border border-blue-300 dark:border-blue-600 text-blue-700 dark:text-blue-300 rounded-xl text-sm">清空</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="casesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <p id="emptyMsg" class="hidden text-center text-gray-400 py-12">没有匹配的案例</p>
+
+        <div id="comparison" class="hidden mt-12 bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl border border-gray-100 dark:border-gray-700">
+            <h2 class="text-2xl font-bold mb-6 text-center">对比分析结果</h2>
+            <div id="comparisonCards" class="grid grid-cols-1 lg:grid-cols-3 gap-6"></div>
+            <div class="mt-10">
+                <h3 class="font-semibold mb-4 text-center">修辞维度对比</h3>
+                <div class="max-w-2xl mx-auto"><canvas id="radarChart" height="320"></canvas></div>
+            </div>
+            <div class="mt-8 flex justify-center gap-3 flex-wrap">
+                <button onclick="exportReport('md')" class="px-5 py-2 bg-gray-800 dark:bg-gray-600 text-white rounded-xl hover:bg-gray-900 text-sm">导出 Markdown</button>
+                <button onclick="exportReport('json')" class="px-5 py-2 bg-gray-600 text-white rounded-xl hover:bg-gray-700 text-sm">导出 JSON</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const TYPE_LABELS = { ccp: '共产党', christian: '基督教', islam: '伊斯兰教' };
+        const TYPE_COLORS = { ccp: 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300', christian: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300', islam: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300' };
+        const TYPE_CHART = { ccp: 'rgb(239,68,68)', christian: 'rgb(59,130,246)', islam: 'rgb(34,197,94)' };
+
+        const DIMENSIONS = [
+            { key: 'emotion', label: '情感诉求', techniques: ['情感诉求'] },
+            { key: 'authority', label: '权威性', techniques: ['权威引用', '领袖崇拜'] },
+            { key: 'hope', label: '希望许诺', techniques: ['希望许诺', '末世论'] },
+            { key: 'fear', label: '恐惧动员', techniques: ['恐惧动员', '敌人妖魔化'] },
+            { key: 'collective', label: '集体归属', techniques: ['集体归属', '动员'] },
+            { key: 'binary', label: '二元对立', techniques: ['二元对立'] },
+            { key: 'sacrifice', label: '牺牲奉献', techniques: ['牺牲奉献', '道德号召'] }
+        ];
+
+        const RULES = [
+            { pattern: /敌人|魔鬼|撒旦|帝国主义|不信道|异教徒|阶级敌人/, technique: '敌人妖魔化', dim: 'fear' },
+            { pattern: /乐园|天国|永生|富裕|复兴|恩典|善报|得救/, technique: '希望许诺', dim: 'hope' },
+            { pattern: /服从|顺从|跟党|敬畏|崇拜真主|领袖|万岁|权威/, technique: '权威引用', dim: 'authority' },
+            { pattern: /爱|关怀|兄弟|一家亲|共同体|肢体|乌玛/, technique: '集体归属', dim: 'collective' },
+            { pattern: /奋斗|牺牲|奉献|施舍|背起|艰苦奋斗|花费/, technique: '牺牲奉献', dim: 'sacrifice' },
+            { pattern: /不信|敌我|区别|窄门|正道|邪道|二元|对立/, technique: '二元对立', dim: 'binary' },
+            { pattern: /末日|审判|火狱|震怒|畏惧|恐惧|报应/, technique: '恐惧动员', dim: 'fear' },
+            { pattern: /神爱|人民|情感|怜悯|回转|哀恸/, technique: '情感诉求', dim: 'emotion' },
+            { pattern: /历史|复兴|使命|必然|末世|乐园宽/, technique: '历史叙事', dim: 'hope' },
+            { pattern: /动员|收割|吉哈德|脱贫|进军/, technique: '动员', dim: 'collective' }
+        ];
+
+        let allCases = [], filteredCases = [], selectedCases = [], matrixData = null;
+        let radarChartInstance = null, timelineChartInstance = null;
+        let matrixSelection = { ccp: null, christian: null, islam: null };
+
+        function escapeHtml(str) {
+            const d = document.createElement('div'); d.textContent = str; return d.innerHTML;
+        }
+
+        function toggleDark() {
+            document.documentElement.classList.toggle('dark');
+            const on = document.documentElement.classList.contains('dark');
+            localStorage.setItem('darkMode', on ? '1' : '0');
+            document.getElementById('darkToggle').textContent = on ? '☀️ 浅色模式' : '🌙 暗黑模式';
+            renderWordCloud(); renderTimeline();
+            if (radarChartInstance && selectedCases.length >= 2) renderRadarChart();
+        }
+
+        function initDark() {
+            if (localStorage.getItem('darkMode') === '1') {
+                document.documentElement.classList.add('dark');
+                document.getElementById('darkToggle').textContent = '☀️ 浅色模式';
+            }
+        }
+
+        function scoreCase(c) {
+            const techs = c.techniques || [];
+            return DIMENSIONS.map(d => {
+                const n = techs.filter(t => d.techniques.includes(t)).length;
+                return n ? Math.min(60 + n * 15, 100) : 20;
+            });
+        }
+
+        function bigrams(text) {
+            const s = text.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, '');
+            const set = new Set();
+            for (let i = 0; i < s.length - 1; i++) set.add(s.slice(i, i + 2));
+            return set;
+        }
+
+        function jaccard(a, b) {
+            const A = bigrams(a), B = bigrams(b);
+            let inter = 0;
+            A.forEach(x => { if (B.has(x)) inter++; });
+            const union = A.size + B.size - inter;
+            return union ? inter / union : 0;
+        }
+
+        async function loadData() {
+            try {
+                const [casesRes, matrixRes] = await Promise.all([
+                    fetch('cases.json'), fetch('matrix.json')
+                ]);
+                allCases = await casesRes.json();
+                matrixData = await matrixRes.json();
+                populateCategoryFilter();
+                renderMatrix();
+                applyFilters();
+            } catch (e) {
+                console.error(e);
+                alert('数据加载失败，请通过 HTTP 服务运行（python -m http.server 8080）');
+            }
+        }
+
+        function populateCategoryFilter() {
+            const sel = document.getElementById('categoryFilter');
+            [...new Set(allCases.map(c => c.category))].sort().forEach(cat => {
+                const o = document.createElement('option'); o.value = cat; o.textContent = cat; sel.appendChild(o);
+            });
+        }
+
+        function applyFilters() {
+            const q = document.getElementById('searchInput').value.trim().toLowerCase();
+            const type = document.getElementById('typeFilter').value;
+            const cat = document.getElementById('categoryFilter').value;
+            filteredCases = allCases.filter(c => {
+                if (type && c.source_type !== type) return false;
+                if (cat && c.category !== cat) return false;
+                if (q) {
+                    const hay = [c.text, c.source, c.category, c.era, ...(c.techniques||[]), ...(c.tags||[]), c.psychological_mechanism].join(' ').toLowerCase();
+                    if (!hay.includes(q)) return false;
+                }
+                return true;
+            });
+            updateStats(); renderCases(filteredCases); renderWordCloud(); renderTimeline();
+        }
+
+        function updateStats() {
+            const n = { ccp: 0, christian: 0, islam: 0 };
+            allCases.forEach(c => n[c.source_type]++);
+            document.getElementById('statsBar').textContent =
+                `共 ${allCases.length} 条（共产党 ${n.ccp} / 基督教 ${n.christian} / 伊斯兰教 ${n.islam}）` +
+                (filteredCases.length !== allCases.length ? ` · 显示 ${filteredCases.length} 条` : '');
+        }
+
+        function renderCases(cases) {
+            const grid = document.getElementById('casesGrid');
+            const empty = document.getElementById('emptyMsg');
+            grid.innerHTML = '';
+            if (!cases.length) { empty.classList.remove('hidden'); return; }
+            empty.classList.add('hidden');
+            cases.forEach(c => {
+                const sel = selectedCases.some(s => s.id === c.id);
+                const card = document.createElement('div');
+                card.className = `card bg-white dark:bg-gray-800 p-6 rounded-2xl shadow border border-gray-100 dark:border-gray-700${sel ? ' ring-2 ring-blue-500' : ''}`;
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <span class="px-3 py-1 text-xs rounded-full ${TYPE_COLORS[c.source_type]}">${TYPE_LABELS[c.source_type]}</span>
+                        <span class="text-xs text-gray-500">${escapeHtml(c.category)}</span>
+                    </div>
+                    <p class="font-medium leading-relaxed mb-2">"${escapeHtml(c.text)}"</p>
+                    <p class="text-xs text-gray-500">来源：${escapeHtml(c.source)} · ${escapeHtml(c.era||'')}</p>
+                    <p class="text-xs text-gray-400 mb-2">数据：${escapeHtml(c.source_url||'')}</p>
+                    <div class="mb-2">${(c.techniques||[]).map(t=>`<span class="tag mr-1 inline-block">${escapeHtml(t)}</span>`).join('')}</div>
+                    <p class="text-xs text-gray-600 dark:text-gray-400 mb-3">${escapeHtml(c.psychological_mechanism||'')}</p>
+                    <button onclick="toggleCompare('${c.id}')" class="text-sm px-5 py-2 ${sel?'bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-200':'bg-blue-600 text-white hover:bg-blue-700'} rounded-xl transition">
+                        ${sel?'取消对比':'加入对比'}
+                    </button>`;
+                grid.appendChild(card);
+            });
+        }
+
+        function toggleCompare(id) {
+            const c = allCases.find(x => x.id === id);
+            if (!c) return;
+            const i = selectedCases.findIndex(s => s.id === id);
+            if (i >= 0) selectedCases.splice(i, 1);
+            else if (selectedCases.length < 3) selectedCases.push(c);
+            else { alert('最多 3 条'); return; }
+            updateSelectedBar(); applyFilters();
+        }
+
+        function updateSelectedBar() {
+            const bar = document.getElementById('selectedBar');
+            if (!selectedCases.length) { bar.classList.add('hidden'); return; }
+            bar.classList.remove('hidden');
+            document.getElementById('selectedList').textContent = selectedCases.map(c => `「${c.text.slice(0,10)}…」`).join('、');
+            document.getElementById('compareBtn').disabled = selectedCases.length < 2;
+        }
+
+        function clearSelection() {
+            selectedCases = []; updateSelectedBar();
+            document.getElementById('comparison').classList.add('hidden'); applyFilters();
+        }
+
+        function runComparison() { if (selectedCases.length >= 2) showComparison(); }
+
+        function showComparison() {
+            const div = document.getElementById('comparison');
+            const cards = document.getElementById('comparisonCards');
+            div.classList.remove('hidden'); cards.innerHTML = '';
+            selectedCases.forEach(c => {
+                const el = document.createElement('div');
+                el.className = 'p-5 rounded-2xl border border-gray-100 dark:border-gray-600 bg-gray-50 dark:bg-gray-900';
+                const par = Object.entries(c.parallel||{}).map(([k,v])=>`<p class="text-xs mt-1"><b>${TYPE_LABELS[k]||k}：</b>${escapeHtml(v)}</p>`).join('');
+                el.innerHTML = `
+                    <span class="px-3 py-1 text-xs rounded-full ${TYPE_COLORS[c.source_type]}">${TYPE_LABELS[c.source_type]}</span>
+                    <h3 class="font-bold mt-2">${escapeHtml(c.category)}</h3>
+                    <p class="my-2">"${escapeHtml(c.text)}"</p>
+                    <p class="text-xs text-gray-500">来源：${escapeHtml(c.source)} · ${escapeHtml(c.era||'')}</p>
+                    <div class="mt-2 flex flex-wrap gap-1">${(c.techniques||[]).map(t=>`<span class="tag">${escapeHtml(t)}</span>`).join('')}</div>
+                    <p class="text-sm mt-2">${escapeHtml(c.psychological_mechanism||'')}</p>
+                    ${c.risk_note?`<p class="text-xs text-red-500 mt-1">⚠ ${escapeHtml(c.risk_note)}</p>`:''}
+                    <div class="mt-3 p-2 bg-white dark:bg-gray-800 rounded-lg text-xs"><b>平行映射</b>${par||' 暂无'}</div>`;
+                cards.appendChild(el);
+            });
+            renderRadarChart();
+            div.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function renderRadarChart() {
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            if (radarChartInstance) radarChartInstance.destroy();
+            const dark = document.documentElement.classList.contains('dark');
+            radarChartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: DIMENSIONS.map(d => d.label),
+                    datasets: selectedCases.map((c, i) => ({
+                        label: `${TYPE_LABELS[c.source_type]}：${c.text.slice(0,8)}…`,
+                        data: scoreCase(c),
+                        backgroundColor: [TYPE_CHART.ccp, TYPE_CHART.christian, TYPE_CHART.islam][i]?.replace('rgb','rgba').replace(')',',0.4)') || 'rgba(100,100,100,0.4)',
+                        borderColor: [TYPE_CHART.ccp, TYPE_CHART.christian, TYPE_CHART.islam][i] || '#666',
+                        borderWidth: 2
+                    }))
+                },
+                options: {
+                    scales: { r: { min: 0, max: 100, ticks: { stepSize: 20, color: dark?'#9ca3af':'#666' }, grid: { color: dark?'#374151':'#e5e7eb' }, pointLabels: { color: dark?'#d1d5db':'#374151' } } },
+                    plugins: { legend: { labels: { color: dark?'#d1d5db':'#374151' } } }
+                }
+            });
+        }
+
+        function runAnalyzer() {
+            const input = document.getElementById('analyzeInput').value.trim();
+            if (!input) return;
+            const detected = [];
+            RULES.forEach(r => { if (r.pattern.test(input) && !detected.find(d=>d.technique===r.technique)) detected.push(r); });
+            const dimScores = {};
+            DIMENSIONS.forEach(d => dimScores[d.label] = 0);
+            detected.forEach(d => {
+                const dim = DIMENSIONS.find(x => x.key === d.dim);
+                if (dim) dimScores[dim.label] += 30;
+            });
+
+            document.getElementById('analyzeResult').classList.remove('hidden');
+            document.getElementById('detectedTechniques').innerHTML = detected.length
+                ? detected.map(d => `<span class="tag">${escapeHtml(d.technique)}</span>`).join('')
+                : '<span class="text-gray-400 text-sm">未匹配到预设规则，可尝试调整表述</span>';
+            document.getElementById('analyzeScores').textContent = '维度估算：' +
+                Object.entries(dimScores).filter(([,v])=>v>0).map(([k,v])=>`${k} ${v}`).join(' · ') || '暂无';
+
+            const similar = allCases.map(c => ({ c, s: jaccard(input, c.text) * 0.6 + jaccard(input, (c.techniques||[]).join('')) * 0.4 }))
+                .sort((a,b)=>b.s-a.s).slice(0,5);
+            document.getElementById('similarCases').innerHTML = similar.map(({c,s}) => `
+                <div class="p-3 border dark:border-gray-600 rounded-xl text-sm">
+                    <span class="text-xs ${TYPE_COLORS[c.source_type]} px-2 py-0.5 rounded-full">${TYPE_LABELS[c.source_type]}</span>
+                    <p class="mt-1">"${escapeHtml(c.text.slice(0,40))}${c.text.length>40?'…':''}"</p>
+                    <p class="text-xs text-gray-500 mt-1">相似度 ${(s*100).toFixed(0)}%</p>
+                    <button onclick="toggleCompare('${c.id}')" class="mt-2 text-xs text-blue-600 hover:underline">加入对比</button>
+                </div>`).join('');
+        }
+
+        function renderMatrix() {
+            if (!matrixData) return;
+            const tbl = document.getElementById('matrixTable');
+            let html = '<thead><tr class="border-b dark:border-gray-600"><th class="p-2 text-left">维度</th><th class="p-2">共产党</th><th class="p-2">基督教</th><th class="p-2">伊斯兰教</th></tr></thead><tbody>';
+            matrixData.dimensions.forEach(dim => {
+                html += `<tr class="border-b dark:border-gray-700"><td class="p-2 font-medium">${escapeHtml(dim.label)}</td>`;
+                ['ccp','christian','islam'].forEach(type => {
+                    const active = matrixSelection[type]?.dimKey === dim.key;
+                    html += `<td class="p-2 matrix-cell text-center text-xs ${active?'active':''}"
+                        onclick="matrixClick('${dim.key}','${type}','${dim.techniques.join(',')}')"
+                        title="点击筛选">${escapeHtml(dim[type])}</td>`;
+                });
+                html += '</tr>';
+            });
+            tbl.innerHTML = html + '</tbody>';
+        }
+
+        function matrixClick(dimKey, type, techStr) {
+            const techniques = techStr.split(',');
+            matrixSelection[type] = { dimKey, techniques };
+            const match = allCases.find(c => c.source_type === type && (c.techniques||[]).some(t => techniques.includes(t)));
+            if (match && !selectedCases.find(s=>s.id===match.id)) {
+                if (selectedCases.length < 3) selectedCases.push(match);
+            }
+            document.getElementById('typeFilter').value = type;
+            document.getElementById('searchInput').value = '';
+            renderMatrix(); updateSelectedBar(); applyFilters();
+            if (matrixSelection.ccp && matrixSelection.christian && matrixSelection.islam && selectedCases.length >= 2)
+                setTimeout(runComparison, 300);
+        }
+
+        function clearMatrixSelection() {
+            matrixSelection = { ccp: null, christian: null, islam: null };
+            renderMatrix();
+        }
+
+        function renderTimeline() {
+            const ctx = document.getElementById('timelineChart').getContext('2d');
+            if (timelineChartInstance) timelineChartInstance.destroy();
+            const dark = document.documentElement.classList.contains('dark');
+            const datasets = ['ccp','christian','islam'].map(type => ({
+                label: TYPE_LABELS[type],
+                data: filteredCases.filter(c=>c.source_type===type).map(c=>({
+                    x: (c.year_start + c.year_end) / 2,
+                    y: { ccp: 1, christian: 2, islam: 3 }[type],
+                    r: 6,
+                    caseId: c.id,
+                    label: c.text.slice(0,12)
+                })),
+                backgroundColor: TYPE_CHART[type],
+                pointRadius: 6
+            }));
+            timelineChartInstance = new Chart(ctx, {
+                type: 'bubble',
+                data: { datasets },
+                options: {
+                    onClick: (_, els) => {
+                        if (!els.length) return;
+                        const pt = timelineChartInstance.data.datasets[els[0].datasetIndex].data[els[0].index];
+                        if (pt.caseId) toggleCompare(pt.caseId);
+                    },
+                    scales: {
+                        x: { type: 'linear', title: { display: true, text: '年代', color: dark?'#9ca3af':'#666' }, ticks: { color: dark?'#9ca3af':'#666' }, grid: { color: dark?'#374151':'#e5e7eb' } },
+                        y: { min: 0, max: 4, ticks: { stepSize: 1, callback: v => ({1:'共产党',2:'基督教',3:'伊斯兰教'}[v]||''), color: dark?'#9ca3af':'#666' }, grid: { color: dark?'#374151':'#e5e7eb' } }
+                    },
+                    plugins: {
+                        tooltip: { callbacks: { label: ctx => ctx.raw.label || '' } },
+                        legend: { labels: { color: dark?'#d1d5db':'#374151' } }
+                    }
+                }
+            });
+        }
+
+        function tokenizeForCloud(cases) {
+            const freq = {};
+            const add = (w, n=1) => { if (w.length >= 2) freq[w] = (freq[w]||0) + n; };
+            cases.forEach(c => {
+                (c.techniques||[]).forEach(t => add(t, 3));
+                (c.tags||[]).forEach(t => add(t, 2));
+                const s = c.text.replace(/[^\u4e00-\u9fa5]/g, '');
+                for (let i = 0; i < s.length - 1; i++) add(s.slice(i, i+2), 1);
+            });
+            return Object.entries(freq).sort((a,b)=>b[1]-a[1]).slice(0, 60);
+        }
+
+        function renderWordCloud() {
+            const canvas = document.getElementById('wordcloudCanvas');
+            const list = tokenizeForCloud(filteredCases);
+            const dark = document.documentElement.classList.contains('dark');
+            if (!list.length) return;
+            WordCloud(canvas, {
+                list, gridSize: 8, weightFactor: 2.5, fontFamily: 'system-ui',
+                color: () => dark ? `hsl(${Math.random()*360},60%,70%)` : `hsl(${Math.random()*360},55%,40%)`,
+                backgroundColor: dark ? '#1f2937' : '#ffffff'
+            });
+        }
+
+        function exportReport(fmt) {
+            const payload = {
+                generated: new Date().toISOString(),
+                disclaimer: '教育用途，不构成价值判断',
+                cases: selectedCases
+            };
+            if (fmt === 'json') {
+                const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+                const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+                a.download = 'prophet-vs-party-comparison.json'; a.click();
+                return;
+            }
+            const lines = ['# 话语之战 · 对比分析报告\n', `生成时间：${new Date().toLocaleString('zh-CN')}\n`, '> 教育用途，不构成价值判断。\n'];
+            selectedCases.forEach((c, i) => {
+                lines.push(`## 案例 ${i+1}：${c.category}（${TYPE_LABELS[c.source_type]}）\n`);
+                lines.push(`- **文本**：${c.text}`);
+                lines.push(`- **来源**：${c.source} · ${c.era||''}`);
+                lines.push(`- **数据**：${c.source_url||''}`);
+                lines.push(`- **技巧**：${(c.techniques||[]).join('、')}`);
+                lines.push(`- **心理机制**：${c.psychological_mechanism||''}`);
+                if (c.parallel) Object.entries(c.parallel).forEach(([k,v]) => lines.push(`- **${TYPE_LABELS[k]||k}平行**：${v}`));
+                lines.push('');
+            });
+            const blob = new Blob([lines.join('\n')], { type: 'text/markdown' });
+            const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+            a.download = 'prophet-vs-party-report.md'; a.click();
+        }
+
+        function reportBias() {
+            window.open('https://github.com/HeisenbergSONG/Prophet-vs-Party/issues', '_blank');
+        }
+
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        document.getElementById('typeFilter').addEventListener('change', applyFilters);
+        document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+
+        initDark();
+        window.onload = loadData;
+    </script>
+</body>
+</html>
