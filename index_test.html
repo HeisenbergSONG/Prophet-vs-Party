@@ -8,115 +8,363 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body { font-family: system-ui, -apple-system, sans-serif; }
-        .highlight { background-color: #fef3c7; padding: 2px 4px; border-radius: 9999px; font-size: 0.875rem; }
         .card { transition: all 0.2s; }
         .card:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
+        .card.selected { ring: 2px; box-shadow: 0 0 0 2px #2563eb; }
+        .tag { background-color: #fef3c7; padding: 2px 8px; border-radius: 9999px; font-size: 0.75rem; }
     </style>
 </head>
 <body class="bg-gray-50">
     <div class="max-w-7xl mx-auto p-6">
-        <header class="text-center mb-10">
+        <header class="text-center mb-8">
             <h1 class="text-4xl font-bold text-gray-900">话语之战</h1>
             <p class="text-xl text-gray-600 mt-2">宣传 vs 传教 · 中立对比分析平台</p>
             <p class="text-sm text-gray-500 mt-1">Prophet vs Party</p>
         </header>
 
-        <!-- 搜索与筛选 -->
-        <div class="flex gap-4 mb-8">
-            <input id="searchInput" type="text" placeholder="搜索关键词..." 
-                   class="flex-1 p-3 border rounded-xl focus:outline-none focus:border-blue-500">
+        <!-- 免责声明 -->
+        <div class="mb-8 p-4 bg-amber-50 border border-amber-200 rounded-xl text-sm text-amber-900">
+            <p class="font-semibold mb-1">免责声明</p>
+            <p>本平台仅供教育与修辞分析用途，旨在比较不同话语体系的修辞技巧与心理机制，<strong>不构成任何价值判断或政治/宗教立场</strong>。所有案例均标注公开来源，欢迎报告偏差。</p>
+            <button onclick="reportBias()" class="mt-2 text-xs px-3 py-1 bg-amber-200 hover:bg-amber-300 rounded-lg transition">报告偏差 / 建议改进</button>
+        </div>
+
+        <!-- 统计与搜索 -->
+        <div class="flex flex-wrap gap-4 mb-4 items-center">
+            <input id="searchInput" type="text" placeholder="搜索关键词、来源、技巧..."
+                   class="flex-1 min-w-[200px] p-3 border rounded-xl focus:outline-none focus:border-blue-500">
             <select id="typeFilter" class="p-3 border rounded-xl">
-                <option value="">全部</option>
+                <option value="">全部类型</option>
                 <option value="ccp">共产党宣传</option>
                 <option value="christian">基督教</option>
                 <option value="islam">伊斯兰教</option>
             </select>
+            <select id="categoryFilter" class="p-3 border rounded-xl">
+                <option value="">全部分类</option>
+            </select>
+        </div>
+
+        <div id="statsBar" class="text-sm text-gray-500 mb-6"></div>
+
+        <!-- 已选对比栏 -->
+        <div id="selectedBar" class="hidden mb-6 p-4 bg-blue-50 border border-blue-200 rounded-xl">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                    <span class="font-medium text-blue-900">已选对比：</span>
+                    <span id="selectedList" class="text-blue-700"></span>
+                    <span class="text-blue-500 text-sm ml-2">（选择 2-3 条）</span>
+                </div>
+                <div class="flex gap-2">
+                    <button onclick="runComparison()" id="compareBtn"
+                            class="px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition text-sm disabled:opacity-50"
+                            disabled>开始对比</button>
+                    <button onclick="clearSelection()"
+                            class="px-4 py-2 bg-white border border-blue-300 text-blue-700 rounded-xl hover:bg-blue-100 transition text-sm">清空</button>
+                </div>
+            </div>
         </div>
 
         <!-- 案例展示 -->
-        <div id="casesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- 动态加载 -->
-        </div>
+        <div id="casesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <p id="emptyMsg" class="hidden text-center text-gray-400 py-12">没有匹配的案例</p>
 
         <!-- 对比区 -->
         <div id="comparison" class="hidden mt-12 bg-white p-8 rounded-3xl shadow-xl">
             <h2 class="text-2xl font-bold mb-6 text-center">对比分析结果</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <!-- 左侧三个案例详情 -->
-            </div>
-            
-            <!-- 雷达图 -->
+            <div id="comparisonCards" class="grid grid-cols-1 lg:grid-cols-3 gap-6"></div>
+
             <div class="mt-10">
-                <h3 class="font-semibold mb-4 text-center">修辞维度对比</h3>
-                <canvas id="radarChart" height="300"></canvas>
+                <h3 class="font-semibold mb-4 text-center">修辞维度对比（基于技巧标签估算）</h3>
+                <div class="max-w-2xl mx-auto">
+                    <canvas id="radarChart" height="320"></canvas>
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-center">
+                <button onclick="exportReport()" class="px-5 py-2 bg-gray-800 text-white rounded-xl hover:bg-gray-900 transition text-sm">
+                    导出 Markdown 报告
+                </button>
             </div>
         </div>
     </div>
 
     <script>
+        const TYPE_LABELS = { ccp: '共产党', christian: '基督教', islam: '伊斯兰教' };
+        const TYPE_COLORS = {
+            ccp: 'bg-red-100 text-red-700',
+            christian: 'bg-blue-100 text-blue-700',
+            islam: 'bg-green-100 text-green-700'
+        };
+
+        const DIMENSIONS = [
+            { key: 'emotion', label: '情感诉求', techniques: ['情感诉求'] },
+            { key: 'authority', label: '权威性', techniques: ['权威引用', '领袖崇拜'] },
+            { key: 'hope', label: '希望许诺', techniques: ['希望许诺', '末世论'] },
+            { key: 'fear', label: '恐惧动员', techniques: ['恐惧动员', '敌人妖魔化'] },
+            { key: 'collective', label: '集体归属', techniques: ['集体归属', '动员'] },
+            { key: 'binary', label: '二元对立', techniques: ['二元对立'] },
+            { key: 'sacrifice', label: '牺牲奉献', techniques: ['牺牲奉献', '道德号召'] }
+        ];
+
         let allCases = [];
+        let filteredCases = [];
+        let selectedCases = [];
         let radarChartInstance = null;
+
+        function escapeHtml(str) {
+            const div = document.createElement('div');
+            div.textContent = str;
+            return div.innerHTML;
+        }
+
+        function scoreCase(caseItem) {
+            const techs = caseItem.techniques || [];
+            return DIMENSIONS.map(d => {
+                const match = d.techniques.some(t => techs.includes(t));
+                return match ? Math.min(60 + techs.filter(t => d.techniques.includes(t)).length * 15, 100) : 20;
+            });
+        }
 
         async function loadCases() {
             try {
                 const response = await fetch('cases.json');
                 allCases = await response.json();
-                renderCases(allCases);
+                populateCategoryFilter();
+                applyFilters();
             } catch (e) {
-                console.error("加载 cases.json 失败", e);
-                alert("数据加载失败，请确保 cases.json 与 HTML 在同一目录");
+                console.error('加载 cases.json 失败', e);
+                alert('数据加载失败，请确保 cases.json 与 HTML 在同一目录');
             }
+        }
+
+        function populateCategoryFilter() {
+            const categories = [...new Set(allCases.map(c => c.category))].sort();
+            const sel = document.getElementById('categoryFilter');
+            categories.forEach(cat => {
+                const opt = document.createElement('option');
+                opt.value = cat;
+                opt.textContent = cat;
+                sel.appendChild(opt);
+            });
+        }
+
+        function applyFilters() {
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const type = document.getElementById('typeFilter').value;
+            const category = document.getElementById('categoryFilter').value;
+
+            filteredCases = allCases.filter(c => {
+                if (type && c.source_type !== type) return false;
+                if (category && c.category !== category) return false;
+                if (query) {
+                    const haystack = [
+                        c.text, c.source, c.category,
+                        ...(c.techniques || []), ...(c.tags || []),
+                        c.psychological_mechanism, c.risk_note
+                    ].join(' ').toLowerCase();
+                    if (!haystack.includes(query)) return false;
+                }
+                return true;
+            });
+
+            updateStats();
+            renderCases(filteredCases);
+        }
+
+        function updateStats() {
+            const counts = { ccp: 0, christian: 0, islam: 0 };
+            allCases.forEach(c => counts[c.source_type]++);
+            document.getElementById('statsBar').textContent =
+                `共 ${allCases.length} 条案例（共产党 ${counts.ccp} / 基督教 ${counts.christian} / 伊斯兰教 ${counts.islam}）` +
+                (filteredCases.length !== allCases.length ? ` · 当前显示 ${filteredCases.length} 条` : '');
         }
 
         function renderCases(cases) {
             const grid = document.getElementById('casesGrid');
+            const empty = document.getElementById('emptyMsg');
             grid.innerHTML = '';
-            
+
+            if (cases.length === 0) {
+                empty.classList.remove('hidden');
+                return;
+            }
+            empty.classList.add('hidden');
+
             cases.forEach(caseItem => {
+                const isSelected = selectedCases.some(s => s.id === caseItem.id);
                 const card = document.createElement('div');
-                card.className = `card bg-white p-6 rounded-2xl shadow border border-gray-100`;
+                card.className = `card bg-white p-6 rounded-2xl shadow border border-gray-100${isSelected ? ' ring-2 ring-blue-500' : ''}`;
+                card.dataset.id = caseItem.id;
+
+                const techTags = (caseItem.techniques || []).map(t =>
+                    `<span class="tag mr-1 mb-1 inline-block">${escapeHtml(t)}</span>`
+                ).join('');
+
                 card.innerHTML = `
                     <div class="flex justify-between items-start mb-3">
-                        <span class="px-3 py-1 text-xs rounded-full ${caseItem.source_type === 'ccp' ? 'bg-red-100 text-red-700' : caseItem.source_type === 'christian' ? 'bg-blue-100 text-blue-700' : 'bg-green-100 text-green-700'}">
-                            ${caseItem.source_type === 'ccp' ? '共产党' : caseItem.source_type === 'christian' ? '基督教' : '伊斯兰教'}
+                        <span class="px-3 py-1 text-xs rounded-full ${TYPE_COLORS[caseItem.source_type]}">
+                            ${TYPE_LABELS[caseItem.source_type]}
                         </span>
-                        <span class="text-xs text-gray-500">${caseItem.category}</span>
+                        <span class="text-xs text-gray-500">${escapeHtml(caseItem.category)}</span>
                     </div>
-                    <p class="text-gray-800 font-medium leading-relaxed mb-4">"${caseItem.text}"</p>
-                    <p class="text-xs text-gray-500">来源：${caseItem.source}</p>
-                    <button onclick="selectForCompare('${caseItem.id}')" 
-                            class="mt-4 text-sm px-5 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">
-                        加入对比
+                    <p class="text-gray-800 font-medium leading-relaxed mb-3">"${escapeHtml(caseItem.text)}"</p>
+                    <p class="text-xs text-gray-500 mb-2">来源：${escapeHtml(caseItem.source)}</p>
+                    <p class="text-xs text-gray-400 mb-3">数据：${escapeHtml(caseItem.source_url || '未标注')}</p>
+                    <div class="mb-3">${techTags}</div>
+                    <p class="text-xs text-gray-600 mb-4">${escapeHtml(caseItem.psychological_mechanism || '')}</p>
+                    <button onclick="toggleCompare('${caseItem.id}')"
+                            class="text-sm px-5 py-2 ${isSelected ? 'bg-blue-100 text-blue-700' : 'bg-blue-600 text-white hover:bg-blue-700'} rounded-xl transition">
+                        ${isSelected ? '取消对比' : '加入对比'}
                     </button>
                 `;
                 grid.appendChild(card);
             });
         }
 
-        // 简单对比功能（可扩展）
-        let selectedCases = [];
-        function selectForCompare(id) {
+        function toggleCompare(id) {
             const caseItem = allCases.find(c => c.id === id);
             if (!caseItem) return;
-            
-            if (selectedCases.length < 3) {
+
+            const idx = selectedCases.findIndex(s => s.id === id);
+            if (idx >= 0) {
+                selectedCases.splice(idx, 1);
+            } else if (selectedCases.length < 3) {
                 selectedCases.push(caseItem);
-                alert(`已添加：${caseItem.text.substring(0, 20)}...`);
-                
-                if (selectedCases.length === 3) {
-                    showComparison();
-                }
+            } else {
+                alert('最多选择 3 条案例进行对比');
+                return;
             }
+            updateSelectedBar();
+            applyFilters();
+        }
+
+        function updateSelectedBar() {
+            const bar = document.getElementById('selectedBar');
+            const list = document.getElementById('selectedList');
+            const btn = document.getElementById('compareBtn');
+
+            if (selectedCases.length === 0) {
+                bar.classList.add('hidden');
+                return;
+            }
+            bar.classList.remove('hidden');
+            list.textContent = selectedCases.map(c => `「${c.text.substring(0, 12)}…」`).join('、');
+            btn.disabled = selectedCases.length < 2;
+        }
+
+        function clearSelection() {
+            selectedCases = [];
+            updateSelectedBar();
+            document.getElementById('comparison').classList.add('hidden');
+            applyFilters();
+        }
+
+        function runComparison() {
+            if (selectedCases.length < 2) return;
+            showComparison();
         }
 
         function showComparison() {
             const compDiv = document.getElementById('comparison');
+            const cardsDiv = document.getElementById('comparisonCards');
             compDiv.classList.remove('hidden');
-            // 这里可以扩展完整对比逻辑
-            console.log("对比案例：", selectedCases);
+            cardsDiv.innerHTML = '';
+
+            selectedCases.forEach(caseItem => {
+                const parallel = caseItem.parallel || {};
+                const parallelHtml = Object.entries(parallel).map(([k, v]) =>
+                    `<p class="text-xs mt-1"><span class="font-medium">${TYPE_LABELS[k] || k}：</span>${escapeHtml(v)}</p>`
+                ).join('');
+
+                const card = document.createElement('div');
+                card.className = 'p-5 rounded-2xl border border-gray-100 bg-gray-50';
+                card.innerHTML = `
+                    <span class="px-3 py-1 text-xs rounded-full ${TYPE_COLORS[caseItem.source_type]}">${TYPE_LABELS[caseItem.source_type]}</span>
+                    <h3 class="font-bold text-lg mt-3 mb-2">${escapeHtml(caseItem.category)}</h3>
+                    <p class="text-gray-800 mb-3">"${escapeHtml(caseItem.text)}"</p>
+                    <p class="text-xs text-gray-500">来源：${escapeHtml(caseItem.source)}</p>
+                    <p class="text-xs text-gray-400">数据：${escapeHtml(caseItem.source_url || '未标注')}</p>
+                    <div class="mt-3 flex flex-wrap gap-1">
+                        ${(caseItem.techniques || []).map(t => `<span class="tag">${escapeHtml(t)}</span>`).join('')}
+                    </div>
+                    <p class="text-sm text-gray-600 mt-3">${escapeHtml(caseItem.psychological_mechanism || '')}</p>
+                    ${caseItem.risk_note ? `<p class="text-xs text-red-600 mt-2">⚠ ${escapeHtml(caseItem.risk_note)}</p>` : ''}
+                    <div class="mt-4 p-3 bg-white rounded-xl border border-gray-100">
+                        <p class="text-xs font-semibold text-gray-700 mb-1">平行映射</p>
+                        ${parallelHtml || '<p class="text-xs text-gray-400">暂无</p>'}
+                    </div>
+                `;
+                cardsDiv.appendChild(card);
+            });
+
+            renderRadarChart();
+            compDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
-        // 初始化
+        function renderRadarChart() {
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            if (radarChartInstance) radarChartInstance.destroy();
+
+            const datasets = selectedCases.map((c, i) => {
+                const colors = ['rgba(239,68,68,0.6)', 'rgba(59,130,246,0.6)', 'rgba(34,197,94,0.6)'];
+                const borders = ['rgb(239,68,68)', 'rgb(59,130,246)', 'rgb(34,197,94)'];
+                return {
+                    label: `${TYPE_LABELS[c.source_type]}：${c.text.substring(0, 10)}…`,
+                    data: scoreCase(c),
+                    backgroundColor: colors[i],
+                    borderColor: borders[i],
+                    borderWidth: 2
+                };
+            });
+
+            radarChartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: DIMENSIONS.map(d => d.label),
+                    datasets
+                },
+                options: {
+                    responsive: true,
+                    scales: { r: { min: 0, max: 100, ticks: { stepSize: 20 } } },
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+        }
+
+        function exportReport() {
+            const lines = ['# 话语之战 · 对比分析报告\n', `生成时间：${new Date().toLocaleString('zh-CN')}\n`];
+            lines.push('> 本平台仅供教育用途，不构成价值判断。\n');
+
+            selectedCases.forEach((c, i) => {
+                lines.push(`## 案例 ${i + 1}：${c.category}（${TYPE_LABELS[c.source_type]}）\n`);
+                lines.push(`- **文本**：${c.text}`);
+                lines.push(`- **来源**：${c.source}`);
+                lines.push(`- **数据**：${c.source_url || '未标注'}`);
+                lines.push(`- **技巧**：${(c.techniques || []).join('、')}`);
+                lines.push(`- **心理机制**：${c.psychological_mechanism || ''}`);
+                if (c.risk_note) lines.push(`- **风险提示**：${c.risk_note}`);
+                if (c.parallel) {
+                    lines.push('- **平行映射**：');
+                    Object.entries(c.parallel).forEach(([k, v]) => lines.push(`  - ${TYPE_LABELS[k] || k}：${v}`));
+                }
+                lines.push('');
+            });
+
+            const blob = new Blob([lines.join('\n')], { type: 'text/markdown;charset=utf-8' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'prophet-vs-party-report.md';
+            a.click();
+        }
+
+        function reportBias() {
+            alert('感谢反馈！请通过 GitHub Issues 提交偏差报告：https://github.com/HeisenbergSONG/Prophet-vs-Party/issues');
+        }
+
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        document.getElementById('typeFilter').addEventListener('change', applyFilters);
+        document.getElementById('categoryFilter').addEventListener('change', applyFilters);
+
         window.onload = loadCases;
     </script>
 </body>

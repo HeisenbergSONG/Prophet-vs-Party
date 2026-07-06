@@ -5,13 +5,19 @@
     "source_type": "ccp",
     "text": "革命无罪，造反有理",
     "source": "毛泽东 / 文革口号",
-    "techniques": [" 二元对立", "敌人妖魔化"],
+    "techniques": [
+      "二元对立",
+      "敌人妖魔化"
+    ],
     "psychological_mechanism": "简化现实、强化群体边界",
     "parallel": {
-      "christian": "不是与我相合的，就是敌我的",
-      "islam": "信道者与不信道者有明显区别"
+      "christian": "不与我相合的，就是敌我的",
+      "islam": "信道者与不信道者不相等"
     },
-    "tags": [" 历史", "动员"],
+    "tags": [
+      "历史",
+      "动员"
+    ],
     "risk_note": "易导致极端化",
     "source_url": "公开历史文献"
   },
@@ -21,15 +27,1296 @@
     "source_type": "ccp",
     "text": "为人民服务",
     "source": "毛泽东",
-    "techniques": ["领袖崇拜", "情感诉求"],
+    "techniques": [
+      "领袖崇拜",
+      "道德号召"
+    ],
     "psychological_mechanism": "建立道德权威与牺牲精神",
     "parallel": {
       "christian": "爱人如己",
-      "islam": "顺服真主"
+      "islam": "你们当为主道花费"
     },
-    "tags": ["核心", "经典"],
+    "tags": [
+      "核心",
+      "经典"
+    ],
     "risk_note": "",
-    "source_url": "毛泽东选集"
+    "source_url": "《毛泽东选集》"
+  },
+  {
+    "id": "ccp_003",
+    "category": "民族复兴",
+    "source_type": "ccp",
+    "text": "实现中华民族伟大复兴",
+    "source": "习近平 / 官方论述",
+    "techniques": [
+      "历史叙事",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "将个人命运与国家叙事绑定",
+    "parallel": {
+      "christian": "你们要先求他的国和他的义",
+      "islam": "你们当为主道而奋斗"
+    },
+    "tags": [
+      "当代",
+      "国策"
+    ],
+    "risk_note": "",
+    "source_url": "新华社公开报道"
+  },
+  {
+    "id": "ccp_004",
+    "category": "经济许诺",
+    "source_type": "ccp",
+    "text": "共同富裕",
+    "source": "官方政策话语",
+    "techniques": [
+      "希望许诺",
+      "集体归属"
+    ],
+    "psychological_mechanism": "以未来分配正义激发支持",
+    "parallel": {
+      "christian": "你们所需用的，神都必加给你们",
+      "islam": "行善者将受善报"
+    },
+    "tags": [
+      "经济",
+      "当代"
+    ],
+    "risk_note": "需区分宣传与政策效果",
+    "source_url": "政府工作报告"
+  },
+  {
+    "id": "ccp_005",
+    "category": "组织忠诚",
+    "source_type": "ccp",
+    "text": "听党话，跟党走",
+    "source": "基层宣传口号",
+    "techniques": [
+      "权威引用",
+      "集体归属"
+    ],
+    "psychological_mechanism": "将组织权威内化为行动准则",
+    "parallel": {
+      "christian": "你们当顺从神",
+      "islam": "你们当服从真主和使者"
+    },
+    "tags": [
+      "动员",
+      "组织"
+    ],
+    "risk_note": "",
+    "source_url": "公开宣传材料"
+  },
+  {
+    "id": "ccp_006",
+    "category": "自力更生",
+    "source_type": "ccp",
+    "text": "自力更生，艰苦奋斗",
+    "source": "社会主义建设时期口号",
+    "techniques": [
+      "牺牲奉献",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以艰苦美德塑造集体认同",
+    "parallel": {
+      "christian": "背起他的十字架来跟从我",
+      "islam": "你们当坚忍"
+    },
+    "tags": [
+      "历史",
+      "建设"
+    ],
+    "risk_note": "",
+    "source_url": "公开历史文献"
+  },
+  {
+    "id": "ccp_007",
+    "category": "反帝叙事",
+    "source_type": "ccp",
+    "text": "打倒帝国主义",
+    "source": "革命时期口号",
+    "techniques": [
+      "敌人妖魔化",
+      "二元对立"
+    ],
+    "psychological_mechanism": "外敌形象凝聚内部团结",
+    "parallel": {
+      "christian": "与魔鬼争战",
+      "islam": "对抗不信道者"
+    },
+    "tags": [
+      "历史",
+      "国际"
+    ],
+    "risk_note": "易滑向排外情绪",
+    "source_url": "公开历史文献"
+  },
+  {
+    "id": "ccp_008",
+    "category": "科学权威",
+    "source_type": "ccp",
+    "text": "科学发展观",
+    "source": "胡锦涛时期政策话语",
+    "techniques": [
+      "权威引用",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "以科学名义赋予政策合法性",
+    "parallel": {
+      "christian": "神的话是真理",
+      "islam": "正道已明，邪道已清"
+    },
+    "tags": [
+      "政策",
+      "当代"
+    ],
+    "risk_note": "",
+    "source_url": "官方政策文件"
+  },
+  {
+    "id": "ccp_009",
+    "category": "生态叙事",
+    "source_type": "ccp",
+    "text": "绿水青山就是金山银山",
+    "source": "习近平",
+    "techniques": [
+      "希望许诺",
+      "道德号召"
+    ],
+    "psychological_mechanism": "将发展与环保价值绑定",
+    "parallel": {
+      "christian": "神叫万物各从其类",
+      "islam": "真主使大地成为你们的摇篮"
+    },
+    "tags": [
+      "生态",
+      "当代"
+    ],
+    "risk_note": "",
+    "source_url": "新华社公开报道"
+  },
+  {
+    "id": "ccp_010",
+    "category": "脱贫动员",
+    "source_type": "ccp",
+    "text": "脱贫攻坚，一个都不能少",
+    "source": "精准扶贫宣传",
+    "techniques": [
+      "集体归属",
+      "情感诉求"
+    ],
+    "psychological_mechanism": "以关怀叙事强化政策认同",
+    "parallel": {
+      "christian": "好撒玛利亚人的比喻",
+      "islam": "你们当薄施周济"
+    },
+    "tags": [
+      "社会",
+      "当代"
+    ],
+    "risk_note": "",
+    "source_url": "政府工作报告"
+  },
+  {
+    "id": "ccp_011",
+    "category": "制度自信",
+    "source_type": "ccp",
+    "text": "四个自信",
+    "source": "官方意识形态话语",
+    "techniques": [
+      "权威引用",
+      "集体归属"
+    ],
+    "psychological_mechanism": "以制度优越性巩固认同",
+    "parallel": {
+      "christian": "教会的根基",
+      "islam": "伊斯兰是完善的宗教"
+    },
+    "tags": [
+      "意识形态",
+      "当代"
+    ],
+    "risk_note": "",
+    "source_url": "官方宣传材料"
+  },
+  {
+    "id": "ccp_012",
+    "category": "初心叙事",
+    "source_type": "ccp",
+    "text": "不忘初心，牢记使命",
+    "source": "党建宣传",
+    "techniques": [
+      "历史叙事",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以起源故事重申组织正当性",
+    "parallel": {
+      "christian": "起初所领受的真道",
+      "islam": "你们当坚守正道"
+    },
+    "tags": [
+      "党建",
+      "当代"
+    ],
+    "risk_note": "",
+    "source_url": "官方宣传材料"
+  },
+  {
+    "id": "ccp_013",
+    "category": "统一叙事",
+    "source_type": "ccp",
+    "text": "两岸一家亲",
+    "source": "对台政策话语",
+    "techniques": [
+      "集体归属",
+      "情感诉求"
+    ],
+    "psychological_mechanism": "以血缘亲情淡化政治分歧",
+    "parallel": {
+      "christian": "我们在基督里成为一体",
+      "islam": "穆斯林是兄弟"
+    },
+    "tags": [
+      "两岸",
+      "当代"
+    ],
+    "risk_note": "",
+    "source_url": "国台办公开表述"
+  },
+  {
+    "id": "ccp_014",
+    "category": "国际愿景",
+    "source_type": "ccp",
+    "text": "构建人类命运共同体",
+    "source": "外交话语",
+    "techniques": [
+      "希望许诺",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以普世愿景扩展国家软实力",
+    "parallel": {
+      "christian": "使万民作我的门徒",
+      "islam": "号召世人归顺真主"
+    },
+    "tags": [
+      "外交",
+      "当代"
+    ],
+    "risk_note": "",
+    "source_url": "外交部公开表述"
+  },
+  {
+    "id": "ccp_015",
+    "category": "危机动员",
+    "source_type": "ccp",
+    "text": "人民至上，生命至上",
+    "source": "疫情防控宣传",
+    "techniques": [
+      "情感诉求",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以生命伦理凝聚应急共识",
+    "parallel": {
+      "christian": "生命在他里头",
+      "islam": "你们当敬畏真主"
+    },
+    "tags": [
+      "公共卫生",
+      "当代"
+    ],
+    "risk_note": "",
+    "source_url": "官方疫情防控宣传"
+  },
+  {
+    "id": "ccp_016",
+    "category": "大跃进",
+    "source_type": "ccp",
+    "text": "亩产万斤",
+    "source": "大跃进时期宣传",
+    "techniques": [
+      "希望许诺",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以夸张成果激发政治热情",
+    "parallel": {
+      "christian": "五饼二鱼的神迹",
+      "islam": "真主欲给你们一份恩典"
+    },
+    "tags": [
+      "历史",
+      "经济"
+    ],
+    "risk_note": "虚假承诺风险极高",
+    "source_url": "公开历史文献"
+  },
+  {
+    "id": "ccp_017",
+    "category": "团结批评",
+    "source_type": "ccp",
+    "text": "团结—批评—团结",
+    "source": "毛泽东",
+    "techniques": [
+      "二元对立",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以组织程序化解内部矛盾",
+    "parallel": {
+      "christian": "用爱心说诚实话",
+      "islam": "你们当互相劝诫真理"
+    },
+    "tags": [
+      "组织",
+      "历史"
+    ],
+    "risk_note": "",
+    "source_url": "《毛泽东选集》"
+  },
+  {
+    "id": "ccp_018",
+    "category": "和平原则",
+    "source_type": "ccp",
+    "text": "和平共处五项原则",
+    "source": "外交政策",
+    "techniques": [
+      "道德号召",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以和平规范塑造国际形象",
+    "parallel": {
+      "christian": "使人和睦的人有福了",
+      "islam": "你们当公平行事"
+    },
+    "tags": [
+      "外交",
+      "历史"
+    ],
+    "risk_note": "",
+    "source_url": "外交部公开文件"
+  },
+  {
+    "id": "ccp_019",
+    "category": "一带一路",
+    "source_type": "ccp",
+    "text": "共建一带一路",
+    "source": "国际合作倡议",
+    "techniques": [
+      "希望许诺",
+      "历史叙事"
+    ],
+    "psychological_mechanism": "以互联互通叙事扩展影响力",
+    "parallel": {
+      "christian": "好撒玛利亚人跨越边界",
+      "islam": "真主使你们互为邻人"
+    },
+    "tags": [
+      "经济",
+      "当代"
+    ],
+    "risk_note": "",
+    "source_url": "国家发改委公开材料"
+  },
+  {
+    "id": "ccp_020",
+    "category": "思想万岁",
+    "source_type": "ccp",
+    "text": "毛泽东思想万岁",
+    "source": "文革时期口号",
+    "techniques": [
+      "领袖崇拜",
+      "权威引用"
+    ],
+    "psychological_mechanism": "将思想体系神圣化",
+    "parallel": {
+      "christian": "耶稣基督是主",
+      "islam": "万物非主，唯有真主"
+    },
+    "tags": [
+      "历史",
+      "文革"
+    ],
+    "risk_note": "易导致个人崇拜",
+    "source_url": "公开历史文献"
+  },
+  {
+    "id": "christian_001",
+    "category": "救赎叙事",
+    "source_type": "christian",
+    "text": "神爱世人，甚至将祂的独生子赐给他们，叫一切信祂的，不至灭亡，反得永生",
+    "source": "约翰福音 3:16",
+    "techniques": [
+      "情感诉求",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "以神圣之爱降低皈依心理门槛",
+    "parallel": {
+      "ccp": "为人民服务",
+      "islam": "真主欲给你们一份恩典"
+    },
+    "tags": [
+      "经典",
+      "福音"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_002",
+    "category": "排他真理",
+    "source_type": "christian",
+    "text": "我就是道路、真理、生命；若不借着我，没有人能到父那里去",
+    "source": "约翰福音 14:6",
+    "techniques": [
+      "权威引用",
+      "二元对立"
+    ],
+    "psychological_mechanism": "确立唯一真理路径",
+    "parallel": {
+      "ccp": "只有社会主义才能救中国",
+      "islam": "正道已明，邪道已清"
+    },
+    "tags": [
+      "经典",
+      "教义"
+    ],
+    "risk_note": "易引发排他争议",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_003",
+    "category": "末日审判",
+    "source_type": "christian",
+    "text": "按著行过的善恶，各人所受的报应",
+    "source": "启示录 22:12",
+    "techniques": [
+      "末世论",
+      "恐惧动员"
+    ],
+    "psychological_mechanism": "以终极审判强化道德约束",
+    "parallel": {
+      "ccp": "历史必然性",
+      "islam": "火狱是不信道者的归宿"
+    },
+    "tags": [
+      "经典",
+      "末世"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_004",
+    "category": "悔改赦免",
+    "source_type": "christian",
+    "text": "你们的罪虽像朱红，必变成雪白；虽红如丹颜，必白如羊毛",
+    "source": "以赛亚书 1:18",
+    "techniques": [
+      "希望许诺",
+      "情感诉求"
+    ],
+    "psychological_mechanism": "以赦免承诺促发悔改",
+    "parallel": {
+      "ccp": "批评与自我批评",
+      "islam": "信道且行善者，乐园是归宿"
+    },
+    "tags": [
+      "经典",
+      "恩典"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_005",
+    "category": "窄门隐喻",
+    "source_type": "christian",
+    "text": "引到永生，那门是窄的，路是小的，找著的人也少",
+    "source": "马太福音 7:14",
+    "techniques": [
+      "二元对立",
+      "恐惧动员"
+    ],
+    "psychological_mechanism": "以稀缺性强化选择紧迫感",
+    "parallel": {
+      "ccp": "革命道路",
+      "islam": "你们当为主道而奋斗"
+    },
+    "tags": [
+      "经典",
+      "隐喻"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_006",
+    "category": "信心医治",
+    "source_type": "christian",
+    "text": "不要怕，只要信",
+    "source": "马可福音 5:36",
+    "techniques": [
+      "情感诉求",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以信心替代焦虑获得控制感",
+    "parallel": {
+      "ccp": "自力更生",
+      "islam": "你们当敬畏真主"
+    },
+    "tags": [
+      "经典",
+      "医治"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_007",
+    "category": "恩典论",
+    "source_type": "christian",
+    "text": "你们得救是本乎恩，也因著信；这并不是出于自己，乃是神所赐的",
+    "source": "以弗所书 2:8-9",
+    "techniques": [
+      "权威引用",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "否定自力得救，强化依赖神圣",
+    "parallel": {
+      "ccp": "听党话跟党走",
+      "islam": "信道且行善者，乐园是归宿"
+    },
+    "tags": [
+      "经典",
+      "教义"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_008",
+    "category": "呼召跟从",
+    "source_type": "christian",
+    "text": "来跟从我，我要使你们得人如得鱼一样",
+    "source": "马太福音 4:19",
+    "techniques": [
+      "集体归属",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "以个人呼召建立使命认同",
+    "parallel": {
+      "ccp": "不忘初心牢记使命",
+      "islam": "你们当为主道而奋斗"
+    },
+    "tags": [
+      "经典",
+      "呼召"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_009",
+    "category": "肢体隐喻",
+    "source_type": "christian",
+    "text": "你们就是基督的身体，并且各自作肢体",
+    "source": "哥林多前书 12:27",
+    "techniques": [
+      "集体归属",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以身体隐喻强化共同体",
+    "parallel": {
+      "ccp": "人民共同体",
+      "islam": "穆斯林是兄弟"
+    },
+    "tags": [
+      "经典",
+      "教会"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_010",
+    "category": "祈求应许",
+    "source_type": "christian",
+    "text": "你们祈求，就给你们；寻找，就寻见",
+    "source": "马太福音 7:7",
+    "techniques": [
+      "希望许诺",
+      "情感诉求"
+    ],
+    "psychological_mechanism": "以祷告应许建立互动期待",
+    "parallel": {
+      "ccp": "共同富裕",
+      "islam": "真主将为他们开辟出路"
+    },
+    "tags": [
+      "经典",
+      "祷告"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_011",
+    "category": "收割隐喻",
+    "source_type": "christian",
+    "text": "举目观看田地，已经熟了，可以收割了",
+    "source": "约翰福音 4:35",
+    "techniques": [
+      "末世论",
+      "动员"
+    ],
+    "psychological_mechanism": "以紧迫收割意象推动传福音",
+    "parallel": {
+      "ccp": "脱贫攻坚",
+      "islam": "田地是白的，可以收割了"
+    },
+    "tags": [
+      "经典",
+      "宣教"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_012",
+    "category": "谦卑有福",
+    "source_type": "christian",
+    "text": "虚心的人有福了，因为天国是他们的",
+    "source": "马太福音 5:3",
+    "techniques": [
+      "道德号召",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "反转世俗价值标准",
+    "parallel": {
+      "ccp": "艰苦奋斗",
+      "islam": "谦恭者将获得成功"
+    },
+    "tags": [
+      "经典",
+      "八福"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_013",
+    "category": "爱中无惧",
+    "source_type": "christian",
+    "text": "爱里没有惧怕；爱既完全，就把惧怕除去",
+    "source": "约翰一书 4:18",
+    "techniques": [
+      "情感诉求",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以爱消解恐惧建立安全感",
+    "parallel": {
+      "ccp": "人民至上",
+      "islam": "信道者们啊，你们当敬畏真主"
+    },
+    "tags": [
+      "经典",
+      "伦理"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_014",
+    "category": "万事效力",
+    "source_type": "christian",
+    "text": "万事都互相效力，叫爱神的人得益处",
+    "source": "罗马书 8:28",
+    "techniques": [
+      "希望许诺",
+      "历史叙事"
+    ],
+    "psychological_mechanism": "为苦难赋予神圣意义",
+    "parallel": {
+      "ccp": "中华民族伟大复兴",
+      "islam": "信道且行善者，乐园是归宿"
+    },
+    "tags": [
+      "经典",
+      "护佑"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_015",
+    "category": "重生必要",
+    "source_type": "christian",
+    "text": "人若不重生，就不能见神的国",
+    "source": "约翰福音 3:3",
+    "techniques": [
+      "二元对立",
+      "权威引用"
+    ],
+    "psychological_mechanism": "设定皈依的绝对前提",
+    "parallel": {
+      "ccp": "只有社会主义",
+      "islam": "信道者与不信道者不相等"
+    },
+    "tags": [
+      "经典",
+      "重生"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_016",
+    "category": "背十字架",
+    "source_type": "christian",
+    "text": "若有人要跟从我，就当舍己，天天背起他的十字架来跟从我",
+    "source": "路加福音 9:23",
+    "techniques": [
+      "牺牲奉献",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以受苦塑造追随者身份",
+    "parallel": {
+      "ccp": "自力更生艰苦奋斗",
+      "islam": "你们当为主道而奋斗"
+    },
+    "tags": [
+      "经典",
+      "门徒"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_017",
+    "category": "回转呼召",
+    "source_type": "christian",
+    "text": "以色列啊，你犯罪，惟有我得益处",
+    "source": "何西阿书 14:1",
+    "techniques": [
+      "情感诉求",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以神圣伤痛激发悔改",
+    "parallel": {
+      "ccp": "批评与自我批评",
+      "islam": "你们当互相劝诫真理"
+    },
+    "tags": [
+      "经典",
+      "先知"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_018",
+    "category": "永生对比",
+    "source_type": "christian",
+    "text": "信子的人有永生；不信子的人得不着永生，神的震怒常在他身上",
+    "source": "约翰福音 3:36",
+    "techniques": [
+      "二元对立",
+      "恐惧动员"
+    ],
+    "psychological_mechanism": "永生与震怒的二元结局",
+    "parallel": {
+      "ccp": "阶级斗争",
+      "islam": "火狱是不信道者的归宿"
+    },
+    "tags": [
+      "经典",
+      "审判"
+    ],
+    "risk_note": "易制造心理压迫",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_019",
+    "category": "甘心奉献",
+    "source_type": "christian",
+    "text": "各人要随本心所酌定的，不要作难，不要勉强",
+    "source": "哥林多后书 9:7",
+    "techniques": [
+      "牺牲奉献",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以自愿奉献塑造共同体经济",
+    "parallel": {
+      "ccp": "为人民服务",
+      "islam": "你们当为主道花费"
+    },
+    "tags": [
+      "经典",
+      "奉献"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "christian_020",
+    "category": "有耳能听",
+    "source_type": "christian",
+    "text": "有耳可听的，就应当听",
+    "source": "马太福音 11:15",
+    "techniques": [
+      "权威引用",
+      "动员"
+    ],
+    "psychological_mechanism": "暗示灵性洞察的精英性",
+    "parallel": {
+      "ccp": "提高政治觉悟",
+      "islam": "你们当敬畏真主"
+    },
+    "tags": [
+      "经典",
+      "比喻"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本"
+  },
+  {
+    "id": "islam_001",
+    "category": "服从权威",
+    "source_type": "islam",
+    "text": "信道者们啊，你们当服从真主，当服从使者和你们中的主事人",
+    "source": "古兰经 4:59",
+    "techniques": [
+      "权威引用",
+      "集体归属"
+    ],
+    "psychological_mechanism": "建立神圣—世俗双重服从链",
+    "parallel": {
+      "ccp": "听党话跟党走",
+      "christian": "你们当顺从神"
+    },
+    "tags": [
+      "经典",
+      "教义"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_002",
+    "category": "主道奋斗",
+    "source_type": "islam",
+    "text": "信道者们啊，你们当为主道而奋斗",
+    "source": "古兰经 4:74",
+    "techniques": [
+      "动员",
+      "牺牲奉献"
+    ],
+    "psychological_mechanism": "以神圣事业正当化行动投入",
+    "parallel": {
+      "ccp": "为实现中华民族伟大复兴而奋斗",
+      "christian": "来跟从我得人如得鱼"
+    },
+    "tags": [
+      "经典",
+      "吉哈德"
+    ],
+    "risk_note": "需区分语境避免误读",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_003",
+    "category": "善恶报应",
+    "source_type": "islam",
+    "text": "行善者将受善报，恶行必受恶报",
+    "source": "古兰经 10:26 / 41:46",
+    "techniques": [
+      "希望许诺",
+      "恐惧动员"
+    ],
+    "psychological_mechanism": "以因果报应维持道德秩序",
+    "parallel": {
+      "ccp": "共同富裕",
+      "christian": "按行过的善恶受报应"
+    },
+    "tags": [
+      "经典",
+      "伦理"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_004",
+    "category": "乐园归宿",
+    "source_type": "islam",
+    "text": "信道而且行善者，乐园是归宿",
+    "source": "古兰经 18:107",
+    "techniques": [
+      "希望许诺",
+      "末世论"
+    ],
+    "psychological_mechanism": "以乐园许诺激励善行",
+    "parallel": {
+      "ccp": "共产主义人间天堂",
+      "christian": "天国是他们的"
+    },
+    "tags": [
+      "经典",
+      "末世"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_005",
+    "category": "火狱警告",
+    "source_type": "islam",
+    "text": "凡以物配主者，真主必禁止他入乐园，他的归宿是火狱",
+    "source": "古兰经 5:72",
+    "techniques": [
+      "恐惧动员",
+      "二元对立"
+    ],
+    "psychological_mechanism": "以永恒惩罚强化信仰边界",
+    "parallel": {
+      "ccp": "阶级敌人",
+      "christian": "不信子的人得不着永生"
+    },
+    "tags": [
+      "经典",
+      "审判"
+    ],
+    "risk_note": "易引发宗教紧张",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_006",
+    "category": "正道已明",
+    "source_type": "islam",
+    "text": "宗教绝无强迫，因为正邪确已分明",
+    "source": "古兰经 2:256",
+    "techniques": [
+      "权威引用",
+      "二元对立"
+    ],
+    "psychological_mechanism": "以自由选择框架确立真理",
+    "parallel": {
+      "ccp": "四个自信",
+      "christian": "我就是道路真理生命"
+    },
+    "tags": [
+      "经典",
+      "信仰自由"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_007",
+    "category": "敬畏真主",
+    "source_type": "islam",
+    "text": "信道者们啊，你们当敬畏真主",
+    "source": "古兰经 8:1",
+    "techniques": [
+      "恐惧动员",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以敬畏维持虔诚与自律",
+    "parallel": {
+      "ccp": "人民至上生命至上",
+      "christian": "敬畏神的人有福了"
+    },
+    "tags": [
+      "经典",
+      "虔诚"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_008",
+    "category": "为主花费",
+    "source_type": "islam",
+    "text": "你们当为主道花费；你们所花费的，真主都知道",
+    "source": "古兰经 2:195",
+    "techniques": [
+      "牺牲奉献",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以施舍绑定信仰与实践",
+    "parallel": {
+      "ccp": "为人民服务",
+      "christian": "甘心乐意地奉献"
+    },
+    "tags": [
+      "经典",
+      "慈善"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_009",
+    "category": "信道不等",
+    "source_type": "islam",
+    "text": "信道者与不信道者不相等",
+    "source": "古兰经 2:220",
+    "techniques": [
+      "二元对立",
+      "集体归属"
+    ],
+    "psychological_mechanism": "划分信仰共同体边界",
+    "parallel": {
+      "ccp": "阶级斗争",
+      "christian": "信子的人有永生"
+    },
+    "tags": [
+      "经典",
+      "共同体"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_010",
+    "category": "互相劝诫",
+    "source_type": "islam",
+    "text": "以时光盟誓，人确是在亏折之中，除非信道而且行善，并以真理相劝，以坚忍相勉",
+    "source": "古兰经 103:1-3",
+    "techniques": [
+      "道德号召",
+      "集体归属"
+    ],
+    "psychological_mechanism": "以互勉机制维系社群",
+    "parallel": {
+      "ccp": "团结批评团结",
+      "christian": "用爱心说诚实话"
+    },
+    "tags": [
+      "经典",
+      "社群"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_011",
+    "category": "先知模范",
+    "source_type": "islam",
+    "text": "在真主看来，你们中最好的模范，确是穆罕默德",
+    "source": "古兰经 33:21",
+    "techniques": [
+      "领袖崇拜",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以先知生平作为行为标准",
+    "parallel": {
+      "ccp": "毛泽东思想万岁",
+      "christian": "基督是教会的元首"
+    },
+    "tags": [
+      "经典",
+      "圣行"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_012",
+    "category": "薄施周济",
+    "source_type": "islam",
+    "text": "你们当施舍你们所喜爱的财物",
+    "source": "古兰经 3:92",
+    "techniques": [
+      "牺牲奉献",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以舍己考验信仰真诚",
+    "parallel": {
+      "ccp": "共同富裕",
+      "christian": "变卖所有的分给穷人"
+    },
+    "tags": [
+      "经典",
+      "慈善"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_013",
+    "category": "坚忍劝勉",
+    "source_type": "islam",
+    "text": "信道者们啊，你们当坚忍，你们当坚忍",
+    "source": "古兰经 3:200",
+    "techniques": [
+      "牺牲奉献",
+      "动员"
+    ],
+    "psychological_mechanism": "以重复强调强化心理韧性",
+    "parallel": {
+      "ccp": "自力更生艰苦奋斗",
+      "christian": "忍耐到底的必然得救"
+    },
+    "tags": [
+      "经典",
+      "坚忍"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_014",
+    "category": "恩典许诺",
+    "source_type": "islam",
+    "text": "真主欲给你们一份恩典，真主是博施的",
+    "source": "古兰经 4:27",
+    "techniques": [
+      "希望许诺",
+      "情感诉求"
+    ],
+    "psychological_mechanism": "以神圣恩惠激发感恩与顺从",
+    "parallel": {
+      "ccp": "脱贫攻坚",
+      "christian": "神爱世人"
+    },
+    "tags": [
+      "经典",
+      "恩典"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_015",
+    "category": "开辟出路",
+    "source_type": "islam",
+    "text": "归顺真主的人，真主将为他们开辟出路",
+    "source": "古兰经 65:2-3",
+    "techniques": [
+      "希望许诺",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以神圣应许缓解生存焦虑",
+    "parallel": {
+      "ccp": "一带一路",
+      "christian": "祈求就给你们"
+    },
+    "tags": [
+      "经典",
+      "护佑"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_016",
+    "category": "末日警醒",
+    "source_type": "islam",
+    "text": "信道者们啊，你们当敬畏你们的主，你们应当畏惧那日",
+    "source": "古兰经 59:18",
+    "techniques": [
+      "末世论",
+      "恐惧动员"
+    ],
+    "psychological_mechanism": "以末日临近促发行动",
+    "parallel": {
+      "ccp": "中华民族伟大复兴",
+      "christian": "按行过的善恶受报应"
+    },
+    "tags": [
+      "经典",
+      "末世"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_017",
+    "category": "独一崇拜",
+    "source_type": "islam",
+    "text": "你们当崇拜真主，不要以物配主",
+    "source": "古兰经 4:36",
+    "techniques": [
+      "权威引用",
+      "二元对立"
+    ],
+    "psychological_mechanism": "确立一神信仰核心",
+    "parallel": {
+      "ccp": "四个自信",
+      "christian": "除我以外，你不可有别的神"
+    },
+    "tags": [
+      "经典",
+      "认主独一"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_018",
+    "category": "乐园宽广",
+    "source_type": "islam",
+    "text": "你们当争先行善，乐园宽若天地",
+    "source": "古兰经 3:133",
+    "techniques": [
+      "希望许诺",
+      "动员"
+    ],
+    "psychological_mechanism": "以宏大奖赏意象激励竞争行善",
+    "parallel": {
+      "ccp": "中国梦",
+      "christian": "虚心的人有福了"
+    },
+    "tags": [
+      "经典",
+      "乐园"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_019",
+    "category": "大地摇篮",
+    "source_type": "islam",
+    "text": "真主使大地成为你们的摇篮",
+    "source": "古兰经 20:53",
+    "techniques": [
+      "历史叙事",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以神圣创造赋予生活意义",
+    "parallel": {
+      "ccp": "绿水青山就是金山银山",
+      "christian": "神叫万物各从其类"
+    },
+    "tags": [
+      "经典",
+      "创造"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
+  },
+  {
+    "id": "islam_020",
+    "category": "兄弟情谊",
+    "source_type": "islam",
+    "text": "信道的人们啊，你们都是兄弟",
+    "source": "古兰经 49:10",
+    "techniques": [
+      "集体归属",
+      "情感诉求"
+    ],
+    "psychological_mechanism": "以信仰纽带超越血缘",
+    "parallel": {
+      "ccp": "两岸一家亲",
+      "christian": "我们在基督里成为一体"
+    },
+    "tags": [
+      "经典",
+      "乌玛"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本"
   }
-  // 更多案例在文件中，共60+条
 ]
