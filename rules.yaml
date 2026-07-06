@@ -1,0 +1,32 @@
+# Prophet vs Party — 修辞规则引擎（8 大话术维度）
+rules:
+  - pattern: "敌人|魔鬼|撒旦|帝国主义|不信道|异教徒|阶级敌人"
+    technique: 敌人妖魔化
+    dim: enemy
+  - pattern: "乐园|天国|永生|富裕|复兴|恩典|善报|得救|共同富裕"
+    technique: 希望许诺
+    dim: future
+  - pattern: "服从|顺从|跟党|敬畏|崇拜真主|领袖|万岁|权威"
+    technique: 权威引用
+    dim: authority
+  - pattern: "爱|关怀|兄弟|一家亲|共同体|肢体|乌玛"
+    technique: 集体归属
+    dim: boundary
+  - pattern: "奋斗|牺牲|奉献|施舍|背起|艰苦奋斗|花费"
+    technique: 牺牲奉献
+    dim: sacrifice
+  - pattern: "不信|敌我|区别|窄门|正道|邪道|二元|对立"
+    technique: 二元对立
+    dim: boundary
+  - pattern: "末日|审判|火狱|震怒|畏惧|恐惧|报应"
+    technique: 恐惧动员
+    dim: emotion
+  - pattern: "神爱|人民|情感|怜悯|回转|哀恸"
+    technique: 情感诉求
+    dim: emotion
+  - pattern: "历史|复兴|使命|必然|末世|乐园宽"
+    technique: 历史叙事
+    dim: narrative
+  - pattern: "动员|收割|吉哈德|脱贫|进军"
+    technique: 动员
+    dim: mobilization

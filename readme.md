@@ -37,14 +37,36 @@
 
 ## 本地运行
 
+### Streamlit MVP（推荐）
+
 ```bash
 cd "Prophet vs Party"
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+浏览器自动打开 `http://localhost:8501`。
+
+### HTML 静态原型
+
+```bash
 python -m http.server 8080
 ```
 
 浏览器打开 `http://localhost:8080/index_test.html`。
 
-> 需通过 HTTP 服务访问（不能直接双击 HTML），以便加载 `cases.json` 与 `matrix.json`。
+> HTML 需通过 HTTP 服务访问，以便加载 `cases.json` 与 `matrix.json`。
+
+## 部署到 Streamlit Community Cloud（方案 A）
+
+1. 将代码推送到 GitHub 仓库 `HeisenbergSONG/Prophet-vs-Party`
+2. 登录 [share.streamlit.io](https://share.streamlit.io)，用 GitHub 授权
+3. **New app** → 选择仓库 → Main file path 填 `app.py`
+4. Python 版本选 **3.10** 或 **3.11**
+5. 点击 **Deploy**（依赖见 `requirements.txt`）
+6. 首次启动会下载 `sentence-transformers` 模型（约 120MB），约 2–5 分钟
+
+**隐私**：用户输入仅在会话内分析，不写入数据库；详见 `ETHICS.md`。
 
 ## 数据格式
 
