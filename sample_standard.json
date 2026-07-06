@@ -1,7 +1,7 @@
 {
   "id": "001",
   "category": "二元对立",
-  "source_type": "ccp",           // ccp | christian | islam
+  "source_type": "ccp",           
   "text": "革命无罪，造反有理",
   "source": "毛泽东 / 文革口号",
   "techniques": ["二元对立", "敌人妖魔化"],
