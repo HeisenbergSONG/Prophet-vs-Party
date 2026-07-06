@@ -4,10 +4,23 @@
 **Prophet vs Party**（先知 vs 政党）  
 或中文名：**「话语之战」——共产党宣传与宗教传教对比分析平台**
 
+**在线演示**：https://prophet-vs-party.streamlit.app  
+**源码仓库**：https://github.com/HeisenbergSONG/Prophet-vs-Party  
+**作者**：[HeisenbergSONG](https://github.com/HeisenbergSONG) · **协议**：[GPLv3](./LICENSE)
+
 ## 定位
 
 一个**中立、教育性**的交互式工具，帮助用户系统地对比**共产党（以中共为代表）宣传话术**与**基督教、伊斯兰教传教话术**的异同。  
 核心目标是**分析修辞技巧、心理机制、动员策略**，而非评判优劣。
+
+## 当前进度（2026-07）
+
+| 阶段 | 状态 | 说明 |
+|------|------|------|
+| 阶段 0–1 | ✅ | 伦理文档、60 平衡案例、HTML 静态原型 |
+| 阶段 2 | ✅ | Streamlit 多页面 MVP |
+| 阶段 2.5 | ✅ | Streamlit Cloud 部署、移动端优化、线上问题修复 |
+| 阶段 3+ | ⏳ | React + FastAPI、数据库等（见 [roadmap.md](./roadmap.md)） |
 
 ## 核心功能模块
 
@@ -18,62 +31,94 @@
   - **基督教传教**：福音布道词、耶稣语录、现代布道、教会宣传。
   - **伊斯兰教传教**：古兰经经文、哈迪斯、现代达瓦演讲。
 - 每条案例标注：**来源、时代、技巧标签、心理机制、平行映射、公开出处**。
+- 当前 **60 条**（CCP / 基督教 / 伊斯兰教 各 20 条）。
 - 数据准则：仅收录**公开来源可核实**的原文；详见 [ETHICS.md](./ETHICS.md)。
 
 ### 模块B：多维度对比引擎
 
-用户可选择 2–3 条案例进行对比，系统生成分析报告（雷达图、平行映射、Markdown/JSON 导出）。
+用户可选择 2–3 条案例进行对比，系统生成 **8 维雷达图**、平行映射，并支持 Markdown / JSON 报告导出。
 
 ### 模块C：可视化与分析工具
 
-- 话术矩阵（8 维度可点击筛选）
-- 词云、时间轴、雷达图
-- 互动分析器（规则匹配 + 相似案例推荐）
+| 功能 | Streamlit | HTML 原型 (`index.html`) |
+|------|-----------|--------------------------|
+| 8 维话术矩阵 | ✅ 主页 + 可视化页 | ✅ 含矩阵点击筛选 |
+| 词云 / 时间轴 / 雷达图 | ✅ | ✅ |
+| 互动分析器 | ✅ 规则 + 相似度 | ✅ Jaccard 规则版 |
+| 暗黑模式 | Streamlit 主题 | ✅ |
 
 ### 模块D：教育与互动
 
-- 技巧拆解标签
-- 免责声明与偏差报告入口
+- 技巧拆解标签、8 维矩阵说明
+- [伦理准则](./ETHICS.md) / [免责声明](./DISCLAIMER.md)（应用内页面 + Markdown）
+- [GitHub Issues](https://github.com/HeisenbergSONG/Prophet-vs-Party/issues) 报告偏差
+- 案例贡献表单（生成 JSON，通过 PR 提交）
+
+## Streamlit 应用结构
+
+```
+app.py                 # 入口：主页 + st.navigation
+pages/
+  1_案例库.py          # 搜索、筛选、2–3 条对比、雷达图
+  2_互动分析器.py      # 文本分析、相似案例、报告导出
+  3_可视化.py          # 时间轴、词云、矩阵、分类统计
+  4_反馈与贡献.py      # Issues 链接、贡献表单
+  5_伦理准则.py
+  6_免责声明.py
+core/                  # 数据加载、分析器、可视化、报告
+cases.json / matrix.json / rules.yaml
+```
+
+侧边栏提供：作者、GitHub 仓库、在线应用、伦理/免责文档、报告问题入口。  
+移动端竖屏会提示**建议横屏使用**，以获得更好的图表与矩阵浏览体验。
 
 ## 本地运行
 
-### Streamlit MVP（推荐）
+### Streamlit MVP（推荐，与线上一致）
 
 ```bash
 cd "Prophet vs Party"
-pip install -r requirements-full.txt   # 完整版（含语义相似度）
-# 或 pip install -r requirements.txt     # 轻量版（与线上一致）
+pip install -r requirements.txt          # 轻量版（与 Streamlit Cloud 一致）
+# 或 pip install -r requirements-full.txt  # 完整版（含语义 embedding）
 streamlit run app.py
 ```
 
-浏览器自动打开 `http://localhost:8501`。
+浏览器打开 `http://localhost:8501`。
 
-### HTML 静态原型
+### HTML 静态原型（辅助演示）
 
 ```bash
 python -m http.server 8080
 ```
 
-浏览器打开 `http://localhost:8080/index.html`。
+浏览器打开 `http://localhost:8080/index.html`。  
+需通过 HTTP 服务访问，以便加载 `cases.json` 与 `matrix.json`。
 
-> HTML 需通过 HTTP 服务访问，以便加载 `cases.json` 与 `matrix.json`。
+## 部署（Streamlit Community Cloud）
 
-## 部署到 Streamlit Community Cloud（方案 A）
+项目已部署至 Streamlit Cloud，配置要点：
 
-1. 将代码推送到 GitHub 仓库 `HeisenbergSONG/Prophet-vs-Party`
-2. 登录 [share.streamlit.io](https://share.streamlit.io)，用 GitHub 授权
-3. **New app** → 选择仓库 → Main file path 填 `app.py`
-4. **Advanced settings**：Python version 选 **3.11**（Dependencies file 保持默认 `requirements.txt` 即可）
-5. 点击 **Deploy**
+| 项 | 值 |
+|----|-----|
+| 仓库 | `HeisenbergSONG/Prophet-vs-Party` |
+| 入口文件 | `app.py` |
+| Python | 3.11 |
+| 依赖 | `requirements.txt`（默认轻量版） |
+| 系统包 | `packages.txt`（中文字体，词云用） |
+
+重新部署步骤（新 fork 或重装时）：
+
+1. 登录 [share.streamlit.io](https://share.streamlit.io)
+2. **New app** → 选择仓库 → Main file path：`app.py`
+3. Advanced：Python **3.11**，Dependencies file：`requirements.txt`
+4. Deploy → 在控制台确认状态为 **Running**
 
 | 依赖文件 | 适用场景 |
 |----------|----------|
-| `requirements.txt` | **默认 / 网站部署**：轻量版，无 torch，相似度用 Jaccard |
+| `requirements.txt` | **默认 / Cloud 部署**：轻量版，相似度用 Jaccard + 规则 |
 | `requirements-full.txt` | **本地完整版**：含 `torch` + `sentence-transformers` 语义相似度 |
 
-**在线地址**（部署后填写）：`https://<your-app>.streamlit.app`
-
-**隐私**：用户输入仅在会话内分析，不写入数据库；详见 `ETHICS.md`。
+**隐私**：用户输入仅在会话内分析，不写入数据库；详见 [ETHICS.md](./ETHICS.md)。
 
 ## 数据格式
 
@@ -95,16 +140,18 @@ python -m http.server 8080
 
 ## 技术架构
 
-| 阶段 | 技术栈 |
-|------|--------|
-| 当前原型 | HTML + Tailwind + Chart.js + WordCloud2 |
-| MVP | Streamlit (Python) |
-| 中期 | React + TypeScript + FastAPI |
+| 层级 | 当前技术栈 |
+|------|------------|
+| 主应用 | Streamlit 1.36+、`st.navigation`、Plotly、WordCloud |
+| 分析 | `rules.yaml` 规则引擎 + Jaccard（Cloud）/ sentence-transformers（本地可选） |
+| 静态原型 | HTML + Tailwind + Chart.js + WordCloud2 |
+| 测试 | pytest（16 项）+ GitHub Actions |
+| 中期规划 | React + TypeScript + FastAPI（见 roadmap） |
 
 ## 文档
 
-- [路线图](./roadmap.md)
-- [伦理与数据准则](./ETHICS.md) — 公开来源可核实即视为事实，无需人工审核
+- [路线图](./roadmap.md) — 阶段进度与 KPI
+- [伦理与数据准则](./ETHICS.md)
 - [免责声明](./DISCLAIMER.md)
 
 ## 测试与 CI
@@ -114,11 +161,12 @@ pip install -r requirements-ci.txt
 pytest tests/ -v
 ```
 
-推送至 `main` 后，GitHub Actions 自动运行测试（见 `.github/workflows/ci.yml`）。
+推送至 `main` 后，GitHub Actions 自动运行测试（`.github/workflows/ci.yml`）。
 
 ## 贡献
 
-发现引文或来源错误，请提交 [GitHub Issues](https://github.com/HeisenbergSONG/Prophet-vs-Party/issues)，附可核实的正确出处。
+发现引文或来源错误，请提交 [GitHub Issues](https://github.com/HeisenbergSONG/Prophet-vs-Party/issues/new)，附可核实的正确出处。  
+新案例可通过应用内「反馈与贡献」生成 JSON，再发 Pull Request 更新 `cases.json`。
 
 ## 开源协议
 

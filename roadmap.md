@@ -79,7 +79,33 @@
   - [x] 所有分析本地运行（不上传用户输入、不持久化）
   - [x] 优化加载速度（@st.cache_data / @st.cache_resource / embedding 缓存）
 
-**里程碑**：Streamlit MVP 已就绪，可按方案 A 部署至 Streamlit Community Cloud（见 readme.md）。
+**里程碑**：Streamlit MVP 已上线。✅ 已达成（见下方「阶段 2.5」）
+
+---
+
+### 阶段 2.5：部署打磨与体验优化（2026-07，已完成）
+**目标**：Streamlit Community Cloud 稳定运行，修复线上问题，完善移动端与文档。
+
+**任务列表**：
+- [x] **Streamlit Cloud 部署**
+  - [x] 轻量依赖默认化（`requirements.txt`，无 torch）
+  - [x] 中文字体支持（`packages.txt` + 词云字体回退）
+  - [x] 在线地址：https://prophet-vs-party.streamlit.app
+- [x] **应用结构**
+  - [x] `st.navigation` 多页面导航（主页 / 案例库 / 分析器 / 可视化 / 反馈 / 伦理 / 免责）
+  - [x] 主页集成 8 维话术矩阵（雷达图 + 表格）
+  - [x] 伦理准则、免责声明 Streamlit 页面（`doc_loader` 渲染 Markdown）
+- [x] **可视化修复**
+  - [x] 8 维矩阵雷达图（案例库 + 可视化 + 主页）
+  - [x] 词云中文显示（Linux 字体路径修复）
+- [x] **体验与工程**
+  - [x] 移动端布局优化（触控区域、矩阵横向滚动、图表自适应）
+  - [x] 竖屏横屏使用提示
+  - [x] 侧边栏项目信息（作者、仓库、协议）
+  - [x] `st.page_link` + `st.navigation` KeyError 修复
+  - [x] pytest 16 项 + GitHub Actions CI
+
+**里程碑**：MVP 可公开演示，文档与代码同步。✅ 已达成
 
 ---
 
@@ -107,27 +133,32 @@
 ---
 
 ### 阶段 4：部署、优化与扩展（1-2 周）
-**目标**：上线 + 性能优化 + 多语言准备。
+**目标**：扩大访问、性能与内容规模。
 
 **任务列表**：
-- [ ] **部署**
-  - 前端：Vercel
-  - 后端 / Streamlit：Railway / Hugging Face Spaces / Render
+- [x] **Streamlit 上线**（方案 A，已完成）
+  - [x] Streamlit Community Cloud + `requirements.txt` 轻量版
+  - [ ] 确认应用公开可见（Share 控制台可切换 Public / Private）
+  - [ ] 自定义域名 + HTTPS（可选）
+- [ ] **其他部署形态**（可选，阶段 3 后）
+  - 前端：Vercel（React 重构后）
+  - 后端 API：Railway / Render
   - 数据库：Supabase / Railway PostgreSQL
-  - 域名 + HTTPS
-- [ ] **优化**
-  - 性能优化（缓存、懒加载）
-  - SEO + 分享卡片
-  - 移动端体验完善
+- [x] **优化（部分完成）**
+  - [x] 缓存（`@st.cache_data` / `@st.cache_resource`）
+  - [x] 移动端体验（布局、横屏提示）
+  - [ ] SEO + 分享卡片
+  - [ ] 性能 profiling（大案例库扩展时）
 - [ ] **多语言**
   - 中英双语支持（i18n）
   - 后续添加其他语言
-- [ ] **测试与伦理**
-  - 内部测试 + 小范围用户调研（目标用户反馈）
-  - A/B 测试框架（可选）
-  - 完整免责声明、隐私政策、数据来源页
+- [x] **测试与伦理（部分完成）**
+  - [x] 单元测试 + CI
+  - [x] 伦理准则、免责声明页面
+  - [ ] 小范围用户调研
+  - [ ] 独立隐私政策页（可选）
 
-**里程碑**：MVP 正式上线 + 公开访问链接。
+**里程碑**：公开可访问的 MVP + 稳定运维。🟡 进行中（Streamlit 已部署，公开性与推广待完善）
 
 ---
 
@@ -145,12 +176,12 @@
 
 | 阶段       | 推荐技术栈                          | 说明 |
 |------------|-------------------------------------|------|
-| MVP (1-3周) | Streamlit (Python) + HTML/JS 原型   | 快速开发、NLP 强、部署简单 |
+| **当前 MVP** | Streamlit + Plotly + WordCloud      | 已部署至 Streamlit Cloud |
+| 辅助原型   | HTML + Tailwind + Chart.js          | 本地 HTTP 演示，矩阵交互更丰富 |
 | 中期       | React + TypeScript + FastAPI        | 现代前端 + 后端 API |
-| 数据存储   | PostgreSQL + 本地向量（Chroma）     | 后期可升级云向量数据库 |
-| 部署       | Vercel + Railway / Hugging Face     | 免费额度友好、易维护 |
-| 可视化     | Plotly / Altair / Recharts          | Streamlit 原生支持 |
-| NLP        | sentence-transformers + 规则引擎    | 先规则，后模型 |
+| 数据存储   | JSON 文件 → PostgreSQL（后期）      | 案例 + 反馈持久化 |
+| 部署       | **Streamlit Cloud**（已用）+ Vercel 等 | MVP 用 Share；中期前后端分离 |
+| NLP        | 规则引擎 + Jaccard（线上）/ sentence-transformers（本地可选） | 轻量 Cloud 无 torch |
 
 ---
 
@@ -166,18 +197,32 @@
 
 ## 成功指标（KPI）
 
-- **MVP 上线后**：
-  - 案例数量 ≥ 60 条（平衡比例）
-  - 用户可完成一次完整分析 + 生成报告
-  - 在线可用性 ≥ 99%
-- **1 个月后**：
-  - 用户反馈 ≥ 20 条
-  - 案例贡献 ≥ 10 条（经审核）
-  - 页面访问量稳定增长
+| 指标 | 目标 | 当前（2026-07） |
+|------|------|-----------------|
+| 案例数量 | ≥ 60，1:1:1 | ✅ 60（CCP / 基督教 / 伊斯兰教 各 20） |
+| 完整分析 + 报告 | 用户可完成 | ✅ Streamlit 互动分析器 + Markdown/JSON 导出 |
+| 在线部署 | 可访问 | ✅ https://prophet-vs-party.streamlit.app |
+| 自动化测试 | 有 CI | ✅ 16 项 pytest + GitHub Actions |
+| 用户反馈 | ≥ 20（1 月后） | ⏳ 入口已就绪（GitHub Issues） |
+| 案例贡献 | ≥ 10（1 月后） | ⏳ 表单已就绪，待 PR 审核流程 |
 
 ---
 
-**当前状态**：阶段 0–2 已完成（HTML 原型 + Streamlit MVP）；待部署至 Streamlit Cloud。  
-**下一步建议**：阶段 3 React + FastAPI，或先完成 Streamlit Cloud 在线部署。
+## 当前状态（2026-07-07）
 
-如需我生成对应的 `tasks.md`、数据模板 JSON、或直接开始实现 Streamlit 原型，请随时告诉我！我们按这个优化版路线稳步推进。
+| 项目 | 状态 |
+|------|------|
+| **阶段 0–1** | ✅ 完成（伦理文档、60 案例、HTML 原型） |
+| **阶段 2** | ✅ 完成（Streamlit MVP 全功能） |
+| **阶段 2.5** | ✅ 完成（Cloud 部署、移动端、线上修复） |
+| **阶段 3** | ⏳ 未开始（React + FastAPI） |
+| **主入口** | Streamlit 应用（`app.py`） |
+| **辅助原型** | `index.html`（本地 HTTP 服务，功能更偏交互演示） |
+| **仓库** | https://github.com/HeisenbergSONG/Prophet-vs-Party |
+| **作者** | [HeisenbergSONG](https://github.com/HeisenbergSONG) |
+| **协议** | GPLv3 |
+
+**下一步建议**（按优先级）：
+1. 在 Share 控制台确认应用 **Running** 且按需设为 **Public**
+2. 收集早期用户反馈，迭代案例与规则（`rules.yaml`）
+3. 评估是否进入阶段 3（React + FastAPI），或继续深化 Streamlit（案例扩至 100+、贡献审核）
