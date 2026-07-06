@@ -18,9 +18,6 @@ st.set_page_config(
 
 inject_mobile_styles()
 
-with st.sidebar:
-    render_project_sidebar()
-
 
 def render_home():
     init_session_state()
@@ -63,14 +60,25 @@ def render_home():
     render_project_footer()
 
 
-pages = [
-    st.Page(render_home, title="主页", icon="🏠", default=True),
-    st.Page("pages/1_案例库.py", title="案例库", icon="📚"),
-    st.Page("pages/2_互动分析器.py", title="互动分析器", icon="🔍"),
-    st.Page("pages/3_可视化.py", title="可视化", icon="📊"),
-    st.Page("pages/4_反馈与贡献.py", title="反馈与贡献", icon="💬"),
-    st.Page("pages/5_伦理准则.py", title="伦理准则"),
-    st.Page("pages/6_免责声明.py", title="免责声明"),
+PAGE_HOME = st.Page(render_home, title="主页", icon="🏠", default=True)
+PAGE_CASES = st.Page("pages/1_案例库.py", title="案例库", icon="📚", url_path="cases")
+PAGE_ANALYZER = st.Page("pages/2_互动分析器.py", title="互动分析器", icon="🔍", url_path="analyzer")
+PAGE_VIZ = st.Page("pages/3_可视化.py", title="可视化", icon="📊", url_path="viz")
+PAGE_FEEDBACK = st.Page("pages/4_反馈与贡献.py", title="反馈与贡献", icon="💬", url_path="feedback")
+PAGE_ETHICS = st.Page("pages/5_伦理准则.py", title="伦理准则", url_path="ethics")
+PAGE_DISCLAIMER = st.Page("pages/6_免责声明.py", title="免责声明", url_path="disclaimer")
+
+PAGES = [
+    PAGE_HOME,
+    PAGE_CASES,
+    PAGE_ANALYZER,
+    PAGE_VIZ,
+    PAGE_FEEDBACK,
+    PAGE_ETHICS,
+    PAGE_DISCLAIMER,
 ]
 
-st.navigation(pages).run()
+with st.sidebar:
+    render_project_sidebar(ethics_page=PAGE_ETHICS, disclaimer_page=PAGE_DISCLAIMER)
+
+st.navigation(PAGES).run()

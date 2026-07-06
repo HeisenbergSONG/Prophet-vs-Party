@@ -6,15 +6,21 @@ import streamlit as st
 from core.data_loader import APP_URL, AUTHOR, ISSUES_URL, LICENSE_NAME, LICENSE_URL, REPO_URL
 
 
-def render_project_sidebar() -> None:
+def render_project_sidebar(*, ethics_page=None, disclaimer_page=None) -> None:
     st.markdown("### 项目")
     st.caption(f"作者：[{AUTHOR}](https://github.com/{AUTHOR})")
     st.link_button("GitHub 仓库", REPO_URL, use_container_width=True)
     st.link_button("在线应用", APP_URL, use_container_width=True)
     st.markdown("---")
     st.markdown("### 文档")
-    st.page_link("pages/5_伦理准则.py", label="伦理准则")
-    st.page_link("pages/6_免责声明.py", label="免责声明")
+    if ethics_page is not None:
+        st.page_link(ethics_page, label="伦理准则")
+    else:
+        st.markdown("[伦理准则](/ethics)")
+    if disclaimer_page is not None:
+        st.page_link(disclaimer_page, label="免责声明")
+    else:
+        st.markdown("[免责声明](/disclaimer)")
     st.link_button("报告问题", ISSUES_URL, use_container_width=True)
     st.markdown("---")
     st.caption(f"Prophet vs Party · [{LICENSE_NAME}]({LICENSE_URL})")
