@@ -1,5 +1,5 @@
 {
-  "id": "001",
+  "id": "ccp_001",
   "category": "二元对立",
   "source_type": "ccp",
   "text": "革命无罪，造反有理",
@@ -11,5 +11,9 @@
     "islam": "信道者与不信道者有明显区别"
   },
   "tags": ["历史", "动员"],
-  "risk_note": "易导致极端化"
+  "risk_note": "易导致极端化",
+  "source_url": "公开历史文献",
+  "year_start": 1966,
+  "year_end": 1976,
+  "era": "1966-1976 · 文革"
 }

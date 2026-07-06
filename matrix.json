@@ -1,0 +1,68 @@
+{
+  "dimensions": [
+    {
+      "key": "narrative",
+      "label": "核心叙事",
+      "ccp": "历史必然 + 阶级/民族复兴",
+      "christian": "救赎 + 个人罪与恩典",
+      "islam": "顺服真主 + 末日审判",
+      "techniques": ["历史叙事", "末世论", "希望许诺"]
+    },
+    {
+      "key": "emotion",
+      "label": "情感诉求",
+      "ccp": "希望 + 恐惧（阶级敌人）",
+      "christian": "爱 + 恐惧（地狱）",
+      "islam": "敬畏 + 希望（乐园）",
+      "techniques": ["情感诉求", "恐惧动员", "希望许诺"]
+    },
+    {
+      "key": "authority",
+      "label": "权威来源",
+      "ccp": "党 / 经典著作 / 领袖",
+      "christian": "《圣经》/ 耶稣 / 教会传统",
+      "islam": "《古兰经》/ 先知穆罕默德",
+      "techniques": ["权威引用", "领袖崇拜"]
+    },
+    {
+      "key": "mobilization",
+      "label": "动员方式",
+      "ccp": "集体行动 + 组织纪律",
+      "christian": "个人悔改 + 教会共同体",
+      "islam": "社区（乌玛）+ 礼仪实践",
+      "techniques": ["动员", "集体归属", "牺牲奉献"]
+    },
+    {
+      "key": "enemy",
+      "label": "敌人形象",
+      "ccp": "阶级敌人 / 帝国主义",
+      "christian": "魔鬼 / 罪 / 异教徒",
+      "islam": "撒旦 / 异教徒 / 背教者",
+      "techniques": ["敌人妖魔化", "二元对立"]
+    },
+    {
+      "key": "future",
+      "label": "未来许诺",
+      "ccp": "人间天堂（共产主义/现代化）",
+      "christian": "天国 / 永生",
+      "islam": "乐园 / 末日审判",
+      "techniques": ["希望许诺", "末世论"]
+    },
+    {
+      "key": "sacrifice",
+      "label": "牺牲与奉献",
+      "ccp": "艰苦奋斗 / 为人民服务",
+      "christian": "背十字架 / 甘心奉献",
+      "islam": "为主道奋斗 / 施舍",
+      "techniques": ["牺牲奉献", "道德号召"]
+    },
+    {
+      "key": "boundary",
+      "label": "群体边界",
+      "ccp": "人民内部 / 阶级划分",
+      "christian": "信与不信 / 窄门",
+      "islam": "信道者与不信道者",
+      "techniques": ["二元对立", "集体归属"]
+    }
+  ]
+}
