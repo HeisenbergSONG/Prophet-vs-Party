@@ -103,7 +103,7 @@
   - [x] 竖屏横屏使用提示
   - [x] 侧边栏项目信息（作者、仓库、协议）
   - [x] `st.page_link` + `st.navigation` KeyError 修复
-  - [x] pytest 16 项 + GitHub Actions CI
+  - [x] pytest 21 项 + GitHub Actions CI
 
 **里程碑**：MVP 可公开演示，文档与代码同步。✅ 已达成
 
