@@ -5,6 +5,7 @@ import streamlit as st
 
 from core.data_loader import TYPE_LABELS, load_cases, load_matrix
 from core.viz import (
+    matrix_comparison_radar,
     matrix_table_html,
     term_frequencies,
     terms_bar_chart,
@@ -38,6 +39,8 @@ with tab2:
         st.caption("当前筛选范围内暂无词频数据。")
 
 with tab3:
+    st.plotly_chart(matrix_comparison_radar(df, matrix), use_container_width=True)
+    st.caption("基于各类案例技巧标签在 8 个矩阵维度上的聚合估算，供跨类型修辞轮廓对比。")
     st.markdown(matrix_table_html(matrix), unsafe_allow_html=True)
     st.markdown("""
     <style>

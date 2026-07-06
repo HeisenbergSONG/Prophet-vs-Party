@@ -37,6 +37,33 @@ if cat_filter:
 
 st.caption(f"显示 {len(filtered)} / {len(df)} 条")
 
+if st.session_state.selected_ids:
+    selected_df = df[df["id"].isin(st.session_state.selected_ids)]
+    with st.container(border=True):
+        st.subheader(f"已选对比（{len(st.session_state.selected_ids)} 条）")
+        if st.button("清空选择", key="clear_selection_top"):
+            st.session_state.selected_ids = []
+            st.rerun()
+        if len(st.session_state.selected_ids) >= 2:
+            scores_list = []
+            labels = []
+            for _, row in selected_df.iterrows():
+                scores_list.append(score_case_techniques(list(row.get("techniques", []) or []), matrix))
+                labels.append(f"{row['type_label']}：{row['text'][:10]}…")
+            st.markdown("#### 8 维修辞对比")
+            st.plotly_chart(radar_chart(scores_list, labels), use_container_width=True)
+            for _, row in selected_df.iterrows():
+                with st.expander(f"{row['type_label']} · {row['text'][:20]}…"):
+                    st.markdown(f"**{row['text']}**")
+                    st.write("来源：", row["source"])
+                    if row.get("parallel"):
+                        st.markdown("**平行映射**")
+                        for k, v in row["parallel"].items():
+                            st.write(f"- {TYPE_LABELS.get(k, k)}：{v}")
+        else:
+            st.info("再选 1 条案例即可生成 8 维雷达对比图。")
+        st.markdown(" ".join(f"`{row['id']}`" for _, row in selected_df.iterrows()))
+
 for _, row in filtered.iterrows():
     cid = row["id"]
     selected = cid in st.session_state.selected_ids
@@ -68,27 +95,3 @@ for _, row in filtered.iterrows():
                     st.toast("最多选择 3 条")
                 st.rerun()
 
-if st.session_state.selected_ids:
-    st.markdown("---")
-    st.subheader(f"已选对比（{len(st.session_state.selected_ids)} 条）")
-    selected_df = df[df["id"].isin(st.session_state.selected_ids)]
-    if st.button("清空选择"):
-        st.session_state.selected_ids = []
-        st.rerun()
-
-    if len(st.session_state.selected_ids) >= 2:
-        scores_list = []
-        labels = []
-        for _, row in selected_df.iterrows():
-            scores_list.append(score_case_techniques(list(row.get("techniques", []) or []), matrix))
-            labels.append(f"{row['type_label']}：{row['text'][:10]}…")
-        st.plotly_chart(radar_chart(scores_list, labels), use_container_width=True)
-
-        for _, row in selected_df.iterrows():
-            with st.expander(f"{row['type_label']} · {row['text'][:20]}…"):
-                st.markdown(f"**{row['text']}**")
-                st.write("来源：", row["source"])
-                if row.get("parallel"):
-                    st.markdown("**平行映射**")
-                    for k, v in row["parallel"].items():
-                        st.write(f"- {TYPE_LABELS.get(k, k)}：{v}")

@@ -28,6 +28,23 @@ def radar_chart(scores_list: list[dict[str, float]], labels: list[str]) -> go.Fi
     return fig
 
 
+def matrix_comparison_radar(df: pd.DataFrame, matrix: dict) -> go.Figure:
+    from core.analyzer import score_case_techniques
+
+    scores_list = []
+    labels = []
+    for stype in ("ccp", "christian", "islam"):
+        subset = df[df["source_type"] == stype]
+        techs: list[str] = []
+        for row_techs in subset["techniques"]:
+            techs.extend(row_techs or [])
+        scores_list.append(score_case_techniques(techs, matrix))
+        labels.append(TYPE_LABELS[stype])
+    fig = radar_chart(scores_list, labels)
+    fig.update_layout(title="8 维话术矩阵对比")
+    return fig
+
+
 def timeline_chart(df: pd.DataFrame) -> go.Figure:
     plot_df = df.copy()
     plot_df["mid_year"] = (plot_df["year_start"] + plot_df["year_end"]) / 2

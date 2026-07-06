@@ -76,6 +76,10 @@
                 <table id="matrixTable" class="w-full text-sm border-collapse"></table>
             </div>
             <button onclick="clearMatrixSelection()" class="mt-3 text-xs px-3 py-1 border rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">清空矩阵选择</button>
+            <div class="mt-8">
+                <h3 class="font-semibold mb-4 text-center">8 维话术矩阵对比</h3>
+                <div class="max-w-2xl mx-auto"><canvas id="matrixRadarChart" height="360"></canvas></div>
+            </div>
         </section>
 
         <!-- 时间轴 -->
@@ -146,31 +150,21 @@
         const TYPE_COLORS = { ccp: 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300', christian: 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300', islam: 'bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-300' };
         const TYPE_CHART = { ccp: 'rgb(239,68,68)', christian: 'rgb(59,130,246)', islam: 'rgb(34,197,94)' };
 
-        const DIMENSIONS = [
-            { key: 'emotion', label: '情感诉求', techniques: ['情感诉求'] },
-            { key: 'authority', label: '权威性', techniques: ['权威引用', '领袖崇拜'] },
-            { key: 'hope', label: '希望许诺', techniques: ['希望许诺', '末世论'] },
-            { key: 'fear', label: '恐惧动员', techniques: ['恐惧动员', '敌人妖魔化'] },
-            { key: 'collective', label: '集体归属', techniques: ['集体归属', '动员'] },
-            { key: 'binary', label: '二元对立', techniques: ['二元对立'] },
-            { key: 'sacrifice', label: '牺牲奉献', techniques: ['牺牲奉献', '道德号召'] }
-        ];
-
         const RULES = [
-            { pattern: /敌人|魔鬼|撒旦|帝国主义|不信道|异教徒|阶级敌人/, technique: '敌人妖魔化', dim: 'fear' },
-            { pattern: /乐园|天国|永生|富裕|复兴|恩典|善报|得救/, technique: '希望许诺', dim: 'hope' },
+            { pattern: /敌人|魔鬼|撒旦|帝国主义|不信道|异教徒|阶级敌人/, technique: '敌人妖魔化', dim: 'enemy' },
+            { pattern: /乐园|天国|永生|富裕|复兴|恩典|善报|得救|共同富裕/, technique: '希望许诺', dim: 'future' },
             { pattern: /服从|顺从|跟党|敬畏|崇拜真主|领袖|万岁|权威/, technique: '权威引用', dim: 'authority' },
-            { pattern: /爱|关怀|兄弟|一家亲|共同体|肢体|乌玛/, technique: '集体归属', dim: 'collective' },
+            { pattern: /爱|关怀|兄弟|一家亲|共同体|肢体|乌玛/, technique: '集体归属', dim: 'boundary' },
             { pattern: /奋斗|牺牲|奉献|施舍|背起|艰苦奋斗|花费/, technique: '牺牲奉献', dim: 'sacrifice' },
-            { pattern: /不信|敌我|区别|窄门|正道|邪道|二元|对立/, technique: '二元对立', dim: 'binary' },
-            { pattern: /末日|审判|火狱|震怒|畏惧|恐惧|报应/, technique: '恐惧动员', dim: 'fear' },
+            { pattern: /不信|敌我|区别|窄门|正道|邪道|二元|对立/, technique: '二元对立', dim: 'boundary' },
+            { pattern: /末日|审判|火狱|震怒|畏惧|恐惧|报应/, technique: '恐惧动员', dim: 'emotion' },
             { pattern: /神爱|人民|情感|怜悯|回转|哀恸/, technique: '情感诉求', dim: 'emotion' },
-            { pattern: /历史|复兴|使命|必然|末世|乐园宽/, technique: '历史叙事', dim: 'hope' },
-            { pattern: /动员|收割|吉哈德|脱贫|进军/, technique: '动员', dim: 'collective' }
+            { pattern: /历史|复兴|使命|必然|末世|乐园宽/, technique: '历史叙事', dim: 'narrative' },
+            { pattern: /动员|收割|吉哈德|脱贫|进军/, technique: '动员', dim: 'mobilization' }
         ];
 
         let allCases = [], filteredCases = [], selectedCases = [], matrixData = null;
-        let radarChartInstance = null, timelineChartInstance = null;
+        let radarChartInstance = null, matrixRadarChartInstance = null, timelineChartInstance = null;
         let matrixSelection = { ccp: null, christian: null, islam: null };
 
         function escapeHtml(str) {
@@ -182,7 +176,7 @@
             const on = document.documentElement.classList.contains('dark');
             localStorage.setItem('darkMode', on ? '1' : '0');
             document.getElementById('darkToggle').textContent = on ? '☀️ 浅色模式' : '🌙 暗黑模式';
-            renderWordCloud(); renderTimeline();
+            renderWordCloud(); renderTimeline(); renderMatrixRadar();
             if (radarChartInstance && selectedCases.length >= 2) renderRadarChart();
         }
 
@@ -195,10 +189,21 @@
 
         function scoreCase(c) {
             const techs = c.techniques || [];
-            return DIMENSIONS.map(d => {
-                const n = techs.filter(t => d.techniques.includes(t)).length;
+            return (matrixData?.dimensions || []).map(dim => {
+                const n = dim.techniques.filter(t => techs.includes(t)).length;
                 return n ? Math.min(60 + n * 15, 100) : 20;
             });
+        }
+
+        function typeTechniques(type) {
+            return allCases.filter(c => c.source_type === type).flatMap(c => c.techniques || []);
+        }
+
+        function radarChartOptions(dark) {
+            return {
+                scales: { r: { min: 0, max: 100, ticks: { stepSize: 20, color: dark?'#9ca3af':'#666' }, grid: { color: dark?'#374151':'#e5e7eb' }, pointLabels: { color: dark?'#d1d5db':'#374151' } } },
+                plugins: { legend: { labels: { color: dark?'#d1d5db':'#374151' } } }
+            };
         }
 
         function bigrams(text) {
@@ -225,6 +230,7 @@
                 matrixData = await matrixRes.json();
                 populateCategoryFilter();
                 renderMatrix();
+                renderMatrixRadar();
                 applyFilters();
             } catch (e) {
                 console.error(e);
@@ -339,13 +345,14 @@
         }
 
         function renderRadarChart() {
+            if (!matrixData) return;
             const ctx = document.getElementById('radarChart').getContext('2d');
             if (radarChartInstance) radarChartInstance.destroy();
             const dark = document.documentElement.classList.contains('dark');
             radarChartInstance = new Chart(ctx, {
                 type: 'radar',
                 data: {
-                    labels: DIMENSIONS.map(d => d.label),
+                    labels: matrixData.dimensions.map(d => d.label),
                     datasets: selectedCases.map((c, i) => ({
                         label: `${TYPE_LABELS[c.source_type]}：${c.text.slice(0,8)}…`,
                         data: scoreCase(c),
@@ -354,10 +361,37 @@
                         borderWidth: 2
                     }))
                 },
-                options: {
-                    scales: { r: { min: 0, max: 100, ticks: { stepSize: 20, color: dark?'#9ca3af':'#666' }, grid: { color: dark?'#374151':'#e5e7eb' }, pointLabels: { color: dark?'#d1d5db':'#374151' } } },
-                    plugins: { legend: { labels: { color: dark?'#d1d5db':'#374151' } } }
-                }
+                options: radarChartOptions(dark)
+            });
+        }
+
+        function renderMatrixRadar() {
+            if (!matrixData) return;
+            const canvas = document.getElementById('matrixRadarChart');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            if (matrixRadarChartInstance) matrixRadarChartInstance.destroy();
+            const dark = document.documentElement.classList.contains('dark');
+            const types = ['ccp', 'christian', 'islam'];
+            matrixRadarChartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: matrixData.dimensions.map(d => d.label),
+                    datasets: types.map(type => {
+                        const techs = typeTechniques(type);
+                        return {
+                            label: TYPE_LABELS[type],
+                            data: matrixData.dimensions.map(dim => {
+                                const n = dim.techniques.filter(t => techs.includes(t)).length;
+                                return n ? Math.min(60 + n * 15, 100) : 20;
+                            }),
+                            backgroundColor: TYPE_CHART[type].replace('rgb','rgba').replace(')',',0.35)'),
+                            borderColor: TYPE_CHART[type],
+                            borderWidth: 2
+                        };
+                    })
+                },
+                options: radarChartOptions(dark)
             });
         }
 
@@ -367,10 +401,10 @@
             const detected = [];
             RULES.forEach(r => { if (r.pattern.test(input) && !detected.find(d=>d.technique===r.technique)) detected.push(r); });
             const dimScores = {};
-            DIMENSIONS.forEach(d => dimScores[d.label] = 0);
+            (matrixData?.dimensions || []).forEach(d => dimScores[d.label] = 0);
             detected.forEach(d => {
-                const dim = DIMENSIONS.find(x => x.key === d.dim);
-                if (dim) dimScores[dim.label] += 30;
+                const dim = matrixData?.dimensions?.find(x => x.key === d.dim);
+                if (dim) dimScores[dim.label] = Math.min((dimScores[dim.label] || 0) + 30, 100);
             });
 
             document.getElementById('analyzeResult').classList.remove('hidden');
