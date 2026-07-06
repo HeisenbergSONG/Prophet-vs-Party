@@ -65,6 +65,9 @@ python -m http.server 8080
 4. Python 版本选 **3.10** 或 **3.11**
 5. 点击 **Deploy**（依赖见 `requirements.txt`）
 6. 首次启动会下载 `sentence-transformers` 模型（约 120MB），约 2–5 分钟
+7. Advanced settings（可选）：Python **3.11**，依赖文件 `requirements.txt`
+
+**在线地址**（部署后填写）：`https://<your-app>.streamlit.app`
 
 **隐私**：用户输入仅在会话内分析，不写入数据库；详见 `ETHICS.md`。
 
