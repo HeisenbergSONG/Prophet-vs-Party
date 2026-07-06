@@ -1,5 +1,6 @@
 # IDE / editor
 mcps/
+terminals/
 .vscode/
 .idea/
 *.swp
