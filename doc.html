@@ -22,9 +22,29 @@
         #content :is(pre) { overflow-x: auto; padding: 0.75rem; background: #f3f4f6; border-radius: 0.5rem; }
         #content :is(h1) { font-size: 1.5rem; }
         #content :is(h2) { font-size: 1.2rem; }
+        #landscape-hint {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 50;
+            padding: 0.65rem 1rem;
+            padding-top: max(0.65rem, env(safe-area-inset-top));
+            background: linear-gradient(90deg, #1e40af, #2563eb);
+            color: #fff;
+            font-size: 0.85rem;
+            line-height: 1.45;
+            text-align: center;
+        }
+        @media (max-width: 768px) and (orientation: portrait) {
+            #landscape-hint { display: block; }
+            body { padding-top: 3.25rem; }
+        }
     </style>
 </head>
 <body>
+    <div id="landscape-hint" role="status">
+        📱 建议旋转手机<strong>横屏使用</strong>，阅读文档更舒适。
+    </div>
     <nav>
         <a href="index.html">← 返回主页</a> ·
         <a href="doc.html?file=ETHICS.md">伦理准则</a> ·

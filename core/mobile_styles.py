@@ -3,8 +3,43 @@
 
 import streamlit as st
 
+LANDSCAPE_HINT_HTML = """
+<div id="pnp-landscape-hint" role="status" aria-live="polite">
+    <span>📱 移动端竖屏浏览较窄，建议旋转手机<strong>横屏使用</strong>，图表与话术矩阵体验更佳。</span>
+</div>
+"""
+
 MOBILE_CSS = """
 <style>
+#pnp-landscape-hint {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    padding: 0.65rem 1rem;
+    padding-top: max(0.65rem, env(safe-area-inset-top));
+    background: linear-gradient(90deg, #1e40af, #2563eb);
+    color: #fff;
+    font-size: 0.85rem;
+    line-height: 1.45;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
+#pnp-landscape-hint strong { font-weight: 700; }
+
+@media (max-width: 768px) and (orientation: portrait) {
+    #pnp-landscape-hint {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    [data-testid="stAppViewContainer"] > section.main {
+        padding-top: 3.25rem;
+    }
+}
+
 @supports (padding: max(0px)) {
     .block-container {
         padding-left: max(1rem, env(safe-area-inset-left));
@@ -53,4 +88,4 @@ MOBILE_CSS = """
 
 
 def inject_mobile_styles() -> None:
-    st.markdown(MOBILE_CSS, unsafe_allow_html=True)
+    st.markdown(LANDSCAPE_HINT_HTML + MOBILE_CSS, unsafe_allow_html=True)
