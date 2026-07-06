@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>话语之战 - Prophet vs Party</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; }
+        .highlight { background-color: #fef3c7; padding: 2px 4px; border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-7xl mx-auto p-6">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-gray-900">话语之战</h1>
+            <p class="text-xl text-gray-600 mt-2">宣传 vs 传教 · 中立对比分析平台</p>
+            <p class="text-sm text-gray-500 mt-1">Prophet vs Party</p>
+        </header>
+
+        <!-- 案例选择 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <!-- 共产党案例 -->
+            <div class="bg-white p-6 rounded-xl shadow">
+                <h2 class="text-lg font-semibold text-red-600 mb-4">共产党宣传</h2>
+                <select id="comm-case" onchange="compareCases()" class="w-full p-3 border rounded-lg">
+                    <option value="0">为人民服务</option>
+                    <option value="1">中国梦</option>
+                    <option value="2">共同富裕</option>
+                </select>
+                <div id="comm-text" class="mt-4 text-sm text-gray-700 min-h-[120px]"></div>
+            </div>
+
+            <!-- 基督教案例 -->
+            <div class="bg-white p-6 rounded-xl shadow">
+                <h2 class="text-lg font-semibold text-blue-600 mb-4">基督教传教</h2>
+                <select id="christ-case" onchange="compareCases()" class="w-full p-3 border rounded-lg">
+                    <option value="0">约翰福音 3:16</option>
+                    <option value="1">悔改信主</option>
+                    <option value="2">天国近了</option>
+                </select>
+                <div id="christ-text" class="mt-4 text-sm text-gray-700 min-h-[120px]"></div>
+            </div>
+
+            <!-- 伊斯兰教案例 -->
+            <div class="bg-white p-6 rounded-xl shadow">
+                <h2 class="text-lg font-semibold text-green-600 mb-4">伊斯兰教传教</h2>
+                <select id="islam-case" onchange="compareCases()" class="w-full p-3 border rounded-lg">
+                    <option value="0">古兰经 2:256</option>
+                    <option value="1">顺服真主</option>
+                    <option value="2">乐园的许诺</option>
+                </select>
+                <div id="islam-text" class="mt-4 text-sm text-gray-700 min-h-[120px]"></div>
+            </div>
+        </div>
+
+        <!-- 对比结果 -->
+        <div id="comparison" class="bg-white p-8 rounded-2xl shadow-lg hidden">
+            <h2 class="text-2xl font-bold mb-6 text-center">对比分析</h2>
+            
+            <!-- 表格对比 -->
+            <div class="overflow-x-auto mb-8">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-4 text-left">维度</th>
+                            <th class="p-4 text-red-600">共产党</th>
+                            <th class="p-4 text-blue-600">基督教</th>
+                            <th class="p-4 text-green-600">伊斯兰教</th>
+                        </tr>
+                    </thead>
+                    <tbody id="compare-table"></tbody>
+                </table>
+            </div>
+
+            <!-- 可视化 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-semibold mb-4">相似度与指数</h3>
+                    <canvas id="radarChart" height="300"></canvas>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">关键词提取</h3>
+                    <div id="keywords" class="flex flex-wrap gap-2"></div>
+                </div>
+            </div>
+
+            <!-- 技巧标签 -->
+            <div class="mt-8">
+                <h3 class="font-semibold mb-3">修辞技巧标签</h3>
+                <div id="tags" class="flex flex-wrap gap-2"></div>
+            </div>
+        </div>
+
+
+    <script>
+        // 案例数据
+        const cases = {
+            comm: [
+                { text: "为人民服务 —— 这是我们党的根本宗旨。", source: "毛泽东" },
+                { text: "实现中华民族伟大复兴的中国梦。", source: "习近平" },
+                { text: "共同富裕，让全体人民过上好日子。", source: "中共二十大" }
+            ],
+            christ: [
+                { text: "神爱世人，甚至将他的独生子赐给他们，叫一切信他的，不至灭亡，反得永生。", source: "约翰福音 3:16" },
+                { text: "你们当悔改，信福音。", source: "马可福音 1:15" },
+                { text: "天国近了，你们应当悔改！", source: "马太福音 4:17" }
+            ],
+            islam: [
+                { text: "对于宗教，绝无强迫；因为正道已与邪道分明。", source: "古兰经 2:256" },
+                { text: "你们当顺服真主和使者。", source: "古兰经" },
+                { text: "信道而且行善者，我将使他们进入下临诸河的乐园。", source: "古兰经" }
+            ]
+        };
+
+        let radarChartInstance = null;
+
+        function updateCaseDisplay() {
+            const commIdx = document.getElementById('comm-case').value;
+            const christIdx = document.getElementById('christ-case').value;
+            const islamIdx = document.getElementById('islam-case').value;
+
+            document.getElementById('comm-text').innerHTML = `<strong>${cases.comm[commIdx].text}</strong><br><small class="text-gray-500">来源：${cases.comm[commIdx].source}</small>`;
+            document.getElementById('christ-text').innerHTML = `<strong>${cases.christ[christIdx].text}</strong><br><small class="text-gray-500">来源：${cases.christ[christIdx].source}</small>`;
+            document.getElementById('islam-text').innerHTML = `<strong>${cases.islam[islamIdx].text}</strong><br><small class="text-gray-500">来源：${cases.islam[islamIdx].source}</small>`;
+        }
+
+        function compareCases() {
+            updateCaseDisplay();
+            const comparisonDiv = document.getElementById('comparison');
+            comparisonDiv.classList.remove('hidden');
+
+            // 示例对比数据
+            const tableBody = document.getElementById('compare-table');
+            tableBody.innerHTML = `
+                <tr class="border-b"><td class="p-4 font-medium">核心叙事</td><td class="p-4">历史必然 + 民族复兴</td><td class="p-4">救赎 + 永生</td><td class="p-4">顺服真主 + 末日审判</td></tr>
+                <tr class="border-b"><td class="p-4 font-medium">情感诉求</td><td class="p-4">希望 + 集体奋斗</td><td class="p-4">爱 + 恐惧（地狱）</td><td class="p-4">敬畏 + 希望（乐园）</td></tr>
+                <tr><td class="p-4 font-medium">未来许诺</td><td class="p-4">人间共产主义</td><td class="p-4">天国</td><td class="p-4">乐园</td></tr>
+            `;
+
+            // 关键词
+            document.getElementById('keywords').innerHTML = `
+                <span class="highlight text-xs px-3 py-1 bg-yellow-100 rounded-full">斗争</span>
+                <span class="highlight text-xs px-3 py-1 bg-yellow-100 rounded-full">救赎</span>
+                <span class="highlight text-xs px-3 py-1 bg-yellow-100 rounded-full">顺服</span>
+                <span class="highlight text-xs px-3 py-1 bg-yellow-100 rounded-full">复兴</span>
+            `;
+
+            // 标签
+            document.getElementById('tags').innerHTML = `
+                <span class="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm">二元对立</span>
+                <span class="inline-block bg-purple-100 text-purple-700 px-4 py-1 rounded-full text-sm">救世主叙事</span>
+                <span class="inline-block bg-amber-100 text-amber-700 px-4 py-1 rounded-full text-sm">末世论</span>
+                <span class="inline-block bg-emerald-100 text-emerald-700 px-4 py-1 rounded-full text-sm">群体归属</span>
+            `;
+
+            // Radar Chart
+            const ctx = document.getElementById('radarChart');
+            if (radarChartInstance) radarChartInstance.destroy();
+            
+            radarChartInstance = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['情感强度', '权威性', '希望指数', '恐惧指数', '动员力'],
+                    datasets: [
+                        { label: '共产党', data: [75, 90, 85, 60, 95], borderColor: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.2)' },
+                        { label: '基督教', data: [80, 85, 90, 70, 65], borderColor: '#3b82f6', backgroundColor: 'rgba(59, 130, 246, 0.2)' },
+                        { label: '伊斯兰教', data: [70, 88, 80, 65, 75], borderColor: '#10b981', backgroundColor: 'rgba(16, 185, 129, 0.2)' }
+                    ]
+                },
+                options: { scales: { r: { min: 0, max: 100 } } }
+            });
+        }
+
+        // 简单测验
+        function startQuiz() {
+            const quizDiv = document.getElementById('quiz');
+            quizDiv.innerHTML = `
+                <p class="mb-4">"实现中华民族伟大复兴的中国梦"</p>
+                <button onclick="answerQuiz(0)" class="mx-2 px-6 py-3 bg-red-500 text-white rounded-xl">共产党宣传</button>
+                <button onclick="answerQuiz(1)" class="mx-2 px-6 py-3 bg-blue-500 text-white rounded-xl">基督教</button>
+                <button onclick="answerQuiz(2)" class="mx-2 px-6 py-3 bg-green-500 text-white rounded-xl">伊斯兰教</button>
+            `;
+        }
+
+        function answerQuiz(choice) {
+            const quizDiv = document.getElementById('quiz');
+            if (choice === 0) {
+                quizDiv.innerHTML = `<p class="text-green-600 font-bold">✅ 正确！这是典型的共产党宣传话术。</p><button onclick="startQuiz()" class="mt-4 px-6 py-2 border rounded">再来一题</button>`;
+            } else {
+                quizDiv.innerHTML = `<p class="text-red-600">❌ 这是共产党宣传话术。</p><button onclick="startQuiz()" class="mt-4 px-6 py-2 border rounded">再来一题</button>`;
+            }
+        }
+
+        // 初始化
+        window.onload = () => {
+            updateCaseDisplay();
+            compareCases();
+            // 自动开始测验
+            setTimeout(() => {
+                startQuiz();
+            }, 800);
+        };
+    </script>
+</body>
+</html>
