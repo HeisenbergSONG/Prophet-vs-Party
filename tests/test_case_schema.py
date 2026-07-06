@@ -29,3 +29,8 @@ def test_validate_case_detects_missing_link():
         "source_verified": False,
     }
     assert any("source_link" in e for e in validate_case(bad))
+
+
+def test_all_cases_json_valid(cases_list):
+    for case in cases_list:
+        assert validate_case(case) == [], case.get("id")

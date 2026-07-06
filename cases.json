@@ -1678,5 +1678,1685 @@
     "source_type_ref": "link",
     "source_link": "https://quran.com/49/10",
     "source_verified": true
+  },
+  {
+    "id": "ccp_021",
+    "category": "政权论述",
+    "source_type": "ccp",
+    "text": "枪杆子里面出政权",
+    "source": "毛泽东 / 八七会议",
+    "techniques": [
+      "权威引用",
+      "动员"
+    ],
+    "psychological_mechanism": "以暴力正当性确立组织路线",
+    "parallel": {
+      "christian": "我的国不属这世界",
+      "islam": "你们当为主道而奋斗"
+    },
+    "tags": [
+      "经典",
+      "历史"
+    ],
+    "risk_note": "易被误读为唯武力论",
+    "source_url": "《毛泽东选集》· 八七会议",
+    "year_start": 1927,
+    "year_end": 1927,
+    "era": "1927 · 八七会议",
+    "source_type_ref": "link",
+    "source_link": "https://www.marxists.org/chinese/maozedong/index.htm",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_022",
+    "category": "革命信心",
+    "source_type": "ccp",
+    "text": "星星之火，可以燎原",
+    "source": "毛泽东 / 书信",
+    "techniques": [
+      "希望许诺",
+      "历史叙事"
+    ],
+    "psychological_mechanism": "以小胜大、以弱胜强的信念建构",
+    "parallel": {
+      "christian": "芥菜种般的信心",
+      "islam": "真主欲给你们一份恩典"
+    },
+    "tags": [
+      "经典",
+      "革命"
+    ],
+    "risk_note": "",
+    "source_url": "《毛泽东选集》· 星星之火，可以燎原",
+    "year_start": 1930,
+    "year_end": 1930,
+    "era": "1930 · 井冈山时期",
+    "source_type_ref": "link",
+    "source_link": "https://www.marxists.org/chinese/maozedong/index.htm",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_023",
+    "category": "建国叙事",
+    "source_type": "ccp",
+    "text": "中国人民站起来了",
+    "source": "毛泽东 / 开国大典",
+    "techniques": [
+      "历史叙事",
+      "集体归属"
+    ],
+    "psychological_mechanism": "以民族翻身叙事凝聚集体自豪",
+    "parallel": {
+      "christian": "被释放得自由",
+      "islam": "信道者将获得成功"
+    },
+    "tags": [
+      "经典",
+      "建国"
+    ],
+    "risk_note": "",
+    "source_url": "公开历史文献 · 1949 开国大典",
+    "year_start": 1949,
+    "year_end": 1949,
+    "era": "1949 · 开国大典",
+    "source_type_ref": "link",
+    "source_link": "https://zh.wikipedia.org/wiki/%E4%B8%AD%E5%8D%8E%E4%BA%BA%E6%B0%91%E5%85%B1%E5%92%8C%E5%9B%BD%E6%88%90%E7%AB%8B",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_024",
+    "category": "发展论述",
+    "source_type": "ccp",
+    "text": "发展才是硬道理",
+    "source": "邓小平 / 南方谈话",
+    "techniques": [
+      "权威引用",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "以经济增长正当化路线选择",
+    "parallel": {
+      "christian": "你们要得赏赐",
+      "islam": "你们当争先行善"
+    },
+    "tags": [
+      "经典",
+      "改革"
+    ],
+    "risk_note": "",
+    "source_url": "公开历史文献 · 1992 南方谈话",
+    "year_start": 1992,
+    "year_end": 1992,
+    "era": "1992 · 南方谈话",
+    "source_type_ref": "link",
+    "source_link": "https://zh.wikipedia.org/wiki/%E5%8D%97%E6%96%B9%E8%B0%88%E8%AF%9D",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_025",
+    "category": "改革叙事",
+    "source_type": "ccp",
+    "text": "改革开放",
+    "source": "邓小平时期政策话语",
+    "techniques": [
+      "历史叙事",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "以开放变革承诺打破停滞焦虑",
+    "parallel": {
+      "christian": "旧事已过，都变成新的了",
+      "islam": "真主将为他们开辟出路"
+    },
+    "tags": [
+      "经典",
+      "政策"
+    ],
+    "risk_note": "",
+    "source_url": "官方历史论述 · 改革开放",
+    "year_start": 1978,
+    "year_end": 2026,
+    "era": "1978- · 改革开放",
+    "source_type_ref": "link",
+    "source_link": "https://www.gov.cn/",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_026",
+    "category": "党建理论",
+    "source_type": "ccp",
+    "text": "三个代表",
+    "source": "江泽民 / 党建论述",
+    "techniques": [
+      "权威引用",
+      "集体归属"
+    ],
+    "psychological_mechanism": "以代表性论述扩展组织合法性",
+    "parallel": {
+      "christian": "基督是教会的元首",
+      "islam": "你们当服从使者和主事人"
+    },
+    "tags": [
+      "经典",
+      "党建"
+    ],
+    "risk_note": "",
+    "source_url": "官方党建文献 · 三个代表",
+    "year_start": 2000,
+    "year_end": 2002,
+    "era": "2000-02 · 三个代表",
+    "source_type_ref": "link",
+    "source_link": "https://zh.wikipedia.org/wiki/%E4%B8%89%E4%B8%AA%E4%BB%A3%E8%A1%A8",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_027",
+    "category": "复兴愿景",
+    "source_type": "ccp",
+    "text": "中国梦",
+    "source": "习近平 / 官方论述",
+    "techniques": [
+      "希望许诺",
+      "历史叙事"
+    ],
+    "psychological_mechanism": "以个人梦想与国家叙事绑定",
+    "parallel": {
+      "christian": "你们要先求他的国",
+      "islam": "乐园宽若天地"
+    },
+    "tags": [
+      "经典",
+      "当代"
+    ],
+    "risk_note": "",
+    "source_url": "新华社 / 中国梦论述",
+    "year_start": 2012,
+    "year_end": 2026,
+    "era": "2012- · 新时代",
+    "source_type_ref": "link",
+    "source_link": "https://www.xinhuanet.com/politics/leaders/xijinping.htm",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_028",
+    "category": "战略判断",
+    "source_type": "ccp",
+    "text": "一切反动派都是纸老虎",
+    "source": "毛泽东",
+    "techniques": [
+      "敌人妖魔化",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "贬低敌人力量的心理动员",
+    "parallel": {
+      "christian": "胜过那恶者",
+      "islam": "真主是万能的"
+    },
+    "tags": [
+      "经典",
+      "战略"
+    ],
+    "risk_note": "易轻敌",
+    "source_url": "《毛泽东选集》",
+    "year_start": 1946,
+    "year_end": 1958,
+    "era": "1946-58 · 革命时期",
+    "source_type_ref": "link",
+    "source_link": "https://www.marxists.org/chinese/maozedong/index.htm",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_029",
+    "category": "群众路线",
+    "source_type": "ccp",
+    "text": "从群众中来，到群众中去",
+    "source": "毛泽东",
+    "techniques": [
+      "集体归属",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以循环反馈塑造组织—群众一体",
+    "parallel": {
+      "christian": "牧养我的羊",
+      "islam": "你们当互相劝诫真理"
+    },
+    "tags": [
+      "经典",
+      "组织"
+    ],
+    "risk_note": "",
+    "source_url": "《毛泽东选集》· 关于领导方法的若干问题",
+    "year_start": 1943,
+    "year_end": 1943,
+    "era": "1943 · 延安",
+    "source_type_ref": "link",
+    "source_link": "https://www.marxists.org/chinese/maozedong/index.htm",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_030",
+    "category": "战争动员",
+    "source_type": "ccp",
+    "text": "人民战争",
+    "source": "毛泽东 / 军事论述",
+    "techniques": [
+      "动员",
+      "集体归属"
+    ],
+    "psychological_mechanism": "以全民动员正当化长期斗争",
+    "parallel": {
+      "christian": "与魔鬼争战",
+      "islam": "你们当为主道而奋斗"
+    },
+    "tags": [
+      "经典",
+      "军事"
+    ],
+    "risk_note": "",
+    "source_url": "《毛泽东选集》· 论持久战",
+    "year_start": 1938,
+    "year_end": 1975,
+    "era": "1938-75 · 革命战争",
+    "source_type_ref": "link",
+    "source_link": "https://www.marxists.org/chinese/maozedong/index.htm",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_031",
+    "category": "文化方针",
+    "source_type": "ccp",
+    "text": "百花齐放，百家争鸣",
+    "source": "毛泽东 / 双百方针",
+    "techniques": [
+      "希望许诺",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以宽松承诺争取知识分子认同",
+    "parallel": {
+      "christian": "各恩赐不同，同有一灵",
+      "islam": "你们当秉公召人"
+    },
+    "tags": [
+      "经典",
+      "文化"
+    ],
+    "risk_note": "历史语境复杂",
+    "source_url": "公开历史文献 · 双百方针",
+    "year_start": 1956,
+    "year_end": 1957,
+    "era": "1956-57 · 双百方针",
+    "source_type_ref": "link",
+    "source_link": "https://zh.wikipedia.org/wiki/%E7%99%BE%E8%8A%B1%E9%BD%90%E6%94%BE%EF%BC%8C%E7%99%BE%E5%AE%B6%E4%BA%89%E9%B8%A3",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_032",
+    "category": "政治纪律",
+    "source_type": "ccp",
+    "text": "两个维护",
+    "source": "新时代党建话语",
+    "techniques": [
+      "权威引用",
+      "集体归属"
+    ],
+    "psychological_mechanism": "以忠诚表述强化组织团结",
+    "parallel": {
+      "christian": "你们当顺从神",
+      "islam": "你们当服从真主和使者"
+    },
+    "tags": [
+      "经典",
+      "党建"
+    ],
+    "risk_note": "",
+    "source_url": "官方党建文献",
+    "year_start": 2018,
+    "year_end": 2026,
+    "era": "2018- · 党建",
+    "source_type_ref": "link",
+    "source_link": "https://www.ccdi.gov.cn/",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_033",
+    "category": "政治意识",
+    "source_type": "ccp",
+    "text": "四个意识",
+    "source": "新时代党建话语",
+    "techniques": [
+      "权威引用",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以意识框架规范党员认知",
+    "parallel": {
+      "christian": "心意更新而变化",
+      "islam": "你们当敬畏真主"
+    },
+    "tags": [
+      "经典",
+      "党建"
+    ],
+    "risk_note": "",
+    "source_url": "官方党建文献",
+    "year_start": 2016,
+    "year_end": 2026,
+    "era": "2016- · 党建",
+    "source_type_ref": "link",
+    "source_link": "https://www.ccdi.gov.cn/",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_034",
+    "category": "改革方法",
+    "source_type": "ccp",
+    "text": "摸着石头过河",
+    "source": "改革开放时期话语",
+    "techniques": [
+      "希望许诺",
+      "历史叙事"
+    ],
+    "psychological_mechanism": "以试错叙事降低改革风险感知",
+    "parallel": {
+      "christian": "信是未见之事的确据",
+      "islam": "真主只依各人的能力而加以责成"
+    },
+    "tags": [
+      "经典",
+      "改革"
+    ],
+    "risk_note": "",
+    "source_url": "公开历史文献 · 改革探索",
+    "year_start": 1980,
+    "year_end": 2010,
+    "era": "1980-2010 · 改革探索",
+    "source_type_ref": "link",
+    "source_link": "https://zh.wikipedia.org/wiki/%E6%91%B8%E7%9D%80%E7%9F%B3%E5%A4%B4%E8%BF%87%E6%B2%B3",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_035",
+    "category": "道路选择",
+    "source_type": "ccp",
+    "text": "只有社会主义才能救中国",
+    "source": "邓小平 / 官方论述",
+    "techniques": [
+      "二元对立",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以排他性历史结论锁定路线",
+    "parallel": {
+      "christian": "我就是道路、真理、生命",
+      "islam": "宗教绝无强迫，正邪确已分明"
+    },
+    "tags": [
+      "经典",
+      "意识形态"
+    ],
+    "risk_note": "",
+    "source_url": "官方历史论述",
+    "year_start": 1987,
+    "year_end": 2026,
+    "era": "1987- · 道路论述",
+    "source_type_ref": "link",
+    "source_link": "https://www.gov.cn/",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_036",
+    "category": "国际主义",
+    "source_type": "ccp",
+    "text": "全世界无产者，联合起来！",
+    "source": "马克思、恩格斯 / 《共产党宣言》",
+    "techniques": [
+      "集体归属",
+      "动员"
+    ],
+    "psychological_mechanism": "以阶级共同体超越民族边界",
+    "parallel": {
+      "christian": "万民作我的门徒",
+      "islam": "穆斯林都是兄弟"
+    },
+    "tags": [
+      "经典",
+      "马克思主义"
+    ],
+    "risk_note": "",
+    "source_url": "《共产党宣言》中译本",
+    "year_start": 1848,
+    "year_end": 2026,
+    "era": "1848- · 马克思主义经典",
+    "source_type_ref": "link",
+    "source_link": "https://www.marxists.org/chinese/maozedong/index.htm",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_037",
+    "category": "人民史观",
+    "source_type": "ccp",
+    "text": "人民，只有人民，才是创造世界历史的动力",
+    "source": "毛泽东 / 《论联合政府》",
+    "techniques": [
+      "历史叙事",
+      "集体归属"
+    ],
+    "psychological_mechanism": "赋予人民主体地位以动员参与",
+    "parallel": {
+      "christian": "你们是世上的光",
+      "islam": "信道的人们啊，你们都是兄弟"
+    },
+    "tags": [
+      "经典",
+      "历史"
+    ],
+    "risk_note": "",
+    "source_url": "《毛泽东选集》· 论联合政府",
+    "year_start": 1945,
+    "year_end": 1945,
+    "era": "1945 · 抗战胜利",
+    "source_type_ref": "link",
+    "source_link": "https://www.marxists.org/chinese/maozedong/index.htm",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_038",
+    "category": "备战动员",
+    "source_type": "ccp",
+    "text": "备战、备荒、为人民",
+    "source": "文革时期口号",
+    "techniques": [
+      "恐惧动员",
+      "牺牲奉献"
+    ],
+    "psychological_mechanism": "以危机意识推动全民备战",
+    "parallel": {
+      "christian": "要穿戴神所赐的全副军装",
+      "islam": "你们当敬畏那日"
+    },
+    "tags": [
+      "经典",
+      "历史"
+    ],
+    "risk_note": "",
+    "source_url": "公开历史文献 · 三线建设",
+    "year_start": 1965,
+    "year_end": 1976,
+    "era": "1965-76 · 备战备荒",
+    "source_type_ref": "link",
+    "source_link": "https://zh.wikipedia.org/wiki/%E4%B8%89%E7%BA%BF%E5%BB%BA%E8%AE%BE",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_039",
+    "category": "特色道路",
+    "source_type": "ccp",
+    "text": "走自己的路，建设有中国特色的社会主义",
+    "source": "邓小平 / 中共十二大",
+    "techniques": [
+      "历史叙事",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以本土化叙事正当化制度路径",
+    "parallel": {
+      "christian": "各支派都当顺从神",
+      "islam": "你们当坚守正道"
+    },
+    "tags": [
+      "经典",
+      "改革"
+    ],
+    "risk_note": "",
+    "source_url": "中共十二大报告 · 公开文献",
+    "year_start": 1982,
+    "year_end": 1982,
+    "era": "1982 · 十二大",
+    "source_type_ref": "link",
+    "source_link": "https://www.gov.cn/",
+    "source_verified": true
+  },
+  {
+    "id": "ccp_040",
+    "category": "实干导向",
+    "source_type": "ccp",
+    "text": "空谈误国，实干兴邦",
+    "source": "习近平 / 官方论述",
+    "techniques": [
+      "道德号召",
+      "动员"
+    ],
+    "psychological_mechanism": "以行动伦理批评空谈、推动执行",
+    "parallel": {
+      "christian": "信心若没有行为就是死的",
+      "islam": "信道而且行善"
+    },
+    "tags": [
+      "经典",
+      "当代"
+    ],
+    "risk_note": "",
+    "source_url": "新华社公开报道",
+    "year_start": 2012,
+    "year_end": 2026,
+    "era": "2012- · 新时代",
+    "source_type_ref": "link",
+    "source_link": "https://www.xinhuanet.com/politics/leaders/xijinping.htm",
+    "source_verified": true
+  },
+  {
+    "id": "christian_021",
+    "category": "一神信仰",
+    "source_type": "christian",
+    "text": "除我以外，你不可有别的神",
+    "source": "出埃及记 20:3",
+    "techniques": [
+      "权威引用",
+      "二元对立"
+    ],
+    "psychological_mechanism": "确立唯一神圣权威",
+    "parallel": {
+      "ccp": "四个自信",
+      "islam": "你们当崇拜真主，不要以物配主"
+    },
+    "tags": [
+      "经典",
+      "十诫"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": -1400,
+    "year_end": -1200,
+    "era": "摩西律法 · 十诫",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Exodus+20:3&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_022",
+    "category": "爱人如己",
+    "source_type": "christian",
+    "text": "爱人如己",
+    "source": "马太福音 22:39",
+    "techniques": [
+      "道德号召",
+      "情感诉求"
+    ],
+    "psychological_mechanism": "以同理心规范社群伦理",
+    "parallel": {
+      "ccp": "为人民服务",
+      "islam": "你们当为主道花费"
+    },
+    "tags": [
+      "经典",
+      "伦理"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 30,
+    "year_end": 33,
+    "era": "1世纪 · 福音书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Matthew+22:39&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_023",
+    "category": "求神之国",
+    "source_type": "christian",
+    "text": "你们要先求他的国和他的义，这些东西都要加给你们了",
+    "source": "马太福音 6:33",
+    "techniques": [
+      "希望许诺",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以优先次序绑定信仰与生活",
+    "parallel": {
+      "ccp": "实现中华民族伟大复兴",
+      "islam": "你们当争先行善，乐园宽若天地"
+    },
+    "tags": [
+      "经典",
+      "天国"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 30,
+    "year_end": 33,
+    "era": "1世纪 · 登山宝训",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Matthew+6:33&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_024",
+    "category": "顺从神权",
+    "source_type": "christian",
+    "text": "顺从神，不顺从人，是应当的",
+    "source": "使徒行传 5:29",
+    "techniques": [
+      "权威引用",
+      "二元对立"
+    ],
+    "psychological_mechanism": "当世俗权威与信仰冲突时确立优先序",
+    "parallel": {
+      "ccp": "听党话，跟党走",
+      "islam": "你们当服从真主和使者"
+    },
+    "tags": [
+      "经典",
+      "殉道"
+    ],
+    "risk_note": "易引发政教冲突解读",
+    "source_url": "《圣经》和合本",
+    "year_start": 30,
+    "year_end": 33,
+    "era": "1世纪 · 使徒行传",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Acts+5:29&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_025",
+    "category": "大使命",
+    "source_type": "christian",
+    "text": "所以，你们要去，使万民作我的门徒",
+    "source": "马太福音 28:19",
+    "techniques": [
+      "动员",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "以普世使命驱动扩张与传播",
+    "parallel": {
+      "ccp": "构建人类命运共同体",
+      "islam": "你应当秉公召人"
+    },
+    "tags": [
+      "经典",
+      "宣教"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 30,
+    "year_end": 33,
+    "era": "1世纪 · 大使命",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Matthew+28:19&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_026",
+    "category": "口认得救",
+    "source_type": "christian",
+    "text": "你若口里认耶稣为主，心里信神叫他从死里复活，就必得救",
+    "source": "罗马书 10:9",
+    "techniques": [
+      "希望许诺",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以简明公式降低皈依门槛",
+    "parallel": {
+      "ccp": "只有社会主义才能救中国",
+      "islam": "信道而且行善者，乐园是归宿"
+    },
+    "tags": [
+      "经典",
+      "救恩"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 57,
+    "year_end": 58,
+    "era": "1世纪 · 罗马书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Romans+10:9&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_027",
+    "category": "圣经权威",
+    "source_type": "christian",
+    "text": "圣经都是神所默示的，于教训、督责、使人归正、教导人学义都是有益的",
+    "source": "提摩太后书 3:16",
+    "techniques": [
+      "权威引用",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以文本神圣性确立教义标准",
+    "parallel": {
+      "ccp": "毛泽东思想",
+      "islam": "《古兰经》是治病和慈悯"
+    },
+    "tags": [
+      "经典",
+      "经文"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 65,
+    "year_end": 67,
+    "era": "1世纪 · 教牧书信",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=2+Timothy+3:16&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_028",
+    "category": "信心定义",
+    "source_type": "christian",
+    "text": "信就是所望之事的实底，是未见之事的确据",
+    "source": "希伯来书 11:1",
+    "techniques": [
+      "权威引用",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "为不可见之物提供认知框架",
+    "parallel": {
+      "ccp": "摸着石头过河",
+      "islam": "信道者对未见之物当确信"
+    },
+    "tags": [
+      "经典",
+      "信心"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 60,
+    "year_end": 70,
+    "era": "1世纪 · 希伯来书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Hebrews+11:1&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_029",
+    "category": "行为信心",
+    "source_type": "christian",
+    "text": "信心若没有行为就是死的",
+    "source": "雅各书 2:17",
+    "techniques": [
+      "道德号召",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以实践检验信仰真诚",
+    "parallel": {
+      "ccp": "空谈误国，实干兴邦",
+      "islam": "信道而且行善"
+    },
+    "tags": [
+      "经典",
+      "伦理"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 45,
+    "year_end": 50,
+    "era": "1世纪 · 雅各书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=James+2:17&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_030",
+    "category": "世上的光",
+    "source_type": "christian",
+    "text": "你们是世上的光。城造在山上是不能隐藏的",
+    "source": "马太福音 5:14",
+    "techniques": [
+      "集体归属",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以可见榜样塑造群体身份",
+    "parallel": {
+      "ccp": "人民，只有人民",
+      "islam": "你们是为世人而生的优秀民族"
+    },
+    "tags": [
+      "经典",
+      "八福"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 30,
+    "year_end": 33,
+    "era": "1世纪 · 登山宝训",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Matthew+5:14&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_031",
+    "category": "世界之光",
+    "source_type": "christian",
+    "text": "我是世界的光。跟从我的，就不在黑暗里走，必要得着生命的光",
+    "source": "约翰福音 8:12",
+    "techniques": [
+      "权威引用",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "以光暗对立确立追随收益",
+    "parallel": {
+      "ccp": "科学发展观",
+      "islam": "真主是天地的光明"
+    },
+    "tags": [
+      "经典",
+      "基督论"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 30,
+    "year_end": 33,
+    "era": "1世纪 · 约翰福音",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=John+8:12&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_032",
+    "category": "叩门邀请",
+    "source_type": "christian",
+    "text": "看哪，我站在门外叩门，若有听见我声音就开门的，我要进到他那里去",
+    "source": "启示录 3:20",
+    "techniques": [
+      "情感诉求",
+      "动员"
+    ],
+    "psychological_mechanism": "以个人化邀请促发回应",
+    "parallel": {
+      "ccp": "不忘初心",
+      "islam": "你们当归顺真主"
+    },
+    "tags": [
+      "经典",
+      "邀请"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 95,
+    "year_end": 100,
+    "era": "1世纪 · 启示录",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Revelation+3:20&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_033",
+    "category": "力量应许",
+    "source_type": "christian",
+    "text": "我靠着那加给我力量的，凡事都能做",
+    "source": "腓立比书 4:13",
+    "techniques": [
+      "希望许诺",
+      "情感诉求"
+    ],
+    "psychological_mechanism": "以神圣赋能缓解无力感",
+    "parallel": {
+      "ccp": "自力更生",
+      "islam": "真主只依各人的能力而加以责成"
+    },
+    "tags": [
+      "经典",
+      "勉励"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 60,
+    "year_end": 62,
+    "era": "1世纪 · 腓立比书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Philippians+4:13&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_034",
+    "category": "魔鬼警戒",
+    "source_type": "christian",
+    "text": "务要儆醒，提防。因为你们的仇敌魔鬼，如同吼叫的狮子，遍地游行，寻找可吞吃的人",
+    "source": "彼得前书 5:8",
+    "techniques": [
+      "恐惧动员",
+      "敌人妖魔化"
+    ],
+    "psychological_mechanism": "以外部威胁强化警觉与团结",
+    "parallel": {
+      "ccp": "打倒帝国主义",
+      "islam": "撒旦确是你们的仇敌"
+    },
+    "tags": [
+      "经典",
+      "属灵争战"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 60,
+    "year_end": 65,
+    "era": "1世纪 · 彼得书信",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=1+Peter+5:8&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_035",
+    "category": "军装隐喻",
+    "source_type": "christian",
+    "text": "要穿戴神所赐的全副军装，好使你们能抵挡魔鬼的诡计",
+    "source": "以弗所书 6:11",
+    "techniques": [
+      "动员",
+      "恐惧动员"
+    ],
+    "psychological_mechanism": "以战争装备意象动员属灵备战",
+    "parallel": {
+      "ccp": "备战、备荒、为人民",
+      "islam": "你们当为主道而奋斗"
+    },
+    "tags": [
+      "经典",
+      "属灵争战"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 60,
+    "year_end": 62,
+    "era": "1世纪 · 以弗所书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Ephesians+6:11&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_036",
+    "category": "牧者隐喻",
+    "source_type": "christian",
+    "text": "耶和华是我的牧者，我必不致缺乏",
+    "source": "诗篇 23:1",
+    "techniques": [
+      "情感诉求",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "以牧养意象提供安全感",
+    "parallel": {
+      "ccp": "人民至上",
+      "islam": "真主是信士的监护者"
+    },
+    "tags": [
+      "经典",
+      "诗篇"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": -1000,
+    "year_end": -900,
+    "era": "诗篇 · 大卫",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Psalm+23:1&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_037",
+    "category": "仰赖劝勉",
+    "source_type": "christian",
+    "text": "你要专心仰赖耶和华，不可倚靠自己的聪明",
+    "source": "箴言 3:5",
+    "techniques": [
+      "权威引用",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以放弃自主换取神圣指引",
+    "parallel": {
+      "ccp": "听党话，跟党走",
+      "islam": "你们当敬畏真主"
+    },
+    "tags": [
+      "经典",
+      "智慧文学"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": -950,
+    "year_end": -700,
+    "era": "箴言",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Proverbs+3:5&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_038",
+    "category": "认主条件",
+    "source_type": "christian",
+    "text": "凡在人面前不认我的，我在我天上的父面前，也必不认他",
+    "source": "马太福音 10:33",
+    "techniques": [
+      "恐惧动员",
+      "二元对立"
+    ],
+    "psychological_mechanism": "以公开表态检验忠诚",
+    "parallel": {
+      "ccp": "两个维护",
+      "islam": "信道者与不信道者不相等"
+    },
+    "tags": [
+      "经典",
+      "忠诚"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 30,
+    "year_end": 33,
+    "era": "1世纪 · 马太福音",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Matthew+10:33&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_039",
+    "category": "新造的人",
+    "source_type": "christian",
+    "text": "若有人在基督里，他就是新造的人，旧事已过，都变成新的了",
+    "source": "哥林多后书 5:17",
+    "techniques": [
+      "希望许诺",
+      "历史叙事"
+    ],
+    "psychological_mechanism": "以身份转变叙事促发皈依",
+    "parallel": {
+      "ccp": "改革开放",
+      "islam": "信道者将获得成功"
+    },
+    "tags": [
+      "经典",
+      "救恩"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 55,
+    "year_end": 57,
+    "era": "1世纪 · 哥林多后书",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=2+Corinthians+5:17&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "christian_040",
+    "category": "末世安慰",
+    "source_type": "christian",
+    "text": "神要擦去他们一切的眼泪；不再有死亡，也不再有悲哀、哭号、疼痛",
+    "source": "启示录 21:4",
+    "techniques": [
+      "希望许诺",
+      "末世论"
+    ],
+    "psychological_mechanism": "以终极安慰抵消现世苦难",
+    "parallel": {
+      "ccp": "共同富裕",
+      "islam": "乐园是归宿"
+    },
+    "tags": [
+      "经典",
+      "末世"
+    ],
+    "risk_note": "",
+    "source_url": "《圣经》和合本",
+    "year_start": 95,
+    "year_end": 100,
+    "era": "1世纪 · 启示录",
+    "source_type_ref": "link",
+    "source_link": "https://www.biblegateway.com/passage/?search=Revelation+21:4&version=CUV",
+    "source_verified": true
+  },
+  {
+    "id": "islam_021",
+    "category": "认主独一",
+    "source_type": "islam",
+    "text": "你说：他是真主，是独一的主",
+    "source": "古兰经 112:1",
+    "techniques": [
+      "权威引用",
+      "二元对立"
+    ],
+    "psychological_mechanism": "以简短章诀确立一神核心",
+    "parallel": {
+      "ccp": "四个自信",
+      "christian": "除我以外，你不可有别的神"
+    },
+    "tags": [
+      "经典",
+      "认主独一"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 112:1",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 麦加章",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/112/1",
+    "source_verified": true
+  },
+  {
+    "id": "islam_022",
+    "category": "开端章",
+    "source_type": "islam",
+    "text": "奉至仁至慈的真主之名。一切赞颂，全归真主，全世界的主",
+    "source": "古兰经 1:1-2",
+    "techniques": [
+      "权威引用",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以每日礼拜经文强化神圣秩序",
+    "parallel": {
+      "ccp": "为人民服务",
+      "christian": "耶和华是我的牧者"
+    },
+    "tags": [
+      "经典",
+      "法蒂哈"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 1:1-2",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/1/1",
+    "source_verified": true
+  },
+  {
+    "id": "islam_023",
+    "category": "生命归属",
+    "source_type": "islam",
+    "text": "我的礼拜，我的仪式，我的生，我的死，都是属于真主的——全世界的主",
+    "source": "古兰经 6:162",
+    "techniques": [
+      "牺牲奉献",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以全人奉献塑造生活神圣化",
+    "parallel": {
+      "ccp": "听党话，跟党走",
+      "christian": "背起十字架来跟从我"
+    },
+    "tags": [
+      "经典",
+      "崇拜"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 6:162",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/6/162",
+    "source_verified": true
+  },
+  {
+    "id": "islam_024",
+    "category": "秉公召人",
+    "source_type": "islam",
+    "text": "你应当藉著智慧、善意的劝戒和最好的辩论，号召众人归顺你的主",
+    "source": "古兰经 16:125",
+    "techniques": [
+      "动员",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以理性与善意框架正当化宣教",
+    "parallel": {
+      "ccp": "构建人类命运共同体",
+      "christian": "使万民作我的门徒"
+    },
+    "tags": [
+      "经典",
+      "宣教"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 16:125",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/16/125",
+    "source_verified": true
+  },
+  {
+    "id": "islam_025",
+    "category": "人类同源",
+    "source_type": "islam",
+    "text": "人类始祖，只是一个始祖。你们都是阿丹的后裔，阿丹是用土造成的",
+    "source": "古兰经 4:1",
+    "techniques": [
+      "集体归属",
+      "历史叙事"
+    ],
+    "psychological_mechanism": "以共同起源淡化族群分裂",
+    "parallel": {
+      "ccp": "两岸一家亲",
+      "christian": "我们在基督里成为一体"
+    },
+    "tags": [
+      "经典",
+      "创造"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 4:1",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/4/1",
+    "source_verified": true
+  },
+  {
+    "id": "islam_026",
+    "category": "宗教成全",
+    "source_type": "islam",
+    "text": "今天，我为你们成全了你们的宗教，我完成了我所赐你们的恩典",
+    "source": "古兰经 5:3",
+    "techniques": [
+      "历史叙事",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以完成叙事确立信仰终极性",
+    "parallel": {
+      "ccp": "四个自信",
+      "christian": "我就是道路、真理、生命"
+    },
+    "tags": [
+      "经典",
+      "教义"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 5:3",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/5/3",
+    "source_verified": true
+  },
+  {
+    "id": "islam_027",
+    "category": "代治应许",
+    "source_type": "islam",
+    "text": "真主应许你们中信道而且行善者，他必使他们代治大地",
+    "source": "古兰经 24:55",
+    "techniques": [
+      "希望许诺",
+      "动员"
+    ],
+    "psychological_mechanism": "以地上权柄许诺激励善行",
+    "parallel": {
+      "ccp": "实现中华民族伟大复兴",
+      "christian": "你们要先求他的国"
+    },
+    "tags": [
+      "经典",
+      "政治"
+    ],
+    "risk_note": "语境解读需谨慎",
+    "source_url": "《古兰经》马坚译本 24:55",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/24/55",
+    "source_verified": true
+  },
+  {
+    "id": "islam_028",
+    "category": "互相监护",
+    "source_type": "islam",
+    "text": "信道的人们，分为男女，应当互相监护，劝善戒恶",
+    "source": "古兰经 9:71",
+    "techniques": [
+      "集体归属",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以互监机制维系社群纪律",
+    "parallel": {
+      "ccp": "团结—批评—团结",
+      "christian": "用爱心说诚实话"
+    },
+    "tags": [
+      "经典",
+      "社群"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 9:71",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/9/71",
+    "source_verified": true
+  },
+  {
+    "id": "islam_029",
+    "category": "古兰治病",
+    "source_type": "islam",
+    "text": "我降示《古兰经》，是治病和慈悯信士的",
+    "source": "古兰经 17:82",
+    "techniques": [
+      "权威引用",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "以经文疗愈功能强化依赖",
+    "parallel": {
+      "ccp": "人民至上，生命至上",
+      "christian": "不要怕，只要信"
+    },
+    "tags": [
+      "经典",
+      "护佑"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 17:82",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/17/82",
+    "source_verified": true
+  },
+  {
+    "id": "islam_030",
+    "category": "能力责成",
+    "source_type": "islam",
+    "text": "真主只依各人的能力而加以责成",
+    "source": "古兰经 2:286",
+    "techniques": [
+      "道德号召",
+      "情感诉求"
+    ],
+    "psychological_mechanism": "以适度原则减轻心理负担",
+    "parallel": {
+      "ccp": "摸着石头过河",
+      "christian": "我靠着加给我力量的，凡事都能做"
+    },
+    "tags": [
+      "经典",
+      "伦理"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 2:286",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/2/286",
+    "source_verified": true
+  },
+  {
+    "id": "islam_031",
+    "category": "困难易后",
+    "source_type": "islam",
+    "text": "与艰难相伴的，确是容易",
+    "source": "古兰经 94:6",
+    "techniques": [
+      "希望许诺",
+      "情感诉求"
+    ],
+    "psychological_mechanism": "以苦难—缓解节律维持希望",
+    "parallel": {
+      "ccp": "星星之火，可以燎原",
+      "christian": "万事都互相效力"
+    },
+    "tags": [
+      "经典",
+      "安慰"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 94:6",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 舒尔章",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/94/6",
+    "source_verified": true
+  },
+  {
+    "id": "islam_032",
+    "category": "恩典质问",
+    "source_type": "islam",
+    "text": "你们究竟否认你们的主的哪一件恩典呢",
+    "source": "古兰经 55:13",
+    "techniques": [
+      "情感诉求",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以反复质问激发感恩与顺从",
+    "parallel": {
+      "ccp": "脱贫攻坚",
+      "christian": "神爱世人"
+    },
+    "tags": [
+      "经典",
+      "恩典"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 55:13",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 至仁主章",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/55/13",
+    "source_verified": true
+  },
+  {
+    "id": "islam_033",
+    "category": "撒旦仇敌",
+    "source_type": "islam",
+    "text": "撒旦确是你们的仇敌，故你们应当待他为仇敌",
+    "source": "古兰经 35:6",
+    "techniques": [
+      "敌人妖魔化",
+      "恐惧动员"
+    ],
+    "psychological_mechanism": "以外敌形象强化信仰边界",
+    "parallel": {
+      "ccp": "打倒帝国主义",
+      "christian": "提防魔鬼如同吼叫的狮子"
+    },
+    "tags": [
+      "经典",
+      "属灵争战"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 35:6",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/35/6",
+    "source_verified": true
+  },
+  {
+    "id": "islam_034",
+    "category": "真主之光",
+    "source_type": "islam",
+    "text": "真主是天地的光明",
+    "source": "古兰经 24:35",
+    "techniques": [
+      "权威引用",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "以光隐喻确立神圣指引",
+    "parallel": {
+      "ccp": "科学发展观",
+      "christian": "我是世界的光"
+    },
+    "tags": [
+      "经典",
+      "光隐喻"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 24:35",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/24/35",
+    "source_verified": true
+  },
+  {
+    "id": "islam_035",
+    "category": "仆人悔改",
+    "source_type": "islam",
+    "text": "你说：我的仆人啊，他们对主确是过分了。故真主是至赦的，是至慈的",
+    "source": "古兰经 39:53",
+    "techniques": [
+      "希望许诺",
+      "情感诉求"
+    ],
+    "psychological_mechanism": "以宽恕敞开回归之门",
+    "parallel": {
+      "ccp": "批评与自我批评",
+      "christian": "你们的罪必变成雪白"
+    },
+    "tags": [
+      "经典",
+      "宽恕"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 39:53",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/39/53",
+    "source_verified": true
+  },
+  {
+    "id": "islam_036",
+    "category": "感谢增恩",
+    "source_type": "islam",
+    "text": "如果你们感谢，我必增加你们的恩典",
+    "source": "古兰经 14:7",
+    "techniques": [
+      "希望许诺",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以感恩—回报机制维系顺从",
+    "parallel": {
+      "ccp": "共同富裕",
+      "christian": "你们祈求，就给你们"
+    },
+    "tags": [
+      "经典",
+      "恩典"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 14:7",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/14/7",
+    "source_verified": true
+  },
+  {
+    "id": "islam_037",
+    "category": "公平命令",
+    "source_type": "islam",
+    "text": "真主确已命令你们公平、行善",
+    "source": "古兰经 16:90",
+    "techniques": [
+      "道德号召",
+      "权威引用"
+    ],
+    "psychological_mechanism": "以神圣命令规范社会行为",
+    "parallel": {
+      "ccp": "和平共处五项原则",
+      "christian": "爱人如己"
+    },
+    "tags": [
+      "经典",
+      "伦理"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 16:90",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/16/90",
+    "source_verified": true
+  },
+  {
+    "id": "islam_038",
+    "category": "优秀民族",
+    "source_type": "islam",
+    "text": "你们是为世人而生的优秀民族，你们劝善戒恶",
+    "source": "古兰经 3:110",
+    "techniques": [
+      "集体归属",
+      "道德号召"
+    ],
+    "psychological_mechanism": "以选民叙事塑造使命感",
+    "parallel": {
+      "ccp": "四个自信",
+      "christian": "你们是世上的光"
+    },
+    "tags": [
+      "经典",
+      "乌玛"
+    ],
+    "risk_note": "易引发优越论误读",
+    "source_url": "《古兰经》马坚译本 3:110",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/3/110",
+    "source_verified": true
+  },
+  {
+    "id": "islam_039",
+    "category": "未见确信",
+    "source_type": "islam",
+    "text": "信道者对未见之物当确信",
+    "source": "古兰经 2:3",
+    "techniques": [
+      "权威引用",
+      "希望许诺"
+    ],
+    "psychological_mechanism": "以未见确据正当化信仰跃迁",
+    "parallel": {
+      "ccp": "中国梦",
+      "christian": "信是未见之事的确据"
+    },
+    "tags": [
+      "经典",
+      "信仰"
+    ],
+    "risk_note": "",
+    "source_url": "《古兰经》马坚译本 2:3",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/2/3",
+    "source_verified": true
+  },
+  {
+    "id": "islam_040",
+    "category": "监护真主",
+    "source_type": "islam",
+    "text": "信道的人们啊，你们当敬畏真主，当寻求亲近真主的方法，当为主道而奋斗",
+    "source": "古兰经 5:35",
+    "techniques": [
+      "动员",
+      "恐惧动员"
+    ],
+    "psychological_mechanism": "以多重命令叠加强化行动紧迫",
+    "parallel": {
+      "ccp": "四个意识",
+      "christian": "要穿戴神所赐的全副军装"
+    },
+    "tags": [
+      "经典",
+      "奋斗"
+    ],
+    "risk_note": "需区分语境避免误读",
+    "source_url": "《古兰经》马坚译本 5:35",
+    "year_start": 610,
+    "year_end": 632,
+    "era": "610-632 · 古兰经",
+    "source_type_ref": "link",
+    "source_link": "https://quran.com/5/35",
+    "source_verified": true
   }
 ]

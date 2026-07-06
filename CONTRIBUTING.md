@@ -58,6 +58,7 @@
 
 ```bash
 pip install -r requirements-ci.txt
+python scripts/validate_cases.py
 pytest tests/ -v
 ```
 

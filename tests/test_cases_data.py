@@ -3,9 +3,9 @@ from core.source_utils import VALID_REF_TYPES
 
 
 def test_cases_count_and_balance(cases_df):
-    assert len(cases_df) == 60
+    assert len(cases_df) == 120
     counts = cases_df["source_type"].value_counts().to_dict()
-    assert counts == {"ccp": 20, "christian": 20, "islam": 20}
+    assert counts == {"ccp": 40, "christian": 40, "islam": 40}
 
 
 def test_required_columns(cases_df):
@@ -31,4 +31,12 @@ def test_source_ref_types(cases_df):
 
 def test_majority_have_links(cases_df):
     linked = cases_df["source_link"].notna() & cases_df["source_link"].astype(str).str.startswith("http")
-    assert linked.sum() >= 40
+    assert linked.sum() >= 80
+
+
+def test_all_cases_pass_schema(cases_list):
+    from core.case_schema import validate_case
+
+    for case in cases_list:
+        errors = validate_case(case)
+        assert errors == [], f"{case['id']}: {errors}"
